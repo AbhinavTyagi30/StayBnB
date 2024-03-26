@@ -16,6 +16,7 @@
     "users": [
         {
             "email": "admin@admin.com",
+            "password":	"$2a$10$p8d3G8UFsSq6oNtPUpY1oe7beq4S/tJKlStKfkKv0.qRwa7InOZn6",
             "firstname": "Admin",
             "lastname": "Site",
             "country": "India",
