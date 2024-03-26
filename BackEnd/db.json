@@ -1,0 +1,27 @@
+{
+    "property": [
+        {
+            "id": "1",
+            "name": "property-1",
+            "description": "Property Desc",
+            "images" : ["Link-1", "link-2", "link-3"],
+            "price": 2500,
+            "rating": {
+                "average": 4.3,
+                "total": 74
+            }
+        }
+    ],
+
+    "users": [
+        {
+            "email": "admin@admin.com",
+            "password": "adminPass@123",
+            "isAdmin": true,
+            "name": "admin",
+            "country": "India",
+            "profileImage" : "Link-1",
+            "favorites": []
+        }
+    ]
+}
