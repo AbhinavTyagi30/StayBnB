@@ -6,15 +6,47 @@ GET https://staybnb-server.onrender.com/property/
 
 GET https://staybnb-server.onrender.com/users/
 
-### CHECK USER AUTHENTICATION
+### REGISTER NEW USER
 
-POST https://staybnb-server.onrender.com/users/register
+POST https://staybnb-server.onrender.com/register
+Content-Type: application/json
 
-Content-Type: "application/json"
 {
-  "email": "olivier@mail.com",
+  "email": "newEmail@email.com",
   "password": "bestPassw0rd",
-  "firstname": "Olivier",
-  "lastname": "Monge",
-  "age": 32
+  "firstname": "User",
+  "lastname": "Stay",
+  "country": "India",
+  "favorite": [],
+  "isAdmin": false
+}
+
+### LOGIN REGISTERED USER
+
+POST https://staybnb-server.onrender.com/login
+Content-Type: application/json
+
+{
+  "email": "admin@admin.com",
+  "password": "adminPass@123"
+}
+
+### Wrong Password and email will give error which should handled gracefully
+
+POST https://staybnb-server.onrender.com/login
+Content-Type: application/json
+
+{
+  "email" : "IncorrectEmail@email.com",
+  "password": "adminPass@123"
+}
+
+###
+
+POST https://staybnb-server.onrender.com/login
+Content-Type: application/json
+
+{
+  "email" : "admin@admin.com",
+  "password": "Wrong Password"
 }
