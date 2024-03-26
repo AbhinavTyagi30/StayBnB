@@ -1,0 +1,20 @@
+
+## GET PROPERTY
+GET https://staybnb-server.onrender.com/property/
+
+### GET USER
+
+GET https://staybnb-server.onrender.com/users/
+
+### CHECK USER AUTHENTICATION
+
+POST https://staybnb-server.onrender.com/users/register
+
+Content-Type: "application/json"
+{
+  "email": "olivier@mail.com",
+  "password": "bestPassw0rd",
+  "firstname": "Olivier",
+  "lastname": "Monge",
+  "age": 32
+}

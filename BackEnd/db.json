@@ -14,14 +14,6 @@
     ],
 
     "users": [
-        {
-            "email": "admin@admin.com",
-            "password": "adminPass@123",
-            "isAdmin": true,
-            "name": "admin",
-            "country": "India",
-            "profileImage" : "Link-1",
-            "favorites": []
-        }
+        
     ]
 }
