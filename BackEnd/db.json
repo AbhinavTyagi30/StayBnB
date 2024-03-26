@@ -6,6 +6,7 @@
             "description": "Property Desc",
             "images" : ["Link-1", "link-2", "link-3"],
             "price": 2500,
+            "guestFavorite": true,
             "rating": {
                 "average": 4.3,
                 "total": 74
