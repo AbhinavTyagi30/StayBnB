@@ -2,10 +2,15 @@ import { z, ZodType } from "zod";
 import { useForm } from "react-hook-form";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { LoginInterface } from "../../utils/LoginInterface";
+import { LoginStateInterface } from "../../utils/LoginStateInterface";
+import { useDispatch, useSelector } from "react-redux";
+
+import { AuthReducerType } from "../../utils/authReducerType";
+import { RootStateType } from "../../utils/RootStateType";
+import { login } from "../../redux/action";
 
 const Login = () => {
-  const schema: ZodType<LoginInterface> = z.object({
+  const schema: ZodType<LoginStateInterface> = z.object({
     email: z.string().email(),
     password: z.string().min(6).max(15),
   });
@@ -14,13 +19,23 @@ const Login = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<LoginInterface>({
+  } = useForm<LoginStateInterface>({
     resolver: zodResolver(schema),
   });
 
-  const handleSignin = (data: LoginInterface) => {
-    console.log(data);
+  const dispatch = useDispatch();
+
+  const handleSignin = (data: LoginStateInterface) => {
+    // console.log(data);
+
+    dispatch(login(data));
   };
+
+  const store = useSelector<RootStateType, AuthReducerType>(
+    (store) => store.auth
+  );
+
+  console.log(store);
 
   return (
     <div className="signin-form">
