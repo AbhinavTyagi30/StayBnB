@@ -18,6 +18,8 @@ const Login = () => {
     resolver: zodResolver(schema),
   });
 
+  //   const dispatch = useDispatch();
+
   const handleSignin = (data: AuthStateType) => {
     console.log(data);
   };
