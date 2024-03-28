@@ -1,7 +1,7 @@
 
 import { DownloadIcon, StarIcon } from "@chakra-ui/icons"
 import { Box, Button, Flex, Grid, GridItem, Image, ListItem, Spacer, Text, UnorderedList } from "@chakra-ui/react"
-import PropertyDetails from "../components/PropertyDetails"
+import PropertyDetails from "../components/PropertyPage/PropertyDetails"
 
 
 const Property = () => {
