@@ -1,4 +1,3 @@
-import "../../styles/Navbar.css";
 import logo from "../../assets/logo/long-logo.png";
 import { FC } from "react";
 import { Avatar, Box, Circle, Image, Input, Text } from "@chakra-ui/react";
