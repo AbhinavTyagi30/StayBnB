@@ -1,11 +1,12 @@
-import { Box } from "@chakra-ui/react";
-import { Home } from "./pages/Home";
+// import { Box } from "@chakra-ui/react";
+// import { Home } from "./pages/Home";
 import { AllRoutes } from "./routes/AllRoutes";
+import { LoginSignUp } from "./pages/LoginSignUp";
 
 function App() {
   return (
     <>
-      <Box
+      {/* <Box
         display={"flex"}
         justifyContent={"center"}
         alignItems={"center"}
@@ -14,9 +15,10 @@ function App() {
         color={"red.400"}
       >
         <Home />
-      </Box>
+      </Box> */}
 
       <AllRoutes />
+      <LoginSignUp />
     </>
   );
 }
