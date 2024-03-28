@@ -1,29 +1,27 @@
 {
-    "property": [
-        {
-            "id": "1",
-            "name": "property-1",
-            "description": "Property Desc",
-            "images" : ["Link-1", "link-2", "link-3"],
-            "price": 2500,
-            "guestFavorite": true,
-            "rating": {
-                "average": 4.3,
-                "total": 74
-            }
-        }
-    ],
+  "property": [
+    {
+      "id": "1",
+      "name": "property-1",
+      "description": "Property Desc",
+      "images": ["Link-1", "link-2", "link-3"],
+      "price": 2500,
+      "guestFavorite": true,
+      "rating": {
+        "average": 4.3,
+        "total": 74
+      }
+    }
+  ],
 
-    "users": [
-        {
-            "email": "admin@admin.com",
-            "password":	"$2a$10$p8d3G8UFsSq6oNtPUpY1oe7beq4S/tJKlStKfkKv0.qRwa7InOZn6",
-            "firstname": "Admin",
-            "lastname": "Site",
-            "country": "India",
-            "favorite": [],
-            "isAdmin": true,
-            "id": 1   
-        } 
-    ]
+  "users": [
+    {
+      "email": "admin@admin.com",
+      "password": "$2a$10$p8d3G8UFsSq6oNtPUpY1oe7beq4S/tJKlStKfkKv0.qRwa7InOZn6",
+      "name": "Admin",
+      "favorite": [],
+      "isAdmin": true,
+      "id": "1"
+    }
+  ]
 }
