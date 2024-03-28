@@ -2,9 +2,12 @@ import { Box } from "@chakra-ui/react";
 import { Home } from "./pages/Home";
 import { AllRoutes } from "./routes/AllRoutes";
 
+
+
 function App() {
   return (
     <>
+    
       <Box
         display={"flex"}
         justifyContent={"center"}
@@ -15,7 +18,7 @@ function App() {
       >
         <Home />
       </Box>
-
+      
       <AllRoutes />
     </>
   );
