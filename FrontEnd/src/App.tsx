@@ -1,22 +1,10 @@
-// import { Box } from "@chakra-ui/react";
-// import { Home } from "./pages/Home";
+import { ReactElement } from "react";
 import { AllRoutes } from "./routes/AllRoutes";
 import { LoginSignUp } from "./pages/LoginSignUp";
 
-function App() {
+function App(): ReactElement {
   return (
     <>
-      {/* <Box
-        display={"flex"}
-        justifyContent={"center"}
-        alignItems={"center"}
-        minW={"100svw"}
-        minH={"100svh"}
-        color={"red.400"}
-      >
-        <Home />
-      </Box> */}
-
       <AllRoutes />
       <LoginSignUp />
     </>

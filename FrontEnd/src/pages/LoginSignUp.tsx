@@ -5,8 +5,8 @@ import signin_image from "../assets/signin-image.jpg";
 import signup_image from "../assets/signup-image.jpg";
 import { useRef } from "react";
 
-import { Signup } from "../components/Signup";
-import { Login } from "../components/Login";
+import { Signup } from "../components/LoginSignup/Signup";
+import { Login } from "../components/LoginSignup/Login";
 
 const LoginSignUp = () => {
   const signin = useRef<HTMLElement>(null);
@@ -19,7 +19,7 @@ const LoginSignUp = () => {
   };
 
   return (
-    <div className="main">
+    <div className="login-signup-main">
       {/* <!-- Sign up form --> */}
       <section className="signup " ref={signup}>
         <div className="container">

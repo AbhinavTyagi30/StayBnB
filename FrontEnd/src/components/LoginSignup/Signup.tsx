@@ -1,6 +1,6 @@
 import { z, ZodType } from "zod";
 import { useForm } from "react-hook-form";
-import { SignupStateInterface } from "../utils/SignupStateInterface";
+import { SignupStateInterface } from "../../utils/SignupStateInterface";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 

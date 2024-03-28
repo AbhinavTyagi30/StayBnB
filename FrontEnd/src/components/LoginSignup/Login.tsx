@@ -2,10 +2,10 @@ import { z, ZodType } from "zod";
 import { useForm } from "react-hook-form";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { AuthStateType } from "../utils/authStateType";
+import { LoginInterface } from "../../utils/LoginInterface";
 
 const Login = () => {
-  const schema: ZodType<AuthStateType> = z.object({
+  const schema: ZodType<LoginInterface> = z.object({
     email: z.string().email(),
     password: z.string().min(6).max(15),
   });
@@ -14,13 +14,11 @@ const Login = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<AuthStateType>({
+  } = useForm<LoginInterface>({
     resolver: zodResolver(schema),
   });
 
-  //   const dispatch = useDispatch();
-
-  const handleSignin = (data: AuthStateType) => {
+  const handleSignin = (data: LoginInterface) => {
     console.log(data);
   };
 

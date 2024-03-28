@@ -1,20 +1,20 @@
 /* @extend display-flex; */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-display-flex, .socials, .social-login, .signin-content, .signup-content, .display-flex-center, .display-flex {
+display-flex, .login-signup-main .socials, .login-signup-main .social-login, .login-signup-main .signin-content, .login-signup-main .signup-content, .login-signup-main .display-flex-center, .login-signup-main .display-flex {
   display: flex;
   display: -webkit-flex;
 }
 
 /* @extend list-type-ulli; */
-list-type-ulli, .socials {
+list-type-ulli, .login-signup-main .socials {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-a:focus,
-a:active {
+.login-signup-main a:focus,
+.login-signup-main a:active {
   text-decoration: none;
   outline: none;
   transition: all 300ms ease 0s;
@@ -23,10 +23,9 @@ a:active {
   -o-transition: all 300ms ease 0s;
   -ms-transition: all 300ms ease 0s;
 }
-
-input,
-select,
-textarea {
+.login-signup-main input,
+.login-signup-main select,
+.login-signup-main textarea {
   outline: none;
   appearance: unset !important;
   -moz-appearance: unset !important;
@@ -34,9 +33,8 @@ textarea {
   -o-appearance: unset !important;
   -ms-appearance: unset !important;
 }
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
+.login-signup-main input::-webkit-outer-spin-button,
+.login-signup-main input::-webkit-inner-spin-button {
   appearance: none !important;
   -moz-appearance: none !important;
   -webkit-appearance: none !important;
@@ -44,10 +42,9 @@ input::-webkit-inner-spin-button {
   -ms-appearance: none !important;
   margin: 0;
 }
-
-input:focus,
-select:focus,
-textarea:focus {
+.login-signup-main input:focus,
+.login-signup-main select:focus,
+.login-signup-main textarea:focus {
   outline: none;
   box-shadow: none !important;
   -moz-box-shadow: none !important;
@@ -55,39 +52,33 @@ textarea:focus {
   -o-box-shadow: none !important;
   -ms-box-shadow: none !important;
 }
-
-input[type=checkbox] {
+.login-signup-main input[type=checkbox] {
   appearance: checkbox !important;
   -moz-appearance: checkbox !important;
   -webkit-appearance: checkbox !important;
   -o-appearance: checkbox !important;
   -ms-appearance: checkbox !important;
 }
-
-input[type=radio] {
+.login-signup-main input[type=radio] {
   appearance: radio !important;
   -moz-appearance: radio !important;
   -webkit-appearance: radio !important;
   -o-appearance: radio !important;
   -ms-appearance: radio !important;
 }
-
-img {
+.login-signup-main img {
   max-width: 100%;
   height: auto;
 }
-
-figure {
+.login-signup-main figure {
   margin: 0;
 }
-
-p {
+.login-signup-main p {
   margin-bottom: 0px;
   font-size: 15px;
   color: #777;
 }
-
-h2 {
+.login-signup-main h2 {
   line-height: 1.66;
   margin: 0;
   padding: 0;
@@ -96,24 +87,20 @@ h2 {
   font-family: "Montserrat", sans-serif;
   font-size: 36px;
 }
-
-.main {
+.login-signup-main .main {
   padding: 50px 0;
 }
-
-.clear {
+.login-signup-main .clear {
   clear: both;
 }
-
-body {
+.login-signup-main body {
   font-size: 13px;
   line-height: 1.8;
   color: #222;
   font-weight: 400;
   font-family: "Montserrat", sans-serif;
 }
-
-.container {
+.login-signup-main .container {
   width: 900px;
   background: #fff;
   margin: 0 auto;
@@ -128,8 +115,7 @@ body {
   -o-border-radius: 20px;
   -ms-border-radius: 20px;
 }
-
-.display-flex {
+.login-signup-main .display-flex {
   justify-content: space-between;
   -moz-justify-content: space-between;
   -webkit-justify-content: space-between;
@@ -141,8 +127,7 @@ body {
   -o-align-items: center;
   -ms-align-items: center;
 }
-
-.display-flex-center {
+.login-signup-main .display-flex-center {
   justify-content: center;
   -moz-justify-content: center;
   -webkit-justify-content: center;
@@ -154,8 +139,7 @@ body {
   -o-align-items: center;
   -ms-align-items: center;
 }
-
-.position-center {
+.login-signup-main .position-center {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -166,105 +150,90 @@ body {
   -ms-transform: translate(-50%, -50%);
 }
 
-.signup {
+.login-signup-main .signup {
   display: none;
 }
-
-.signup.active {
+.login-signup-main .signup.active {
   display: block;
 }
-
-.signup-content {
+.login-signup-main .signup-content {
   padding: 75px 0;
 }
-
-.signup-form,
-.signup-image,
-.signin-form,
-.signin-image {
+.login-signup-main .signup-form,
+.login-signup-main .signup-image,
+.login-signup-main .signin-form,
+.login-signup-main .signin-image {
   width: 50%;
   overflow: hidden;
 }
-
-.signup-image {
+.login-signup-main .signup-image {
   margin: 0 55px;
 }
-
-.form-title {
+.login-signup-main .form-title {
   margin-bottom: 33px;
 }
-
-.signup-image {
+.login-signup-main .signup-image {
   margin-top: 45px;
 }
-
-figure {
+.login-signup-main figure {
   margin-bottom: 50px;
   text-align: center;
 }
-
-.form-submit {
+.login-signup-main .form-submit {
   display: inline-block;
   background: #ff385c;
   color: #fff;
   border-bottom: none;
   width: auto;
   padding: 15px 39px;
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -o-border-radius: 5px;
-  -ms-border-radius: 5px;
+  border-radius: 3rem;
+  -moz-border-radius: 3rem;
+  -webkit-border-radius: 3rem;
+  -o-border-radius: 3rem;
+  -ms-border-radius: 3rem;
   margin-top: 25px;
   cursor: pointer;
 }
-.form-submit:hover {
+.login-signup-main .form-submit:hover {
   background: #ab0a4e;
 }
-
-#signin {
+.login-signup-main #signin {
   margin-top: 16px;
 }
-
-.signup-image-link {
+.login-signup-main .signup-image-link {
   font-size: 14px;
   color: #222;
   display: block;
   text-align: center;
 }
-.signup-image-link > span {
+.login-signup-main .signup-image-link > span {
   text-decoration: underline;
   cursor: pointer;
 }
-.signup-image-link > span:hover {
+.login-signup-main .signup-image-link > span:hover {
   color: #3b5998;
 }
-
-.term-service {
+.login-signup-main .term-service {
   font-size: 13px;
   color: #222;
 }
-
-.signup-form {
+.login-signup-main .signup-form {
   margin-left: 75px;
   margin-right: 75px;
   padding-left: 34px;
 }
-
-.register-form {
+.login-signup-main .register-form {
   width: 100%;
 }
-
-.form-group {
+.login-signup-main .form-group {
   position: relative;
   margin-bottom: 25px;
   overflow: hidden;
 }
-.form-group:last-child {
+.login-signup-main .form-group:last-child {
   margin-bottom: 0px;
 }
-
-input {
+.login-signup-main input {
   width: 100%;
   display: block;
   border: none;
@@ -273,49 +242,46 @@ input {
   font-family: "Montserrat", sans-serif;
   box-sizing: border-box;
 }
-input::-webkit-input-placeholder {
+.login-signup-main input::-webkit-input-placeholder {
   color: #999;
 }
-input::-moz-placeholder {
+.login-signup-main input::-moz-placeholder {
   color: #999;
 }
-input:-ms-input-placeholder {
+.login-signup-main input:-ms-input-placeholder {
   color: #999;
 }
-input:-moz-placeholder {
+.login-signup-main input:-moz-placeholder {
   color: #999;
 }
-input:focus {
+.login-signup-main input:focus {
   border-bottom: 1px solid #222;
 }
-input:focus::-webkit-input-placeholder {
+.login-signup-main input:focus::-webkit-input-placeholder {
   color: #222;
 }
-input:focus::-moz-placeholder {
+.login-signup-main input:focus::-moz-placeholder {
   color: #222;
 }
-input:focus:-ms-input-placeholder {
+.login-signup-main input:focus:-ms-input-placeholder {
   color: #222;
 }
-input:focus:-moz-placeholder {
+.login-signup-main input:focus:-moz-placeholder {
   color: #222;
 }
-
-input[type=checkbox]:not(old) {
+.login-signup-main input[type=checkbox]:not(old) {
   width: 2em;
   margin: 0;
   padding: 0;
   font-size: 1em;
   display: none;
 }
-
-input[type=checkbox]:not(old) + label {
+.login-signup-main input[type=checkbox]:not(old) + label {
   display: inline-block;
   line-height: 1.5em;
   margin-top: 6px;
 }
-
-input[type=checkbox]:not(old) + label > span {
+.login-signup-main input[type=checkbox]:not(old) + label > span {
   display: inline-block;
   width: 13px;
   height: 13px;
@@ -335,16 +301,14 @@ input[type=checkbox]:not(old) + label > span {
   background-image: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255));
   vertical-align: bottom;
 }
-
-input[type=checkbox]:not(old):checked + label > span {
+.login-signup-main input[type=checkbox]:not(old):checked + label > span {
   background-image: -moz-linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255));
   background-image: -ms-linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255));
   background-image: -o-linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255));
   background-image: -webkit-linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255));
   background-image: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255));
 }
-
-input[type=checkbox]:not(old):checked + label > span:before {
+.login-signup-main input[type=checkbox]:not(old):checked + label > span:before {
   content: "\f26b";
   display: block;
   color: #222;
@@ -354,13 +318,11 @@ input[type=checkbox]:not(old):checked + label > span:before {
   font-family: "Material-Design-Iconic-Font";
   font-weight: bold;
 }
-
-.agree_term {
+.login-signup-main .agree_term {
   display: inline-block;
   width: auto;
 }
-
-label {
+.login-signup-main label {
   position: absolute;
   left: 0;
   top: 50%;
@@ -371,21 +333,19 @@ label {
   -ms-transform: translateY(-50%);
   color: #222;
 }
-
-.label-has-error {
+.login-signup-main .label-has-error {
   top: 22%;
 }
-
-label.error {
+.login-signup-main label.error {
   position: relative;
   background-position-y: 3px;
   padding-left: 20px;
   display: block;
   margin-top: 20px;
   color: red;
+  font-size: 14px;
 }
-
-label.valid {
+.login-signup-main label.valid {
   display: block;
   position: absolute;
   right: 0;
@@ -395,7 +355,7 @@ label.valid {
   height: 20px;
   background: transparent;
 }
-label.valid:after {
+.login-signup-main label.valid:after {
   font-family: "Material-Design-Iconic-Font";
   content: "\f269";
   width: 100%;
@@ -405,8 +365,7 @@ label.valid:after {
   font-size: 16px;
   color: green;
 }
-
-.label-agree_term {
+.login-signup-main .label-agree_term {
   position: relative;
   top: 0%;
   transform: translateY(0);
@@ -415,25 +374,20 @@ label.valid:after {
   -o-transform: translateY(0);
   -ms-transform: translateY(0);
 }
-
-.material-icons-name {
+.login-signup-main .material-icons-name {
   font-size: 18px;
 }
-
-.sign-in {
+.login-signup-main .sign-in {
   display: none;
 }
-
-.sign-in.active {
+.login-signup-main .sign-in.active {
   display: block;
 }
-
-.signin-content {
+.login-signup-main .signin-content {
   padding-top: 67px;
   padding-bottom: 87px;
 }
-
-.social-login {
+.login-signup-main .social-login {
   align-items: center;
   -moz-align-items: center;
   -webkit-align-items: center;
@@ -441,22 +395,20 @@ label.valid:after {
   -ms-align-items: center;
   margin-top: 80px;
 }
-
-.social-label {
+.login-signup-main .social-label {
   display: inline-block;
   margin-right: 15px;
 }
-
-.socials li {
+.login-signup-main .socials li {
   padding: 5px;
 }
-.socials li:last-child {
+.login-signup-main .socials li:last-child {
   margin-right: 0px;
 }
-.socials li a {
+.login-signup-main .socials li a {
   text-decoration: none;
 }
-.socials li a i {
+.login-signup-main .socials li a i {
   width: 30px;
   height: 30px;
   color: #fff;
@@ -478,29 +430,24 @@ label.valid:after {
   -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
 }
-.socials li:hover a i {
+.login-signup-main .socials li:hover a i {
   -webkit-transform: scale(1.3) translateZ(0);
   transform: scale(1.3) translateZ(0);
 }
-
-.zmdi-facebook {
+.login-signup-main .zmdi-facebook {
   background: #3b5998;
 }
-
-.zmdi-twitter {
+.login-signup-main .zmdi-twitter {
   background: #1da0f2;
 }
-
-.zmdi-google {
+.login-signup-main .zmdi-google {
   background: #e72734;
 }
-
-.signin-form {
+.login-signup-main .signin-form {
   margin-right: 90px;
   margin-left: 80px;
 }
-
-.signin-image {
+.login-signup-main .signin-image {
   margin-left: 110px;
   margin-right: 20px;
   margin-top: 10px;

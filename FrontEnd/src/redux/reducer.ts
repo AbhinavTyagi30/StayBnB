@@ -6,8 +6,17 @@ import { LOGIN_ERROR, LOGIN_LOADING, LOGIN_SUCCESS } from "./actionTypes";
 
 //initial authState
 const initState: AuthStateType = {
-  email: "",
-  password: "",
+  isAuth: false,
+  user: {
+    email: "",
+    password: "",
+    name: "",
+    favorite: [],
+    isAdmin: false,
+    id: "",
+  },
+  isError: false,
+  isLoading: false,
 };
 
 // AuthReducer
