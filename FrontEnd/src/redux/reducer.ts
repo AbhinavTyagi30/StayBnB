@@ -11,7 +11,7 @@ const initState: AuthStateType = {
 // AuthReducer
 export const authReducer: AuthReducerType = (
   state: AuthStateType = initState,
-  { type, payload }: AuthActionType
+  { type }: AuthActionType
 ) => {
   switch (type) {
     default:
