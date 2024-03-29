@@ -22,17 +22,23 @@ const initState: AuthStateType = {
 // AuthReducer
 export const authReducer: AuthReducerType = (
   state: AuthStateType = initState,
-  { type }: AuthActionType
+  { type, payload }: AuthActionType
 ) => {
   switch (type) {
     case LOGIN_LOADING:
-      return state;
+      return { ...state, isLoading: true, isError: false };
 
     case LOGIN_ERROR:
-      return state;
+      return { ...state, isLoading: false, isError: true };
 
     case LOGIN_SUCCESS:
-      return state;
+      return {
+        ...state,
+        isLoading: false,
+        isError: false,
+        isAuth: true,
+        user: { ...state.user, ...payload },
+      };
     default:
       return state;
   }
