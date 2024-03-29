@@ -31,8 +31,6 @@ const Login = () => {
   const toast = useToast();
 
   const handleSignin = (data: LoginStateInterface) => {
-    // console.log(data);
-
     // dispatch(login(data));
 
     const SignInPromise = new Promise((resolve, reject) => {
