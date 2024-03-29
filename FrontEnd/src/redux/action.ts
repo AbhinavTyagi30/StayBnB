@@ -1,17 +1,17 @@
-import { UserStateType } from "../utils/authStateType";
-import { LOGIN_ERROR, LOGIN_LOADING, LOGIN_SUCCESS } from "./actionTypes";
+// import { UserStateType } from "../utils/authStateType";
+// import { LOGIN_ERROR, LOGIN_LOADING, LOGIN_SUCCESS } from "./actionTypes";
 
-export const loginLoading = () => {
-  return { type: LOGIN_LOADING };
-};
+// export const loginLoading = () => {
+//   return { type: LOGIN_LOADING };
+// };
 
-export const loginError = () => {
-  return { type: LOGIN_ERROR };
-};
+// export const loginError = () => {
+//   return { type: LOGIN_ERROR };
+// };
 
-export const loginSuccess = (payload: UserStateType) => {
-  return { type: LOGIN_SUCCESS, payload };
-};
+// export const loginSuccess = (payload: UserStateType) => {
+//   return { type: LOGIN_SUCCESS, payload };
+// };
 
 // export const login =
 //   (data: LoginStateInterface) => async (dispatch: Dispatch) => {
