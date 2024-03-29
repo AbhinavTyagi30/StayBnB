@@ -1,5 +1,4 @@
-{
-  "property" : 
+{ "property" : 
 [
     {
     "id":"8450130",
@@ -819,7 +818,7 @@
     "id":"4338156",
     "name":"Chic and Modern One bed in Chelsea",
     "description":"This gorgeous ground floor apartment located in the ever popular and central area of Chelsea if the perfect base for exploring our wonderful city, this chic and modern one bed is perfect for a couple or a family of 3, offering modern accommodation Quiet and chic apartment, good sized one bedroom with King bedroom with ample storage and TV in the bedroom, well equipped kitchen with washer/dryer and dishwasher, smart bathroom with shower cubicle and WC, cosy living room with sofa bed and WIFI and cable tv and dining area. The whole apartment. 24/7 assistance. Chelsea is an affluent area in central London,[1] bounded to the south by the River Thames. Its frontage runs from Chelsea Bridge along the Chelsea Embankment, Chen Walk, Lots Road and Chelsea Harbour. Its eastern boundary was once defined by the River Westbound, which is now in a pipe above Sloane Square tube station. The modern eastern boundary is Chelsea Bridge Road and the lower half of Sloane Street, including Sloane Square.",
-    "host_name":"Heritage Apartment Rentals",
+    "host_name":"Heritage Aparment Rentals",
     "host_thumbnail_url":"https://a0.muscache.com/im/pictures/d20f3c95-458e-4428-b0d2-91d24d68849a.jpg?aki_policy=profile_small",
     "host_picture_url":"https://a0.muscache.com/im/pictures/d20f3c95-458e-4428-b0d2-91d24d68849a.jpg?aki_policy=profile_x_medium",
     "smart_location":"London, United Kingdom",
@@ -2238,16 +2237,6 @@
         "https://a0.muscache.com/im/pictures/8de09f37-0cce-4da4-a964-4ad80acee7d9.jpg?im_w=720"
         ]
     }
-    ],
+    ]
 
-  "users": [
-    {
-      "email": "admin@admin.com",
-      "password": "$2a$10$p8d3G8UFsSq6oNtPUpY1oe7beq4S/tJKlStKfkKv0.qRwa7InOZn6",
-      "name": "Admin",
-      "favorite": [],
-      "isAdmin": true,
-      "id": "1"
-    }
-  ]
 }
