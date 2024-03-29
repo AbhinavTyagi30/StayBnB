@@ -1,4 +1,4 @@
-{ "property" : 
+{  "property" : 
 [
     {
     "id":"8450130",
@@ -15,11 +15,14 @@
     "price":180,
     "number_of_reviews":6,
     "review_scores_rating":93,
-    "images" : ["https://a0.muscache.com/im/pictures/7a0e4e5f-ce39-485a-b8d3-cc95c2c81a7e.jpg?im_w=720",
-"https://a0.muscache.com/im/pictures/37e5513e-8eef-43db-b7c9-f0f552147069.jpg?im_w=720",
-"https://a0.muscache.com/im/pictures/miso/Hosting-39373135/original/3964dd7b-b61a-4b39-80f9-f90c9605f215.jpeg?im_w=720",
-"https://a0.muscache.com/im/pictures/miso/Hosting-39373135/original/1c563107-82dd-4075-9368-4d8457920877.jpeg?im_w=720",
-"https://a0.muscache.com/im/pictures/910938ca-0b50-45da-8db6-ca98452a8860.jpg?im_w=720"]
+    "guestFavorite" : false,
+    "images" : [
+        "https://a0.muscache.com/im/pictures/7a0e4e5f-ce39-485a-b8d3-cc95c2c81a7e.jpg?im_w=720",
+                "https://a0.muscache.com/im/pictures/37e5513e-8eef-43db-b7c9-f0f552147069.jpg?im_w=720",
+                "https://a0.muscache.com/im/pictures/miso/Hosting-39373135/original/3964dd7b-b61a-4b39-80f9-f90c9605f215.jpeg?im_w=720",
+                "https://a0.muscache.com/im/pictures/miso/Hosting-39373135/original/1c563107-82dd-4075-9368-4d8457920877.jpeg?im_w=720",
+                "https://a0.muscache.com/im/pictures/910938ca-0b50-45da-8db6-ca98452a8860.jpg?im_w=720"
+            ]
     },
     {
     "id":"1582762",
@@ -36,6 +39,7 @@
     "price":93,
     "number_of_reviews":13,
     "review_scores_rating":89,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-583694262108411245/original/3352baa2-c7d6-4e77-8f2f-ee36fe7453b8.jpeg?im_w=720",
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-583694262108411245/original/01670814-68e8-4009-b525-bc6857c65aec.jpeg?im_w=720",
@@ -59,6 +63,7 @@
     "price":95,
     "number_of_reviews":4,
     "review_scores_rating":100,
+    "guestFavorite" : true,
     "images": [
         "https://a0.muscache.com/im/pictures/24640efc-7cc4-40e6-a371-fb3c988aaf2a.jpg?im_w=720",
         "https://a0.muscache.com/im/pictures/47d680e5-6df6-450d-9a8b-1d3c68aae214.jpg?im_w=720",
@@ -82,6 +87,7 @@
     "price":45,
     "number_of_reviews":71,
     "review_scores_rating":96,
+    "guestFavorite" : true,
     "images": [
         "https://a0.muscache.com/im/pictures/26d6a58f-d71b-494a-a1d4-a6ebeedbddd3.jpg?im_w=720",
         "https://a0.muscache.com/im/pictures/582e34bc-51c8-478f-96d5-578d1bdf7b30.jpg?im_w=720",
@@ -105,6 +111,7 @@
     "price":65,
     "number_of_reviews":9,
     "review_scores_rating":89,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/miso/Hosting-47721565/original/1854bf1b-dc40-49ed-9c2e-d378663a7a02.jpeg?im_w=720",
         "https://a0.muscache.com/im/pictures/miso/Hosting-47721565/original/bb35bfcf-f276-4e00-a0d1-73b319b2a9cd.jpeg?im_w=720",
@@ -128,6 +135,7 @@
     "price":60,
     "number_of_reviews":6,
     "review_scores_rating":73,
+    "guestFavorite" : false,
     "images" : ["https://a0.muscache.com/im/pictures/7a0e4e5f-ce39-485a-b8d3-cc95c2c81a7e.jpg?im_w=720",
 "https://a0.muscache.com/im/pictures/37e5513e-8eef-43db-b7c9-f0f552147069.jpg?im_w=720",
 "https://a0.muscache.com/im/pictures/miso/Hosting-39373135/original/3964dd7b-b61a-4b39-80f9-f90c9605f215.jpeg?im_w=720",
@@ -149,6 +157,7 @@
     "price":120,
     "number_of_reviews":8,
     "review_scores_rating":82,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-583694262108411245/original/3352baa2-c7d6-4e77-8f2f-ee36fe7453b8.jpeg?im_w=720",
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-583694262108411245/original/01670814-68e8-4009-b525-bc6857c65aec.jpeg?im_w=720",
@@ -172,6 +181,7 @@
     "price":60,
     "number_of_reviews":3,
     "review_scores_rating":87,
+    "guestFavorite" : true,
     "images": [
         "https://a0.muscache.com/im/pictures/24640efc-7cc4-40e6-a371-fb3c988aaf2a.jpg?im_w=720",
         "https://a0.muscache.com/im/pictures/47d680e5-6df6-450d-9a8b-1d3c68aae214.jpg?im_w=720",
@@ -195,6 +205,7 @@
     "price":140,
     "number_of_reviews":7,
     "review_scores_rating":86,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/26d6a58f-d71b-494a-a1d4-a6ebeedbddd3.jpg?im_w=720",
         "https://a0.muscache.com/im/pictures/582e34bc-51c8-478f-96d5-578d1bdf7b30.jpg?im_w=720",
@@ -218,6 +229,7 @@
     "price":64,
     "number_of_reviews":6,
     "review_scores_rating":97,
+    "guestFavorite" : true,
     "images": [
         "https://a0.muscache.com/im/pictures/miso/Hosting-47721565/original/1854bf1b-dc40-49ed-9c2e-d378663a7a02.jpeg?im_w=720",
         "https://a0.muscache.com/im/pictures/miso/Hosting-47721565/original/bb35bfcf-f276-4e00-a0d1-73b319b2a9cd.jpeg?im_w=720",
@@ -241,6 +253,7 @@
     "price":35,
     "number_of_reviews":1,
     "review_scores_rating":100,
+    "guestFavorite" : false,
     "images" : ["https://a0.muscache.com/im/pictures/7a0e4e5f-ce39-485a-b8d3-cc95c2c81a7e.jpg?im_w=720",
 "https://a0.muscache.com/im/pictures/37e5513e-8eef-43db-b7c9-f0f552147069.jpg?im_w=720",
 "https://a0.muscache.com/im/pictures/miso/Hosting-39373135/original/3964dd7b-b61a-4b39-80f9-f90c9605f215.jpeg?im_w=720",
@@ -262,6 +275,7 @@
     "price":26,
     "number_of_reviews":12,
     "review_scores_rating":93,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-583694262108411245/original/3352baa2-c7d6-4e77-8f2f-ee36fe7453b8.jpeg?im_w=720",
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-583694262108411245/original/01670814-68e8-4009-b525-bc6857c65aec.jpeg?im_w=720",
@@ -285,6 +299,7 @@
     "price":120,
     "number_of_reviews":2,
     "review_scores_rating":90,
+    "guestFavorite" : true,
     "images": [
         "https://a0.muscache.com/im/pictures/24640efc-7cc4-40e6-a371-fb3c988aaf2a.jpg?im_w=720",
         "https://a0.muscache.com/im/pictures/47d680e5-6df6-450d-9a8b-1d3c68aae214.jpg?im_w=720",
@@ -308,6 +323,7 @@
     "price":30,
     "number_of_reviews":6,
     "review_scores_rating":76,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/26d6a58f-d71b-494a-a1d4-a6ebeedbddd3.jpg?im_w=720",
         "https://a0.muscache.com/im/pictures/582e34bc-51c8-478f-96d5-578d1bdf7b30.jpg?im_w=720",
@@ -331,6 +347,7 @@
     "price":75,
     "number_of_reviews":97,
     "review_scores_rating":82,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/26d6a58f-d71b-494a-a1d4-a6ebeedbddd3.jpg?im_w=720",
         "https://a0.muscache.com/im/pictures/582e34bc-51c8-478f-96d5-578d1bdf7b30.jpg?im_w=720",
@@ -354,6 +371,7 @@
     "price":150,
     "number_of_reviews":56,
     "review_scores_rating":79,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/miso/Hosting-47721565/original/1854bf1b-dc40-49ed-9c2e-d378663a7a02.jpeg?im_w=720",
         "https://a0.muscache.com/im/pictures/miso/Hosting-47721565/original/bb35bfcf-f276-4e00-a0d1-73b319b2a9cd.jpeg?im_w=720",
@@ -377,6 +395,7 @@
     "price":55,
     "number_of_reviews":113,
     "review_scores_rating":99,
+    "guestFavorite" : true,
     "images" : ["https://a0.muscache.com/im/pictures/7a0e4e5f-ce39-485a-b8d3-cc95c2c81a7e.jpg?im_w=720",
 "https://a0.muscache.com/im/pictures/37e5513e-8eef-43db-b7c9-f0f552147069.jpg?im_w=720",
 "https://a0.muscache.com/im/pictures/miso/Hosting-39373135/original/3964dd7b-b61a-4b39-80f9-f90c9605f215.jpeg?im_w=720",
@@ -398,6 +417,7 @@
     "price":100,
     "number_of_reviews":167,
     "review_scores_rating":91,
+    "guestFavorite" : true,
     "images": [
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-583694262108411245/original/3352baa2-c7d6-4e77-8f2f-ee36fe7453b8.jpeg?im_w=720",
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-583694262108411245/original/01670814-68e8-4009-b525-bc6857c65aec.jpeg?im_w=720",
@@ -421,6 +441,7 @@
     "price":20,
     "number_of_reviews":12,
     "review_scores_rating":92,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/24640efc-7cc4-40e6-a371-fb3c988aaf2a.jpg?im_w=720",
         "https://a0.muscache.com/im/pictures/47d680e5-6df6-450d-9a8b-1d3c68aae214.jpg?im_w=720",
@@ -444,6 +465,7 @@
     "price":25,
     "number_of_reviews":2,
     "review_scores_rating":100,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/26d6a58f-d71b-494a-a1d4-a6ebeedbddd3.jpg?im_w=720",
         "https://a0.muscache.com/im/pictures/582e34bc-51c8-478f-96d5-578d1bdf7b30.jpg?im_w=720",
@@ -467,6 +489,7 @@
     "price":80,
     "number_of_reviews":19,
     "review_scores_rating":87,
+    "guestFavorite" : true,
     "images": [
         "https://a0.muscache.com/im/pictures/miso/Hosting-47721565/original/1854bf1b-dc40-49ed-9c2e-d378663a7a02.jpeg?im_w=720",
         "https://a0.muscache.com/im/pictures/miso/Hosting-47721565/original/bb35bfcf-f276-4e00-a0d1-73b319b2a9cd.jpeg?im_w=720",
@@ -490,6 +513,7 @@
     "price":102,
     "number_of_reviews":5,
     "review_scores_rating":100,
+    "guestFavorite" : false,
     "images" : ["https://a0.muscache.com/im/pictures/7a0e4e5f-ce39-485a-b8d3-cc95c2c81a7e.jpg?im_w=720",
 "https://a0.muscache.com/im/pictures/37e5513e-8eef-43db-b7c9-f0f552147069.jpg?im_w=720",
 "https://a0.muscache.com/im/pictures/miso/Hosting-39373135/original/3964dd7b-b61a-4b39-80f9-f90c9605f215.jpeg?im_w=720",
@@ -511,6 +535,7 @@
     "price":90,
     "number_of_reviews":10,
     "review_scores_rating":98,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-583694262108411245/original/3352baa2-c7d6-4e77-8f2f-ee36fe7453b8.jpeg?im_w=720",
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-583694262108411245/original/01670814-68e8-4009-b525-bc6857c65aec.jpeg?im_w=720",
@@ -534,6 +559,7 @@
     "price":50,
     "number_of_reviews":102,
     "review_scores_rating":98,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/24640efc-7cc4-40e6-a371-fb3c988aaf2a.jpg?im_w=720",
         "https://a0.muscache.com/im/pictures/47d680e5-6df6-450d-9a8b-1d3c68aae214.jpg?im_w=720",
@@ -557,6 +583,7 @@
     "price":38,
     "number_of_reviews":262,
     "review_scores_rating":93,
+    "guestFavorite" : true,
     "images": [
         "https://a0.muscache.com/im/pictures/26d6a58f-d71b-494a-a1d4-a6ebeedbddd3.jpg?im_w=720",
         "https://a0.muscache.com/im/pictures/582e34bc-51c8-478f-96d5-578d1bdf7b30.jpg?im_w=720",
@@ -580,6 +607,7 @@
     "price":85,
     "number_of_reviews":1,
     "review_scores_rating":100,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/miso/Hosting-47721565/original/1854bf1b-dc40-49ed-9c2e-d378663a7a02.jpeg?im_w=720",
         "https://a0.muscache.com/im/pictures/miso/Hosting-47721565/original/bb35bfcf-f276-4e00-a0d1-73b319b2a9cd.jpeg?im_w=720",
@@ -603,6 +631,7 @@
     "price":60,
     "number_of_reviews":12,
     "review_scores_rating":97,
+    "guestFavorite" : false,
     "images" : ["https://a0.muscache.com/im/pictures/7a0e4e5f-ce39-485a-b8d3-cc95c2c81a7e.jpg?im_w=720",
 "https://a0.muscache.com/im/pictures/37e5513e-8eef-43db-b7c9-f0f552147069.jpg?im_w=720",
 "https://a0.muscache.com/im/pictures/miso/Hosting-39373135/original/3964dd7b-b61a-4b39-80f9-f90c9605f215.jpeg?im_w=720",
@@ -624,6 +653,7 @@
     "price":75,
     "number_of_reviews":11,
     "review_scores_rating":89,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-583694262108411245/original/3352baa2-c7d6-4e77-8f2f-ee36fe7453b8.jpeg?im_w=720",
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-583694262108411245/original/01670814-68e8-4009-b525-bc6857c65aec.jpeg?im_w=720",
@@ -647,6 +677,7 @@
     "price":95,
     "number_of_reviews":23,
     "review_scores_rating":98,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/24640efc-7cc4-40e6-a371-fb3c988aaf2a.jpg?im_w=720",
         "https://a0.muscache.com/im/pictures/47d680e5-6df6-450d-9a8b-1d3c68aae214.jpg?im_w=720",
@@ -670,6 +701,7 @@
     "price":60,
     "number_of_reviews":56,
     "review_scores_rating":87,
+    "guestFavorite" : true,
     "images": [
         "https://a0.muscache.com/im/pictures/26d6a58f-d71b-494a-a1d4-a6ebeedbddd3.jpg?im_w=720",
         "https://a0.muscache.com/im/pictures/582e34bc-51c8-478f-96d5-578d1bdf7b30.jpg?im_w=720",
@@ -693,6 +725,7 @@
     "price":62,
     "number_of_reviews":78,
     "review_scores_rating":97,
+    "guestFavorite" : true,
     "images": [
         "https://a0.muscache.com/im/pictures/miso/Hosting-47721565/original/1854bf1b-dc40-49ed-9c2e-d378663a7a02.jpeg?im_w=720",
         "https://a0.muscache.com/im/pictures/miso/Hosting-47721565/original/bb35bfcf-f276-4e00-a0d1-73b319b2a9cd.jpeg?im_w=720",
@@ -716,6 +749,7 @@
     "price":90,
     "number_of_reviews":12,
     "review_scores_rating":97,
+    "guestFavorite" : false,
     "images" : ["https://a0.muscache.com/im/pictures/7a0e4e5f-ce39-485a-b8d3-cc95c2c81a7e.jpg?im_w=720",
 "https://a0.muscache.com/im/pictures/37e5513e-8eef-43db-b7c9-f0f552147069.jpg?im_w=720",
 "https://a0.muscache.com/im/pictures/miso/Hosting-39373135/original/3964dd7b-b61a-4b39-80f9-f90c9605f215.jpeg?im_w=720",
@@ -737,6 +771,7 @@
     "price":30,
     "number_of_reviews":126,
     "review_scores_rating":85,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-583694262108411245/original/3352baa2-c7d6-4e77-8f2f-ee36fe7453b8.jpeg?im_w=720",
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-583694262108411245/original/01670814-68e8-4009-b525-bc6857c65aec.jpeg?im_w=720",
@@ -760,6 +795,7 @@
     "price":45,
     "number_of_reviews":1,
     "review_scores_rating":100,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/24640efc-7cc4-40e6-a371-fb3c988aaf2a.jpg?im_w=720",
         "https://a0.muscache.com/im/pictures/47d680e5-6df6-450d-9a8b-1d3c68aae214.jpg?im_w=720",
@@ -783,6 +819,7 @@
     "price":35,
     "number_of_reviews":32,
     "review_scores_rating":97,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/26d6a58f-d71b-494a-a1d4-a6ebeedbddd3.jpg?im_w=720",
         "https://a0.muscache.com/im/pictures/582e34bc-51c8-478f-96d5-578d1bdf7b30.jpg?im_w=720",
@@ -806,6 +843,7 @@
     "price":99,
     "number_of_reviews":7,
     "review_scores_rating":97,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/miso/Hosting-47721565/original/1854bf1b-dc40-49ed-9c2e-d378663a7a02.jpeg?im_w=720",
         "https://a0.muscache.com/im/pictures/miso/Hosting-47721565/original/bb35bfcf-f276-4e00-a0d1-73b319b2a9cd.jpeg?im_w=720",
@@ -818,7 +856,7 @@
     "id":"4338156",
     "name":"Chic and Modern One bed in Chelsea",
     "description":"This gorgeous ground floor apartment located in the ever popular and central area of Chelsea if the perfect base for exploring our wonderful city, this chic and modern one bed is perfect for a couple or a family of 3, offering modern accommodation Quiet and chic apartment, good sized one bedroom with King bedroom with ample storage and TV in the bedroom, well equipped kitchen with washer/dryer and dishwasher, smart bathroom with shower cubicle and WC, cosy living room with sofa bed and WIFI and cable tv and dining area. The whole apartment. 24/7 assistance. Chelsea is an affluent area in central London,[1] bounded to the south by the River Thames. Its frontage runs from Chelsea Bridge along the Chelsea Embankment, Chen Walk, Lots Road and Chelsea Harbour. Its eastern boundary was once defined by the River Westbound, which is now in a pipe above Sloane Square tube station. The modern eastern boundary is Chelsea Bridge Road and the lower half of Sloane Street, including Sloane Square.",
-    "host_name":"Heritage Aparment Rentals",
+    "host_name":"Heritage Apartment Rentals",
     "host_thumbnail_url":"https://a0.muscache.com/im/pictures/d20f3c95-458e-4428-b0d2-91d24d68849a.jpg?aki_policy=profile_small",
     "host_picture_url":"https://a0.muscache.com/im/pictures/d20f3c95-458e-4428-b0d2-91d24d68849a.jpg?aki_policy=profile_x_medium",
     "smart_location":"London, United Kingdom",
@@ -829,6 +867,7 @@
     "price":140,
     "number_of_reviews":12,
     "review_scores_rating":45,
+    "guestFavorite" : false,
     "images" : ["https://a0.muscache.com/im/pictures/7a0e4e5f-ce39-485a-b8d3-cc95c2c81a7e.jpg?im_w=720",
 "https://a0.muscache.com/im/pictures/37e5513e-8eef-43db-b7c9-f0f552147069.jpg?im_w=720",
 "https://a0.muscache.com/im/pictures/miso/Hosting-39373135/original/3964dd7b-b61a-4b39-80f9-f90c9605f215.jpeg?im_w=720",
@@ -850,6 +889,7 @@
     "price":195,
     "number_of_reviews":12,
     "review_scores_rating":91,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-583694262108411245/original/3352baa2-c7d6-4e77-8f2f-ee36fe7453b8.jpeg?im_w=720",
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-583694262108411245/original/01670814-68e8-4009-b525-bc6857c65aec.jpeg?im_w=720",
@@ -873,6 +913,7 @@
     "price":40,
     "number_of_reviews":84,
     "review_scores_rating":98,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/24640efc-7cc4-40e6-a371-fb3c988aaf2a.jpg?im_w=720",
         "https://a0.muscache.com/im/pictures/47d680e5-6df6-450d-9a8b-1d3c68aae214.jpg?im_w=720",
@@ -896,6 +937,7 @@
     "price":80,
     "number_of_reviews":123,
     "review_scores_rating":94,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/26d6a58f-d71b-494a-a1d4-a6ebeedbddd3.jpg?im_w=720",
         "https://a0.muscache.com/im/pictures/582e34bc-51c8-478f-96d5-578d1bdf7b30.jpg?im_w=720",
@@ -919,6 +961,7 @@
     "price":30,
     "number_of_reviews":2,
     "review_scores_rating":80,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/miso/Hosting-47721565/original/1854bf1b-dc40-49ed-9c2e-d378663a7a02.jpeg?im_w=720",
         "https://a0.muscache.com/im/pictures/miso/Hosting-47721565/original/bb35bfcf-f276-4e00-a0d1-73b319b2a9cd.jpeg?im_w=720",
@@ -942,6 +985,7 @@
     "price":73,
     "number_of_reviews":128,
     "review_scores_rating":98,
+    "guestFavorite" : false,
     "images" : ["https://a0.muscache.com/im/pictures/7a0e4e5f-ce39-485a-b8d3-cc95c2c81a7e.jpg?im_w=720",
 "https://a0.muscache.com/im/pictures/37e5513e-8eef-43db-b7c9-f0f552147069.jpg?im_w=720",
 "https://a0.muscache.com/im/pictures/miso/Hosting-39373135/original/3964dd7b-b61a-4b39-80f9-f90c9605f215.jpeg?im_w=720",
@@ -963,6 +1007,7 @@
     "price":45,
     "number_of_reviews":12,
     "review_scores_rating":90,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-583694262108411245/original/3352baa2-c7d6-4e77-8f2f-ee36fe7453b8.jpeg?im_w=720",
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-583694262108411245/original/01670814-68e8-4009-b525-bc6857c65aec.jpeg?im_w=720",
@@ -986,6 +1031,7 @@
     "price":50,
     "number_of_reviews":4,
     "review_scores_rating":95,
+    "guestFavorite" : true,
     "images": [
         "https://a0.muscache.com/im/pictures/24640efc-7cc4-40e6-a371-fb3c988aaf2a.jpg?im_w=720",
         "https://a0.muscache.com/im/pictures/47d680e5-6df6-450d-9a8b-1d3c68aae214.jpg?im_w=720",
@@ -1009,6 +1055,7 @@
     "price":35,
     "number_of_reviews":1,
     "review_scores_rating":100,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/26d6a58f-d71b-494a-a1d4-a6ebeedbddd3.jpg?im_w=720",
         "https://a0.muscache.com/im/pictures/582e34bc-51c8-478f-96d5-578d1bdf7b30.jpg?im_w=720",
@@ -1032,6 +1079,7 @@
     "price":99,
     "number_of_reviews":10,
     "review_scores_rating":98,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/miso/Hosting-47721565/original/1854bf1b-dc40-49ed-9c2e-d378663a7a02.jpeg?im_w=720",
         "https://a0.muscache.com/im/pictures/miso/Hosting-47721565/original/bb35bfcf-f276-4e00-a0d1-73b319b2a9cd.jpeg?im_w=720",
@@ -1055,6 +1103,7 @@
     "price":55,
     "number_of_reviews":9,
     "review_scores_rating":93,
+    "guestFavorite" : true,
     "images" : ["https://a0.muscache.com/im/pictures/7a0e4e5f-ce39-485a-b8d3-cc95c2c81a7e.jpg?im_w=720",
 "https://a0.muscache.com/im/pictures/37e5513e-8eef-43db-b7c9-f0f552147069.jpg?im_w=720",
 "https://a0.muscache.com/im/pictures/miso/Hosting-39373135/original/3964dd7b-b61a-4b39-80f9-f90c9605f215.jpeg?im_w=720",
@@ -1076,6 +1125,7 @@
     "price":105,
     "number_of_reviews":51,
     "review_scores_rating":89,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-583694262108411245/original/3352baa2-c7d6-4e77-8f2f-ee36fe7453b8.jpeg?im_w=720",
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-583694262108411245/original/01670814-68e8-4009-b525-bc6857c65aec.jpeg?im_w=720",
@@ -1099,6 +1149,7 @@
     "price":25,
     "number_of_reviews":12,
     "review_scores_rating":81,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/24640efc-7cc4-40e6-a371-fb3c988aaf2a.jpg?im_w=720",
         "https://a0.muscache.com/im/pictures/47d680e5-6df6-450d-9a8b-1d3c68aae214.jpg?im_w=720",
@@ -1122,6 +1173,7 @@
     "price":20,
     "number_of_reviews":3,
     "review_scores_rating":100,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/26d6a58f-d71b-494a-a1d4-a6ebeedbddd3.jpg?im_w=720",
         "https://a0.muscache.com/im/pictures/582e34bc-51c8-478f-96d5-578d1bdf7b30.jpg?im_w=720",
@@ -1145,6 +1197,7 @@
     "price":59,
     "number_of_reviews":60,
     "review_scores_rating":89,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/miso/Hosting-47721565/original/1854bf1b-dc40-49ed-9c2e-d378663a7a02.jpeg?im_w=720",
         "https://a0.muscache.com/im/pictures/miso/Hosting-47721565/original/bb35bfcf-f276-4e00-a0d1-73b319b2a9cd.jpeg?im_w=720",
@@ -1168,6 +1221,7 @@
     "price":59,
     "number_of_reviews":12,
     "review_scores_rating":90,
+    "guestFavorite" : false,
     "images" : ["https://a0.muscache.com/im/pictures/7a0e4e5f-ce39-485a-b8d3-cc95c2c81a7e.jpg?im_w=720",
 "https://a0.muscache.com/im/pictures/37e5513e-8eef-43db-b7c9-f0f552147069.jpg?im_w=720",
 "https://a0.muscache.com/im/pictures/miso/Hosting-39373135/original/3964dd7b-b61a-4b39-80f9-f90c9605f215.jpeg?im_w=720",
@@ -1189,6 +1243,7 @@
     "price":26,
     "number_of_reviews":101,
     "review_scores_rating":94,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-583694262108411245/original/3352baa2-c7d6-4e77-8f2f-ee36fe7453b8.jpeg?im_w=720",
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-583694262108411245/original/01670814-68e8-4009-b525-bc6857c65aec.jpeg?im_w=720",
@@ -1212,6 +1267,7 @@
     "price":70,
     "number_of_reviews":20,
     "review_scores_rating":98,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/24640efc-7cc4-40e6-a371-fb3c988aaf2a.jpg?im_w=720",
         "https://a0.muscache.com/im/pictures/47d680e5-6df6-450d-9a8b-1d3c68aae214.jpg?im_w=720",
@@ -1235,6 +1291,7 @@
     "price":30,
     "number_of_reviews":6,
     "review_scores_rating":80,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/26d6a58f-d71b-494a-a1d4-a6ebeedbddd3.jpg?im_w=720",
         "https://a0.muscache.com/im/pictures/582e34bc-51c8-478f-96d5-578d1bdf7b30.jpg?im_w=720",
@@ -1258,6 +1315,7 @@
     "price":99,
     "number_of_reviews":89,
     "review_scores_rating":80,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/miso/Hosting-47721565/original/1854bf1b-dc40-49ed-9c2e-d378663a7a02.jpeg?im_w=720",
         "https://a0.muscache.com/im/pictures/miso/Hosting-47721565/original/bb35bfcf-f276-4e00-a0d1-73b319b2a9cd.jpeg?im_w=720",
@@ -1281,6 +1339,7 @@
     "price":45,
     "number_of_reviews":18,
     "review_scores_rating":94,
+    "guestFavorite" : false,
     "images" : ["https://a0.muscache.com/im/pictures/7a0e4e5f-ce39-485a-b8d3-cc95c2c81a7e.jpg?im_w=720",
 "https://a0.muscache.com/im/pictures/37e5513e-8eef-43db-b7c9-f0f552147069.jpg?im_w=720",
 "https://a0.muscache.com/im/pictures/miso/Hosting-39373135/original/3964dd7b-b61a-4b39-80f9-f90c9605f215.jpeg?im_w=720",
@@ -1302,6 +1361,7 @@
     "price":107,
     "number_of_reviews":89,
     "review_scores_rating":97,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-583694262108411245/original/3352baa2-c7d6-4e77-8f2f-ee36fe7453b8.jpeg?im_w=720",
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-583694262108411245/original/01670814-68e8-4009-b525-bc6857c65aec.jpeg?im_w=720",
@@ -1325,6 +1385,7 @@
     "price":50,
     "number_of_reviews":40,
     "review_scores_rating":90,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/24640efc-7cc4-40e6-a371-fb3c988aaf2a.jpg?im_w=720",
         "https://a0.muscache.com/im/pictures/47d680e5-6df6-450d-9a8b-1d3c68aae214.jpg?im_w=720",
@@ -1348,6 +1409,7 @@
     "price":15,
     "number_of_reviews":7,
     "review_scores_rating":63,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/26d6a58f-d71b-494a-a1d4-a6ebeedbddd3.jpg?im_w=720",
         "https://a0.muscache.com/im/pictures/582e34bc-51c8-478f-96d5-578d1bdf7b30.jpg?im_w=720",
@@ -1371,6 +1433,7 @@
     "price":320,
     "number_of_reviews":20,
     "review_scores_rating": 80,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/miso/Hosting-47721565/original/1854bf1b-dc40-49ed-9c2e-d378663a7a02.jpeg?im_w=720",
         "https://a0.muscache.com/im/pictures/miso/Hosting-47721565/original/bb35bfcf-f276-4e00-a0d1-73b319b2a9cd.jpeg?im_w=720",
@@ -1394,6 +1457,7 @@
     "price":65,
     "number_of_reviews":4,
     "review_scores_rating":85,
+    "guestFavorite" : false,
     "images" : ["https://a0.muscache.com/im/pictures/7a0e4e5f-ce39-485a-b8d3-cc95c2c81a7e.jpg?im_w=720",
 "https://a0.muscache.com/im/pictures/37e5513e-8eef-43db-b7c9-f0f552147069.jpg?im_w=720",
 "https://a0.muscache.com/im/pictures/miso/Hosting-39373135/original/3964dd7b-b61a-4b39-80f9-f90c9605f215.jpeg?im_w=720",
@@ -1415,6 +1479,7 @@
     "price":75,
     "number_of_reviews":7,
     "review_scores_rating":100,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-583694262108411245/original/3352baa2-c7d6-4e77-8f2f-ee36fe7453b8.jpeg?im_w=720",
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-583694262108411245/original/01670814-68e8-4009-b525-bc6857c65aec.jpeg?im_w=720",
@@ -1438,6 +1503,7 @@
     "price":75,
     "number_of_reviews":6,
     "review_scores_rating":100,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/24640efc-7cc4-40e6-a371-fb3c988aaf2a.jpg?im_w=720",
         "https://a0.muscache.com/im/pictures/47d680e5-6df6-450d-9a8b-1d3c68aae214.jpg?im_w=720",
@@ -1461,6 +1527,7 @@
     "price":310,
     "number_of_reviews":12,
     "review_scores_rating":81,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/26d6a58f-d71b-494a-a1d4-a6ebeedbddd3.jpg?im_w=720",
         "https://a0.muscache.com/im/pictures/582e34bc-51c8-478f-96d5-578d1bdf7b30.jpg?im_w=720",
@@ -1484,6 +1551,7 @@
     "price":99,
     "number_of_reviews":78,
     "review_scores_rating":98,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/miso/Hosting-47721565/original/1854bf1b-dc40-49ed-9c2e-d378663a7a02.jpeg?im_w=720",
         "https://a0.muscache.com/im/pictures/miso/Hosting-47721565/original/bb35bfcf-f276-4e00-a0d1-73b319b2a9cd.jpeg?im_w=720",
@@ -1507,6 +1575,7 @@
     "price":150,
     "number_of_reviews":80,
     "review_scores_rating":80,
+    "guestFavorite" : false,
     "images" : ["https://a0.muscache.com/im/pictures/7a0e4e5f-ce39-485a-b8d3-cc95c2c81a7e.jpg?im_w=720",
 "https://a0.muscache.com/im/pictures/37e5513e-8eef-43db-b7c9-f0f552147069.jpg?im_w=720",
 "https://a0.muscache.com/im/pictures/miso/Hosting-39373135/original/3964dd7b-b61a-4b39-80f9-f90c9605f215.jpeg?im_w=720",
@@ -1528,6 +1597,7 @@
     "price":145,
     "number_of_reviews":18,
     "review_scores_rating":96,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-583694262108411245/original/3352baa2-c7d6-4e77-8f2f-ee36fe7453b8.jpeg?im_w=720",
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-583694262108411245/original/01670814-68e8-4009-b525-bc6857c65aec.jpeg?im_w=720",
@@ -1551,6 +1621,7 @@
     "price":119,
     "number_of_reviews":42,
     "review_scores_rating":92,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/24640efc-7cc4-40e6-a371-fb3c988aaf2a.jpg?im_w=720",
         "https://a0.muscache.com/im/pictures/47d680e5-6df6-450d-9a8b-1d3c68aae214.jpg?im_w=720",
@@ -1574,6 +1645,7 @@
     "price":105,
     "number_of_reviews":40,
     "review_scores_rating":89,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/26d6a58f-d71b-494a-a1d4-a6ebeedbddd3.jpg?im_w=720",
         "https://a0.muscache.com/im/pictures/582e34bc-51c8-478f-96d5-578d1bdf7b30.jpg?im_w=720",
@@ -1597,6 +1669,7 @@
     "price":25,
     "number_of_reviews":1,
     "review_scores_rating":100,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/miso/Hosting-47721565/original/1854bf1b-dc40-49ed-9c2e-d378663a7a02.jpeg?im_w=720",
         "https://a0.muscache.com/im/pictures/miso/Hosting-47721565/original/bb35bfcf-f276-4e00-a0d1-73b319b2a9cd.jpeg?im_w=720",
@@ -1620,6 +1693,7 @@
     "price":70,
     "number_of_reviews":3,
     "review_scores_rating":90,
+    "guestFavorite" : false,
     "images" : ["https://a0.muscache.com/im/pictures/7a0e4e5f-ce39-485a-b8d3-cc95c2c81a7e.jpg?im_w=720",
 "https://a0.muscache.com/im/pictures/37e5513e-8eef-43db-b7c9-f0f552147069.jpg?im_w=720",
 "https://a0.muscache.com/im/pictures/miso/Hosting-39373135/original/3964dd7b-b61a-4b39-80f9-f90c9605f215.jpeg?im_w=720",
@@ -1641,6 +1715,7 @@
     "price":50,
     "number_of_reviews":12,
     "review_scores_rating":95,
+    "guestFavorite" : true,
     "images": [
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-583694262108411245/original/3352baa2-c7d6-4e77-8f2f-ee36fe7453b8.jpeg?im_w=720",
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-583694262108411245/original/01670814-68e8-4009-b525-bc6857c65aec.jpeg?im_w=720",
@@ -1664,6 +1739,7 @@
     "price":157,
     "number_of_reviews":57,
     "review_scores_rating":93,
+    "guestFavorite" : true,
     "images": [
         "https://a0.muscache.com/im/pictures/24640efc-7cc4-40e6-a371-fb3c988aaf2a.jpg?im_w=720",
         "https://a0.muscache.com/im/pictures/47d680e5-6df6-450d-9a8b-1d3c68aae214.jpg?im_w=720",
@@ -1687,6 +1763,7 @@
     "price":29,
     "number_of_reviews":46,
     "review_scores_rating":92,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/26d6a58f-d71b-494a-a1d4-a6ebeedbddd3.jpg?im_w=720",
         "https://a0.muscache.com/im/pictures/582e34bc-51c8-478f-96d5-578d1bdf7b30.jpg?im_w=720",
@@ -1710,6 +1787,7 @@
     "price":53,
     "number_of_reviews":87,
     "review_scores_rating":97,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/miso/Hosting-47721565/original/1854bf1b-dc40-49ed-9c2e-d378663a7a02.jpeg?im_w=720",
         "https://a0.muscache.com/im/pictures/miso/Hosting-47721565/original/bb35bfcf-f276-4e00-a0d1-73b319b2a9cd.jpeg?im_w=720",
@@ -1733,6 +1811,7 @@
     "price":109,
     "number_of_reviews":67,
     "review_scores_rating":98,
+    "guestFavorite" : false,
     "images" : ["https://a0.muscache.com/im/pictures/7a0e4e5f-ce39-485a-b8d3-cc95c2c81a7e.jpg?im_w=720",
 "https://a0.muscache.com/im/pictures/37e5513e-8eef-43db-b7c9-f0f552147069.jpg?im_w=720",
 "https://a0.muscache.com/im/pictures/miso/Hosting-39373135/original/3964dd7b-b61a-4b39-80f9-f90c9605f215.jpeg?im_w=720",
@@ -1754,6 +1833,7 @@
     "price":119,
     "number_of_reviews":4,
     "review_scores_rating":75,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-583694262108411245/original/3352baa2-c7d6-4e77-8f2f-ee36fe7453b8.jpeg?im_w=720",
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-583694262108411245/original/01670814-68e8-4009-b525-bc6857c65aec.jpeg?im_w=720",
@@ -1777,6 +1857,7 @@
     "price":166,
     "number_of_reviews":133,
     "review_scores_rating":94,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/24640efc-7cc4-40e6-a371-fb3c988aaf2a.jpg?im_w=720",
         "https://a0.muscache.com/im/pictures/47d680e5-6df6-450d-9a8b-1d3c68aae214.jpg?im_w=720",
@@ -1800,6 +1881,7 @@
     "price":220,
     "number_of_reviews":3,
     "review_scores_rating":93,
+    "guestFavorite" : true,
     "images": [
         "https://a0.muscache.com/im/pictures/26d6a58f-d71b-494a-a1d4-a6ebeedbddd3.jpg?im_w=720",
         "https://a0.muscache.com/im/pictures/582e34bc-51c8-478f-96d5-578d1bdf7b30.jpg?im_w=720",
@@ -1821,8 +1903,9 @@
     "bedrooms":1,
     "beds":1,
     "price":55,
-    "number_of_reviews":2,
-    "review_scores_rating":100,
+    "number_of_reviews":89,
+    "review_scores_rating":99,
+    "guestFavorite" : true,
     "images": [
         "https://a0.muscache.com/im/pictures/miso/Hosting-47721565/original/1854bf1b-dc40-49ed-9c2e-d378663a7a02.jpeg?im_w=720",
         "https://a0.muscache.com/im/pictures/miso/Hosting-47721565/original/bb35bfcf-f276-4e00-a0d1-73b319b2a9cd.jpeg?im_w=720",
@@ -1846,6 +1929,7 @@
     "price":179,
     "number_of_reviews":19,
     "review_scores_rating":88,
+    "guestFavorite" : false,
     "images" : ["https://a0.muscache.com/im/pictures/7a0e4e5f-ce39-485a-b8d3-cc95c2c81a7e.jpg?im_w=720",
 "https://a0.muscache.com/im/pictures/37e5513e-8eef-43db-b7c9-f0f552147069.jpg?im_w=720",
 "https://a0.muscache.com/im/pictures/miso/Hosting-39373135/original/3964dd7b-b61a-4b39-80f9-f90c9605f215.jpeg?im_w=720",
@@ -1867,6 +1951,7 @@
     "price":185,
     "number_of_reviews":56,
     "review_scores_rating":87,
+    "guestFavorite" : true,
     "images": [
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-583694262108411245/original/3352baa2-c7d6-4e77-8f2f-ee36fe7453b8.jpeg?im_w=720",
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-583694262108411245/original/01670814-68e8-4009-b525-bc6857c65aec.jpeg?im_w=720",
@@ -1890,6 +1975,7 @@
     "price":69,
     "number_of_reviews":67,
     "review_scores_rating":78,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/24640efc-7cc4-40e6-a371-fb3c988aaf2a.jpg?im_w=720",
         "https://a0.muscache.com/im/pictures/47d680e5-6df6-450d-9a8b-1d3c68aae214.jpg?im_w=720",
@@ -1913,6 +1999,7 @@
     "price":99,
     "number_of_reviews":56,
     "review_scores_rating":89,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/26d6a58f-d71b-494a-a1d4-a6ebeedbddd3.jpg?im_w=720",
         "https://a0.muscache.com/im/pictures/582e34bc-51c8-478f-96d5-578d1bdf7b30.jpg?im_w=720",
@@ -1936,6 +2023,7 @@
     "price":60,
     "number_of_reviews":45,
     "review_scores_rating":97,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/miso/Hosting-47721565/original/1854bf1b-dc40-49ed-9c2e-d378663a7a02.jpeg?im_w=720",
         "https://a0.muscache.com/im/pictures/miso/Hosting-47721565/original/bb35bfcf-f276-4e00-a0d1-73b319b2a9cd.jpeg?im_w=720",
@@ -1959,6 +2047,7 @@
     "price":35,
     "number_of_reviews":8,
     "review_scores_rating":100,
+    "guestFavorite" : false,
     "images" : ["https://a0.muscache.com/im/pictures/7a0e4e5f-ce39-485a-b8d3-cc95c2c81a7e.jpg?im_w=720",
 "https://a0.muscache.com/im/pictures/37e5513e-8eef-43db-b7c9-f0f552147069.jpg?im_w=720",
 "https://a0.muscache.com/im/pictures/miso/Hosting-39373135/original/3964dd7b-b61a-4b39-80f9-f90c9605f215.jpeg?im_w=720",
@@ -1980,6 +2069,7 @@
     "price":50,
     "number_of_reviews":130,
     "review_scores_rating":93,
+    "guestFavorite" : true,
     "images": [
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-583694262108411245/original/3352baa2-c7d6-4e77-8f2f-ee36fe7453b8.jpeg?im_w=720",
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-583694262108411245/original/01670814-68e8-4009-b525-bc6857c65aec.jpeg?im_w=720",
@@ -2003,6 +2093,7 @@
     "price":60,
     "number_of_reviews":111,
     "review_scores_rating":94,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/24640efc-7cc4-40e6-a371-fb3c988aaf2a.jpg?im_w=720",
         "https://a0.muscache.com/im/pictures/47d680e5-6df6-450d-9a8b-1d3c68aae214.jpg?im_w=720",
@@ -2026,6 +2117,7 @@
     "price":61,
     "number_of_reviews":28,
     "review_scores_rating":78,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/26d6a58f-d71b-494a-a1d4-a6ebeedbddd3.jpg?im_w=720",
         "https://a0.muscache.com/im/pictures/582e34bc-51c8-478f-96d5-578d1bdf7b30.jpg?im_w=720",
@@ -2049,6 +2141,7 @@
     "price":50,
     "number_of_reviews":46,
     "review_scores_rating":78,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/miso/Hosting-47721565/original/1854bf1b-dc40-49ed-9c2e-d378663a7a02.jpeg?im_w=720",
         "https://a0.muscache.com/im/pictures/miso/Hosting-47721565/original/bb35bfcf-f276-4e00-a0d1-73b319b2a9cd.jpeg?im_w=720",
@@ -2072,6 +2165,7 @@
     "price":32,
     "number_of_reviews":182,
     "review_scores_rating":95,
+    "guestFavorite" : true,
     "images" : ["https://a0.muscache.com/im/pictures/7a0e4e5f-ce39-485a-b8d3-cc95c2c81a7e.jpg?im_w=720",
 "https://a0.muscache.com/im/pictures/37e5513e-8eef-43db-b7c9-f0f552147069.jpg?im_w=720",
 "https://a0.muscache.com/im/pictures/miso/Hosting-39373135/original/3964dd7b-b61a-4b39-80f9-f90c9605f215.jpeg?im_w=720",
@@ -2093,6 +2187,7 @@
     "price":35,
     "number_of_reviews":3,
     "review_scores_rating":78,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-583694262108411245/original/3352baa2-c7d6-4e77-8f2f-ee36fe7453b8.jpeg?im_w=720",
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-583694262108411245/original/01670814-68e8-4009-b525-bc6857c65aec.jpeg?im_w=720",
@@ -2116,6 +2211,7 @@
     "price":79,
     "number_of_reviews":29,
     "review_scores_rating":98,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/24640efc-7cc4-40e6-a371-fb3c988aaf2a.jpg?im_w=720",
         "https://a0.muscache.com/im/pictures/47d680e5-6df6-450d-9a8b-1d3c68aae214.jpg?im_w=720",
@@ -2139,6 +2235,7 @@
     "price":80,
     "number_of_reviews":11,
     "review_scores_rating":100,
+    "guestFavorite" : true,
     "images": [
         "https://a0.muscache.com/im/pictures/26d6a58f-d71b-494a-a1d4-a6ebeedbddd3.jpg?im_w=720",
         "https://a0.muscache.com/im/pictures/582e34bc-51c8-478f-96d5-578d1bdf7b30.jpg?im_w=720",
@@ -2162,6 +2259,7 @@
     "price":85,
     "number_of_reviews":11,
     "review_scores_rating":96,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/miso/Hosting-47721565/original/1854bf1b-dc40-49ed-9c2e-d378663a7a02.jpeg?im_w=720",
         "https://a0.muscache.com/im/pictures/miso/Hosting-47721565/original/bb35bfcf-f276-4e00-a0d1-73b319b2a9cd.jpeg?im_w=720",
@@ -2185,6 +2283,7 @@
     "price":50,
     "number_of_reviews":2,
     "review_scores_rating":100,
+    "guestFavorite" : false,
     "images" : ["https://a0.muscache.com/im/pictures/7a0e4e5f-ce39-485a-b8d3-cc95c2c81a7e.jpg?im_w=720",
 "https://a0.muscache.com/im/pictures/37e5513e-8eef-43db-b7c9-f0f552147069.jpg?im_w=720",
 "https://a0.muscache.com/im/pictures/miso/Hosting-39373135/original/3964dd7b-b61a-4b39-80f9-f90c9605f215.jpeg?im_w=720",
@@ -2206,6 +2305,7 @@
     "price":37,
     "number_of_reviews":152,
     "review_scores_rating":88,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-583694262108411245/original/3352baa2-c7d6-4e77-8f2f-ee36fe7453b8.jpeg?im_w=720",
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-583694262108411245/original/01670814-68e8-4009-b525-bc6857c65aec.jpeg?im_w=720",
@@ -2229,6 +2329,7 @@
     "price":31,
     "number_of_reviews":1,
     "review_scores_rating":100,
+    "guestFavorite" : false,
     "images": [
         "https://a0.muscache.com/im/pictures/24640efc-7cc4-40e6-a371-fb3c988aaf2a.jpg?im_w=720",
         "https://a0.muscache.com/im/pictures/47d680e5-6df6-450d-9a8b-1d3c68aae214.jpg?im_w=720",
