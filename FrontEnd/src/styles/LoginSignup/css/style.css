@@ -180,12 +180,8 @@ list-type-ulli, .login-signup-main .socials {
   text-align: center;
 }
 .login-signup-main .form-submit {
-  display: inline-block;
   background: #ff385c;
   color: #fff;
-  border-bottom: none;
-  width: auto;
-  padding: 15px 39px;
   border-radius: 3rem;
   -moz-border-radius: 3rem;
   -webkit-border-radius: 3rem;
@@ -373,6 +369,7 @@ list-type-ulli, .login-signup-main .socials {
   -webkit-transform: translateY(0);
   -o-transform: translateY(0);
   -ms-transform: translateY(0);
+  font-size: 14px;
 }
 .login-signup-main .material-icons-name {
   font-size: 18px;
