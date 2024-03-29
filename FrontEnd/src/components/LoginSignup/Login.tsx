@@ -10,6 +10,7 @@ import { RootStateType } from "../../utils/RootStateType";
 import { loginError, loginLoading, loginSuccess } from "../../redux/action";
 import { Action, Dispatch } from "redux";
 import axios from "axios";
+import { useToast } from "@chakra-ui/react";
 
 const Login = () => {
   const schema: ZodType<LoginStateInterface> = z.object({
@@ -27,31 +28,42 @@ const Login = () => {
 
   const dispatch: Dispatch<Action<string>> = useDispatch();
 
+  const toast = useToast();
+
   const handleSignin = (data: LoginStateInterface) => {
     // console.log(data);
 
     // dispatch(login(data));
 
-    dispatch(loginLoading());
+    const SignInPromise = new Promise((resolve, reject) => {
+      dispatch(loginLoading());
 
-    axios
-      .post(`https://staybnb-server.onrender.com/login`, data)
-      .then((response) => {
-        if (response.status === 200) {
+      axios
+        .post(`https://staybnb-server.onrender.com/login`, data)
+        .then((response) => {
           const responseData = response.data;
+
           console.log(responseData);
+
           dispatch(loginSuccess(responseData.user));
-        } else {
+
+          resolve("success");
+        })
+        .catch((error) => {
+          console.log(error);
           dispatch(loginError());
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-        dispatch(loginError());
-      });
+          reject();
+        });
+    });
+
+    toast.promise(SignInPromise, {
+      success: { title: "Promise resolved", description: "Looks great" },
+      error: { title: "Promise rejected", description: "Something wrong" },
+      loading: { title: "Promise pending", description: "Please wait" },
+    });
   };
 
-  const store = useSelector<RootStateType, AuthReducerType>(
+  const store: AuthReducerType = useSelector<RootStateType, AuthReducerType>(
     (store) => store.auth
   );
 
