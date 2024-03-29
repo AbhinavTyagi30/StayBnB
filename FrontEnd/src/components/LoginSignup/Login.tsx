@@ -7,7 +7,9 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { AuthReducerType } from "../../utils/authReducerType";
 import { RootStateType } from "../../utils/RootStateType";
-import { login } from "../../redux/action";
+import { loginError, loginLoading, loginSuccess } from "../../redux/action";
+import { Action, Dispatch } from "redux";
+import axios from "axios";
 
 const Login = () => {
   const schema: ZodType<LoginStateInterface> = z.object({
@@ -23,12 +25,30 @@ const Login = () => {
     resolver: zodResolver(schema),
   });
 
-  const dispatch = useDispatch();
+  const dispatch: Dispatch<Action<string>> = useDispatch();
 
   const handleSignin = (data: LoginStateInterface) => {
     // console.log(data);
 
-    dispatch(login(data));
+    // dispatch(login(data));
+
+    dispatch(loginLoading());
+
+    axios
+      .post(`https://staybnb-server.onrender.com/login`, data)
+      .then((response) => {
+        if (response.status === 200) {
+          const responseData = response.data;
+          console.log(responseData);
+          dispatch(loginSuccess(responseData.user));
+        } else {
+          dispatch(loginError());
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        dispatch(loginError());
+      });
   };
 
   const store = useSelector<RootStateType, AuthReducerType>(
