@@ -31,6 +31,7 @@ const Signup = () => {
   });
 
   const handleSignup = (data: SignupStateInterface) => {
+    console.log("login");
     console.log(data);
   };
 
