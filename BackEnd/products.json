@@ -1,5 +1,4 @@
-{
-  "property" : 
+{  "property" : 
 [
     {
     "id":"8450130",
@@ -2339,16 +2338,6 @@
         "https://a0.muscache.com/im/pictures/8de09f37-0cce-4da4-a964-4ad80acee7d9.jpg?im_w=720"
         ]
     }
-    ],
+    ]
 
-  "users": [
-    {
-      "email": "admin@admin.com",
-      "password": "$2a$10$p8d3G8UFsSq6oNtPUpY1oe7beq4S/tJKlStKfkKv0.qRwa7InOZn6",
-      "name": "Admin",
-      "favorite": [],
-      "isAdmin": true,
-      "id": "1"
-    }
-  ]
 }
