@@ -1,53 +1,7 @@
-// import { AuthActionType } from "../utils/authActionType";
-// import { AuthReducerType } from "../utils/authReducerType";
-// import { AuthStateType } from "../utils/authStateType";
-
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { AuthStateType, UserStateType } from "../utils/authStateType";
 import { LoginStateInterface } from "../utils/LoginStateInterface";
 import axios from "axios";
-
-// import { LOGIN_ERROR, LOGIN_LOADING, LOGIN_SUCCESS } from "./actionTypes";
-
-// //initial authState
-// const initialAuthState: AuthStateType = {
-//   isAuth: false,
-//   user: {
-//     email: "",
-//     password: "",
-//     name: "",
-//     favorite: [],
-//     isAdmin: false,
-//     id: "",
-//   },
-//   isError: false,
-//   isLoading: false,
-// };
-
-// // AuthReducer
-// export const authReducer: AuthReducerType = (
-//   state: AuthStateType = initialAuthState,
-//   { type, payload }: AuthActionType
-// ) => {
-//   switch (type) {
-//     case LOGIN_LOADING:
-//       return { ...state, isLoading: true, isError: false };
-
-//     case LOGIN_ERROR:
-//       return { ...state, isLoading: false, isError: true };
-
-//     case LOGIN_SUCCESS:
-//       return {
-//         ...state,
-//         isLoading: false,
-//         isError: false,
-//         isAuth: true,
-//         user: { ...state.user, ...payload },
-//       };
-//     default:
-//       return state;
-//   }
-// };
 
 //initial authState
 const initialState: AuthStateType = {
@@ -64,27 +18,14 @@ const initialState: AuthStateType = {
   isLoading: false,
 };
 
+export { initialState as authInitialState };
+
 // AuthReducer
 
 const authReducer = createSlice({
   name: "auth",
   initialState,
-  reducers: {
-    // loginLoading: (state) => {
-    //   state.isLoading = true;
-    //   state.isError = false;
-    // },
-    // loginError: (state) => {
-    //   state.isLoading = false;
-    //   state.isError = true;
-    // },
-    // loginSuccess: (state, action: PayloadAction<UserStateType>) => {
-    //   state.isLoading = false;
-    //   state.isError = false;
-    //   state.isAuth = true;
-    //   state.user = action.payload;
-    // },
-  },
+  reducers: {},
 
   extraReducers: (builder) => {
     builder
@@ -95,8 +36,8 @@ const authReducer = createSlice({
       })
       .addCase(loginAsync.rejected, (state) => {
         console.log("inError");
-        state.isLoading = false;
         state.isError = true;
+        state.isLoading = false;
       })
       .addCase(
         loginAsync.fulfilled,
@@ -125,7 +66,5 @@ export const loginAsync = createAsyncThunk(
     return responseData?.user;
   }
 );
-
-// export const { loginLoading, loginError, loginSuccess } = authReducer.actions;
 
 export default authReducer.reducer;

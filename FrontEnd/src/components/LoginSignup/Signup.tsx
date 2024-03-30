@@ -32,8 +32,6 @@ const Signup = () => {
 
   const handleSignup = (data: SignupStateInterface) => {
     console.log(data);
-
-    // dispatch(signup(data));
   };
 
   return (

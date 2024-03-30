@@ -5,15 +5,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { LoginStateInterface } from "../../utils/LoginStateInterface";
 import { useDispatch, useSelector } from "react-redux";
 
-// import { AuthReducerType } from "../../utils/authReducerType";
-// import { RootStateType } from "../../utils/RootStateType";
-// import { loginError, loginLoading, loginSuccess } from "../../redux/action";
-// import { Action, Dispatch } from "redux";
-// import axios from "axios";
-// import { useToast } from "@chakra-ui/react";
+import { useToast } from "@chakra-ui/react";
 import { loginAsync } from "../../redux/authReducer";
 import { AppDispatch, RootState } from "../../redux/store";
 import { Button } from "@chakra-ui/react";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const schema: ZodType<LoginStateInterface> = z.object({
@@ -31,57 +28,50 @@ const Login = () => {
 
   const loginStore = useSelector((store: RootState) => store.auth);
 
+  const navigate = useNavigate();
+
+  const toast = useToast();
+
+  useEffect(() => {
+    // console.log("re-rendring");
+    console.log(loginStore);
+
+    if (loginStore.isAuth) {
+      navigate("/");
+    }
+
+    if (loginStore.isError) {
+      toast({
+        title: `Error`,
+        position: "top-right",
+        isClosable: true,
+        description: "Something went wrong",
+        status: "error",
+        duration: 5000,
+      });
+    }
+
+    if (loginStore.isAuth) {
+      toast({
+        title: `Success`,
+        position: "top-right",
+        isClosable: true,
+        description: "Login success",
+        status: "success",
+        duration: 5000,
+      });
+    }
+  }, [loginStore.isAuth, loginStore.isError]);
+
   const dispatch = useDispatch<AppDispatch>();
 
   // const toast = useToast();
 
   const handleSignin = (data: LoginStateInterface) => {
     console.log("login");
+    console.log(data);
     dispatch(loginAsync(data));
   };
-
-  // console.log(loginStore);
-
-  // const dispatch: Dispatch<Action<string>> = useDispatch();
-
-  // const toast = useToast();
-
-  // const handleSignin = (data: LoginStateInterface) => {
-  //   // dispatch(login(data));
-
-  //   const SignInPromise = new Promise((resolve, reject) => {
-  //     dispatch(loginLoading());
-
-  //     axios
-  //       .post(`https://staybnb-server.onrender.com/login`, data)
-  //       .then((response) => {
-  //         const responseData = response.data;
-
-  //         console.log(responseData);
-
-  //         dispatch(loginSuccess(responseData.user));
-
-  //         resolve("success");
-  //       })
-  //       .catch((error) => {
-  //         console.log(error);
-  //         dispatch(loginError());
-  //         reject();
-  //       });
-  //   });
-
-  //   toast.promise(SignInPromise, {
-  //     success: { title: "Promise resolved", description: "Looks great" },
-  //     error: { title: "Promise rejected", description: "Something wrong" },
-  //     loading: { title: "Promise pending", description: "Please wait" },
-  //   });
-  // };
-
-  // const store: AuthReducerType = useSelector<RootStateType, AuthReducerType>(
-  //   (store) => store.auth
-  // );
-
-  // console.log(store);
 
   return (
     <div className="signin-form">

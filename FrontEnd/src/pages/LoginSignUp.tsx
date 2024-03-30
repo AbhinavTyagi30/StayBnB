@@ -3,12 +3,12 @@ import "../styles/LoginSignup/css/style.css";
 
 import signin_image from "../assets/signin-image.jpg";
 import signup_image from "../assets/signup-image.jpg";
-import { useRef } from "react";
+import { FC, useRef } from "react";
 
 import { Signup } from "../components/LoginSignup/Signup";
 import { Login } from "../components/LoginSignup/Login";
 
-const LoginSignUp = () => {
+const LoginSignUp: FC = () => {
   const signin = useRef<HTMLElement>(null);
 
   const signup = useRef<HTMLElement>(null);
