@@ -34,12 +34,12 @@
     text-align: center;
   }
   .form-submit {
-    display: inline-block;
+    // display: inline-block;
     background: $airbnb-primary-color;
     color: #fff;
-    border-bottom: none;
-    width: auto;
-    padding: 15px 39px;
+    // border-bottom: none;
+    // width: auto;
+    // padding: 15px 39px;
     @include border-radius(3rem);
     margin-top: 25px;
     cursor: pointer;
@@ -221,6 +221,7 @@
     position: relative;
     top: 0%;
     @include transform(translateY(0));
+    font-size: 14px;
   }
   .material-icons-name {
     font-size: 18px;

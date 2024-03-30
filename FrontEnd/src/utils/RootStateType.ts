@@ -1,5 +1,5 @@
-import { AuthReducerType } from "./authReducerType";
+// import { AuthReducerType } from "./authReducerType";
 
-export interface RootStateType {
-  auth: AuthReducerType;
-}
+// export interface RootStateType {
+//   auth: AuthReducerType;
+// }
