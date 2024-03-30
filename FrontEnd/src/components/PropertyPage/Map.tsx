@@ -5,8 +5,8 @@ const Map = () => {
     const googleMapsApiKey = 'AIzaSyDrJyW7ZQyuXHg2hkCrCUtIDwbyzBkV7_E'; 
     const mapCenter = '28.7041,77.1025';  
   return (
-    <Box width="100%" mt={4} mb={4}>
-      <Heading m={"1.5%"} fontSize={"xx-large"}>Map</Heading>
+    <Box width="100%" mt={4} mb={4} >
+      <Heading m={"1.5%"} fontWeight={"500"} fontSize={"x-large"}>Where you'll be</Heading>
     <AspectRatio ratio={16 / 9}>
       <Box
         as="iframe"

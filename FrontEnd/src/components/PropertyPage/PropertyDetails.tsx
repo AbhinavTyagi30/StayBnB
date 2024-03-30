@@ -1,27 +1,77 @@
-import { Box, Button, Divider, Flex, GridItem, Image, ListItem, Modal, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay, Text, UnorderedList } from "@chakra-ui/react"
-import { useState } from "react";
+import { Avatar, Box, Button, Divider, Flex, FormLabel, Grid, GridItem, Heading, Image, Input, ListItem, Modal, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay, Select, Spacer, Text, UnorderedList } from "@chakra-ui/react"
+import { useEffect, useState } from "react";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import Map from "./Map";
+import { PropertyData } from "../../utils/propertyData";
+import { useToast } from '@chakra-ui/react'
 
+interface PropertyDetailsProps {
+  propertyData: PropertyData;
+}
 
-const PropertyDetails = () => {
+const PropertyDetails: React.FC<PropertyDetailsProps> = ({ propertyData })=> {
     const [isOpenShow, setIsOpenShow] = useState(false);
     const [isOpenAmenity, setIsOpenAmenity] = useState(false);
+    const [guests, setGuests] = useState(false);
+    const [adult , setAdult] = useState(1);
+    const [children , setChildren] = useState(0);
+    const [infants, setInfants] = useState(0)
+    const [pets, setPets] = useState(0);
 
-    const [selectedDate, setSelectedDate] = useState<Date | null>(null);
-   const handleDateChange = (date: Date | null) => {
-    setSelectedDate(date);
-  };
+    const [stayNights, setStayNights] = useState(1);
+
+
+    const cleaningFee = propertyData.price/10
+    const totalpriceBeforeTax = propertyData.price*stayNights;
+    // const totalprice = propertyData.price*stayNights+cleaningFee;
+    const toast = useToast() 
+
+    const [checkinDate, setCheckinDate] = useState<Date | null>(null);
+    const [checkoutDate, setCheckoutDate] = useState<Date | null>(null);
+    const handleCheckinDateChange = (date: Date | null) => {
+      setCheckinDate(date)
+      };
+      const handleCheckoutDateChange = (date: Date | null) => {
+        setCheckoutDate(date)
+        }; 
+
+        // night stay
+        const calculateDateDifference = (startDate: Date | null, endDate: Date | null): number | null => {
+          if (startDate && endDate) {
+            const differenceMs = Math.abs(endDate.getTime() - startDate.getTime());
+            const differenceDays = Math.ceil(differenceMs / (1000 * 60 * 60 * 24));
+            setStayNights(differenceDays)
+            return differenceDays;
+          } else {
+            return null;
+          }
+        };
+        
+        // const differenceInDays = calculateDateDifference(checkinDate, checkoutDate);
+        //   console.log(differenceInDays);
+          
+        useEffect(()=>{
+          calculateDateDifference(checkinDate, checkoutDate);
+          const differenceInDays = calculateDateDifference(checkinDate, checkoutDate);
+          console.log(differenceInDays);
+
+        },[checkinDate, checkoutDate])
+
   return (
     <>
-   <Box mt="2%" mb="2%" w="60%">
-   <Divider borderColor="black" />
+   <Box mt="2%" mb="2%" >
+
+   
+    <Flex gap={"5%"}>
+      <Box >
+      <Divider borderColor="black" />
       <Box  mt="4" mb={4}>
       <Flex  gap="4">
-        <Image rounded="50%" h={10} w={10}  src="https://a0.muscache.com/im/pictures/user/3bfbab33-1472-4e5a-9844-c606864840f8.jpg?im_w=240"  alt="Profile Picture" />
+      <Avatar rounded="50%" h={10} w={10} name= {propertyData.host_name} src={propertyData.host_picture_url} />
+        
         <Box>
-          <Text color={"grey.400"} fontSize={['sm', 'sm', 'md', 'lg']}>hosted by Rahul</Text>
+          <Text color={"grey.400"} fontWeight={"500"} fontSize={['sm', 'md', 'lg', 'xl']}>Hosted by {propertyData.host_name}</Text>
           <Text color="gray.600">8 years of hosting</Text>
         </Box>
       </Flex>
@@ -49,82 +99,49 @@ const PropertyDetails = () => {
       </GridItem>
     <Divider borderColor="black" />
       <Box  mt="4" mb={4} color={"grey.400"} fontSize={['sm', 'sm', 'md', 'lg']}>
-        <Text>
-          ★ You'll be taken care of by one of the most successful Airbnb
-          hosts in the country.
+      <Text color={"grey.400"} fontWeight={"500"} fontSize={['sm', 'md', 'lg', 'xl']}>
+      About this place
+      </Text>
+      <Text>
+      { `${propertyData.description.split(' ').slice(0, 100).join(' ')}...`}
+         
         </Text>
-        <Text>
-          ★ The treehouse is nestled in the Himalayan subtropical pine
-          forests. It is made keeping in mind to provide a comfortable and
-          memorable stay to travelers seeking a break from the hustle of
-          city life. The house is cozy both in winter and summer. It has a
-          360-degree view of the greater Himalayas.
-        </Text>
-        <Text color={"grey.400"} fontSize={['sm', 'sm', 'md', 'lg']}>...</Text>
+        
         <Text as="span" cursor="pointer" mt="4" color="black" textDecoration="underline" 
         onClick={() => setIsOpenShow(prev => !prev)}
         >
           Show more
         </Text>   
       </Box>
-    <Divider borderColor="black" />
-    <Modal isOpen={isOpenShow} onClose={() => setIsOpenShow(prev => !prev)}>
+    <Divider mb={2} borderColor="black" />
+        <Modal isOpen={isOpenShow} onClose={() => setIsOpenShow(prev => !prev)} >
               <ModalOverlay />
               <ModalContent>
                 <ModalHeader>About this space</ModalHeader>
                 <ModalCloseButton />
-                <ModalBody gap={100}>
+                <ModalBody overflowY="scroll" maxH="60vh">
                   <Text>
-                    ★ You'll be taken care of by one of the most successful
-                    Airbnb hosts in the country.
-                  </Text>
-                  <Text>
-                    ★ The treehouse is nestled in the Himalayan subtropical pine
-                    forests. It is made keeping in mind to provide a comfortable
-                    and memorable stay to travelers seeking a break from the
-                    hustle of city life. The house is cozy both in winter and
-                    summer. It has a 360-degree view of the greater Himalayas.
-                    </Text>
-                  <Text>
-                    ★ We have the best food in the Jibhi and the best view in
-                    the town.
-                    </Text>
-                  <Text>
-                    ★ Our cottage is located in the beautiful Tandi village of
-                    Banjar Valley offering a 360 degrees view of the mighty
-                    Himalayas.
-                    </Text>
-                  <Text>
-                    ★ We have designed our cottages without disturbing the pine
-                    forests and made them an integral part of our interiors.
-                    </Text>
-                  <Text>
-                    ★ You will experience the warmth of Himachali culture and
-                    hospitality here.
-                    </Text>
-                  <Text>
-                    ★ Designed with much love and care, we accommodate 1 double
-                    bedroom and an attic with double and single beds.
+                   {propertyData.description}
                     </Text>
                 </ModalBody>
               </ModalContent>
-            </Modal>
+        </Modal>
 
-        <Box h={300}  overflow={"hidden"}>
-            <Text color={"grey.400"} fontWeight={"bold"} fontSize={['sm', 'sm', 'md', 'lg']}>
+        <Box h={300}  overflow={"hidden"}pb={"2%"}>
+            <Text color={"grey.400"}  fontWeight={"500"} fontSize={['sm', 'md', 'lg', 'xl']}>
               Where you'll sleep
             </Text>
          <Flex gap={5} m="1%" fontSize={['sm', 'sm', 'md', 'lg']} >
-            <Box m={"1%"}>
+            <Box m={"1%"} >
               <Image h="40%" w="100%" borderRadius={10} transition="all 0.3s ease" _hover={{transform: 'scale(1.05)'}} src="https://a0.muscache.com/im/pictures/06c339b1-0b56-4357-8900-cd841149b5b7.jpg?im_w=480" alt={`Room-Image`} />
                 <Box m="1.5%">
-                    <Text >bedroom 1</Text>
-                    <Text>1 double bed,1 floor matress</Text>
+                    <Text >bedroom {propertyData.bedrooms}</Text>
+                    <Text>{propertyData.beds} double bed,1 floor matress</Text>
                 </Box>
             </Box>
 
-            <Box m={"1%"}>
-              <Image h="40%"  w="100%" borderRadius={10} transition="all 0.3s ease" _hover={{transform: 'scale(1.05)'}} src="https://a0.muscache.com/im/pictures/06c339b1-0b56-4357-8900-cd841149b5b7.jpg?im_w=480" alt={`Room-Image`} />
+            <Box m={"1%"} mb={3}>
+              <Image h="40%"  w="100%" borderRadius={10} transition="all 0.3s ease" _hover={{transform: 'scale(1.05)'}} src="https://a0.muscache.com/im/pictures/f75a6ceb-b36e-4c37-93b1-8e87f1843f19.jpg?im_w=480" alt={`Room-Image`} />
                 <Box m="1.5%">
                 <Text>bedroom 2</Text>
                 <Text>1 double bed,1 floor matress</Text>
@@ -134,20 +151,20 @@ const PropertyDetails = () => {
          </Flex>
         </Box>
 
-        <Divider borderColor="black" />
+        <Divider mt={2} borderColor="black" />
 
         <Box  m={4}>
            
-            <Text color={"grey.400"} fontSize={['sm', 'sm', 'md', 'lg']} >
+            <Text color={"grey.400"}  fontWeight={"500"} fontSize={['sm', 'md', 'lg', 'xl']} >
               What this place offers
             </Text>
-            <UnorderedList >    
-                <ListItem>amenity</ListItem>
-                <ListItem>amenity</ListItem>      
-                <ListItem>amenity</ListItem>  
+            <UnorderedList gap={2}>    
+                <ListItem>Lock on bedroom door</ListItem>
+                <ListItem>Garden view</ListItem>      
+                <ListItem>Dedicated workspace</ListItem>  
             </UnorderedList>
            
-            <Button p={1.5} m={1}
+            <Button p={2} m={2}
               onClick={() => setIsOpenAmenity(prev => !prev)}
             >
               Show all Amenities
@@ -158,10 +175,13 @@ const PropertyDetails = () => {
                 <ModalHeader>Amenities</ModalHeader>
                 <ModalCloseButton />
                 <ModalBody>
-                <UnorderedList >    
+                <UnorderedList >
+                <ListItem>Lock on bedroom door</ListItem>  
+                <ListItem>Garden view</ListItem>  
+                <ListItem>Dedicated workspace</ListItem>    
                 <ListItem>Shared Kitchen</ListItem>
                 <ListItem>Laundry Facilities</ListItem>      
-                <ListItem>Common Lounge</ListItem>  
+                <ListItem>Common Lounge</ListItem>                    
                   </UnorderedList>
                 </ModalBody>
               </ModalContent>
@@ -169,26 +189,172 @@ const PropertyDetails = () => {
           </Box>
           <Divider borderColor="black" />
 
-          <Box color={"grey.400"} mt={4} mb={4}  fontSize={['sm', 'sm', 'md', 'lg']}>
+          {/* checkin && checkout */}
+
+          <Box color={"grey.400"}  mt={4} mb={4}  fontSize={['sm', 'sm', 'md', 'lg']}>
            
-            <Text fontWeight={"bold"} >Select check-in date</Text>
-            <Text>Add your travel dates for exact pricing</Text>
-            <Flex gap="15%" m="2%">
+            <Text fontWeight={"500"} fontSize={['sm', 'md', 'lg', 'xl']}  >Select check-in date</Text>
+            <Text fontSize={"large"}>Add your travel dates for exact pricing</Text>
+            <Flex gap="12%" m="2%">
               <Box  >
-                <Text>Check-in Date:</Text>
+                <Text ml={2} fontWeight={500} fontSize={"medium"}>Check-in Date:</Text>
                
-                <DatePicker selected={selectedDate} onChange={handleDateChange} inline />
+                <DatePicker  selected={checkinDate}  onChange={handleCheckinDateChange} inline />
               </Box>
               
-              <Box >
-                <Text>Check-out Date:</Text>
-                <DatePicker selected={selectedDate} onChange={handleDateChange} inline />
+              <Box>
+                <Text ml={2}  fontWeight={500} fontSize={"medium"}>Check-out Date:</Text>
+                <DatePicker  selected={checkoutDate} onChange={handleCheckoutDateChange} inline />
               </Box>
             </Flex>
       </Box>
       <Divider borderColor="black" />
+
+      </Box>
       
+      <Box >
+         {/* Sticky */}
+   <Box  boxShadow="10px 10px 10px 10px rgba(0, 0, 0, 0.1)"  
+   borderRadius={10}
+   p={"4%"}
+   
+   w={400}
+    position="sticky"
+    top="0"
+    
+    zIndex="sticky"
+    
+    >
+        <Flex  gap={{ base: "3%", md: "4%" }}>
+        <Heading fontWeight={"500"}  >${propertyData.price}</Heading>
+        
+        <Heading color={"grey"} fontWeight={"500"}  fontSize={['sm', 'md', 'lg', 'xl']}>night</Heading>
+        </Flex>
+
+        <Flex gap={"2%"}>
+          <Box>
+            <FormLabel ml={2} fontSize={['sm', 'sm', 'md', 'md']}>Check-in Date:</FormLabel>
+            <Box p={0.3} border="1px solid black">
+            <DatePicker
+             
+                selected={checkinDate}
+                onChange={handleCheckinDateChange}
+                placeholderText="  Check-in Date"
+              /></Box>
+          </Box>
+            
+          <Box>
+          <FormLabel ml={2} fontSize={['sm', 'sm', 'md', 'md']}>Check-out Date:</FormLabel>
+          <Box p={0.3} border="1px solid black" >
+          <DatePicker
+        selected={checkoutDate}
+        onChange={handleCheckoutDateChange}
+        placeholderText="  Check-in Date"
+      /></Box>
+
+          </Box>
+        </Flex>
+      <Select  mt={2} mb={2}  placeholder="Guests" onClick={()=>setGuests((prev)=>!prev)} >
+        
+      </Select>
+      {guests && 
+      <GridItem m={2} mt={6} borderRadius={10} borderWidth={0.5} borderColor="gray">
+          <Flex m={2}>
+            <Box>
+              <Text color={"grey.400"} fontWeight={"bold"} fontSize={['sm', 'sm', 'md', 'md']}>Adults</Text>
+              <Text color={"grey"} fontSize={['sm', 'sm', 'md', 'md']}>Age 13+</Text>
+            </Box>
+            <Spacer/>
+            <Box >
+            <Button borderRadius={"50%"} onClick={() => setAdult(prev => Math.max(prev - 1, 1))} disabled={adult <= 1} opacity={adult <= 1 ? 0.1 : 1}>-</Button>
+              <Input ml={2} mr={2} w={10} p={1} type="number" value={adult} />
+                <Button borderRadius={"50%"} onClick={() => setAdult(prev => Math.min(prev + 1, 3))} disabled={adult >= 3} opacity={children >= 3 ? 0.1 : 1}>+</Button>
+            </Box>
+          </Flex>
+
+          <Flex m={2}>
+            <Box>
+              <Text color={"grey.400"} fontWeight={"bold"} fontSize={['sm', 'sm', 'md', 'md']}>Children</Text>
+              <Text color={"grey"} fontSize={['sm', 'sm', 'md', 'md']}>Ages 2-12</Text>
+            </Box>
+            <Spacer/>
+            <Box >
+              <Button borderRadius={"50%"} onClick={() => setChildren(prev => Math.max(prev - 1, 0))} disabled={children <= 0} opacity={children <= 0 ? 0.1 : 1}>-</Button>
+              <Input ml={2} mr={2} w={10} p={1} type="number" value={children} />
+                <Button borderRadius={"50%"} onClick={() => setChildren(prev => Math.min(prev + 1, 2))} disabled={children >= 2} opacity={children >= 2 ? 0.1 : 1}>+</Button>
+            </Box>
+          </Flex>
+
+          <Flex m={2}>
+              <Box>
+                  <Text color={"grey.400"} fontWeight={"bold"} fontSize={['sm', 'sm', 'md', 'md']}>Infants</Text>
+                  <Text color={"grey"} fontSize={['sm', 'sm', 'md', 'md']}>Under 2</Text>
+              </Box>
+              <Spacer/>
+              <Box>
+                <Button borderRadius={"50%"} onClick={() => setInfants(prev => Math.max(prev - 1, 0))} disabled={infants <= 0} opacity={infants <= 0 ? 0.1 : 1}>-</Button>
+              <Input ml={2} mr={2} w={10} p={1} type="number" value={infants} />
+                <Button borderRadius={"50%"} onClick={() => setInfants(prev => Math.min(prev + 1, 5))} disabled={infants >= 5} opacity={infants >= 5 ? 0.1 : 1}>+</Button>
+              </Box>
+          </Flex>
+
+          <Flex m={2}>
+            <Box>
+              <Text color={"grey.400"} fontWeight={"bold"} fontSize={['sm', 'sm', 'md', 'md']}>Pets</Text>
+            </Box>
+            <Spacer/>
+            <Box >
+            <Button borderRadius={"50%"} onClick={() => setPets(prev => Math.max(prev - 1, 0))} disabled={pets <= 0} opacity={pets <= 0 ? 0.1 : 1}>-</Button>
+              <Input ml={2} mr={2} p={1} w={10} type="number" value={pets}/>
+              <Button borderRadius={"50%"} onClick={() => setPets(prev => Math.min(prev + 1, 4))} disabled={pets >= 4} opacity={pets >= 4 ? 0.1 : 1} >+</Button>
+            </Box>
+          </Flex>
+          <Text m={2}  color={"grey"} fontSize={"small"}>
+            This place has a maximum of 4 guests, not including infants. If you're bringing more than 2 pets, please let your Host know.
+          </Text>
+          <Text m={4}  textAlign="right" fontWeight={"bold"} fontSize={['sm', 'sm', 'md', 'md']} textDecor={"underline"} 
+          onClick={()=>setGuests((prev)=>!prev)}
+          >
+            Close
+          </Text>
+          
+        </GridItem>
+       
+          }
+          <Button w={"100%"} p={6} colorScheme="red" color={"white"} fontSize={"large"}>Reserve</Button>
+          <Text textAlign={"center"} m={2}  color={"grey"} fontSize={"small"}>
+              You won't be charged yet
+          </Text>
+          
+          <Grid gap={2}>
+          <Flex color={"grey.400"} fontSize={['sm', 'sm', 'md', 'md']} >
+            <Text>${propertyData.price} x {stayNights} night</Text>
+            <Spacer/>
+            <Text>${totalpriceBeforeTax}</Text>
+          </Flex>
+          <Flex>
+            <Text cursor="pointer" textDecor={"underline"} onClick={() =>
+        toast({
+          title: 'Cleaning fee.',
+          description: "One-time fee charged by host to cover the cost of cleaning their space.",
+          status: 'success',
+          duration: 9000,
+          isClosable: true,
+        })
+      }>Cleaning fee</Text>
+            <Spacer/>
+            <Text>${cleaningFee}</Text>
+          </Flex>
+          </Grid>
+      </Box>
+      
+      {/* Sticky -End */}
+      </Box>
+    </Flex>
+          
+
    </Box>
+   
    <Map/>
    </>
 
