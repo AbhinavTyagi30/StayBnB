@@ -9,7 +9,6 @@ export const AllRoutes = () => {
       <Route path="/" element={<Home />} />
       <Route path="/property" element={<Property/>} />
       <Route path="/admin" element={<Admin/>} />
-
     </Routes>
   );
 };
