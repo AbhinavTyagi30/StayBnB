@@ -1,7 +1,8 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { AuthStateType, UserStateType } from "../utils/authStateType";
+import { AuthStateType } from "../utils/authStateType";
 import { LoginStateInterface } from "../utils/LoginStateInterface";
 import axios from "axios";
+import { UserStateType } from "../utils/userStateType";
 
 //initial authState
 const initialState: AuthStateType = {
