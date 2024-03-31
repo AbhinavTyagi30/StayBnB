@@ -1,14 +1,4 @@
-import {
-  Box,
-  Button,
-  Flex,
-  FormControl,
-  FormLabel,
-  Image,
-  Show,
-  Switch,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Flex, Image, Show, Switch, Text } from "@chakra-ui/react";
 import { filterImageLinks } from "../../assets/filter image/filterImage";
 import { useState } from "react";
 
