@@ -1,13 +1,4 @@
-import { PropertyInterface } from "./propertyInterface";
-
-export interface UserStateType {
-  email: string;
-  password: string;
-  name: string;
-  favorite: PropertyInterface[];
-  isAdmin: boolean;
-  id: string;
-}
+import { UserStateType } from "./userStateType";
 
 export interface AuthStateType {
   isAuth: boolean;
