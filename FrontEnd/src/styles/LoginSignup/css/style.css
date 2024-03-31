@@ -1,18 +1,17 @@
-/* @extend display-flex; */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-display-flex, .login-signup-main .socials, .login-signup-main .social-login, .login-signup-main .signin-content, .login-signup-main .signup-content, .login-signup-main .display-flex-center, .login-signup-main .display-flex {
+.login-signup-main {
+  /* @extend display-flex; */
+  /* @extend list-type-ulli; */
+}
+.login-signup-main display-flex, .login-signup-main .socials, .login-signup-main .social-login, .login-signup-main .signin-content, .login-signup-main .signup-content, .login-signup-main .display-flex-center, .login-signup-main .display-flex {
   display: flex;
   display: -webkit-flex;
 }
-
-/* @extend list-type-ulli; */
-list-type-ulli, .login-signup-main .socials {
+.login-signup-main list-type-ulli, .login-signup-main .socials {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
-
 .login-signup-main a:focus,
 .login-signup-main a:active {
   text-decoration: none;
@@ -149,7 +148,6 @@ list-type-ulli, .login-signup-main .socials {
   -o-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
 }
-
 .login-signup-main .signup {
   display: none;
 }
@@ -449,21 +447,20 @@ list-type-ulli, .login-signup-main .socials {
   margin-right: 20px;
   margin-top: 10px;
 }
-
 @media screen and (max-width: 1200px) {
-  .container {
+  .login-signup-main .container {
     width: calc(100% - 30px);
     max-width: 100%;
   }
 }
 @media screen and (min-width: 1024px) {
-  .container {
+  .login-signup-main .container {
     max-width: 1200px;
   }
 }
 @media screen and (max-width: 768px) {
-  .signup-content,
-  .signin-content {
+  .login-signup-main .signup-content,
+  .login-signup-main .signin-content {
     flex-direction: column;
     -moz-flex-direction: column;
     -webkit-flex-direction: column;
@@ -475,14 +472,14 @@ list-type-ulli, .login-signup-main .socials {
     -o-justify-content: center;
     -ms-justify-content: center;
   }
-  .signup-form {
+  .login-signup-main .signup-form {
     margin-left: 0px;
     margin-right: 0px;
     padding-left: 0px;
     /* box-sizing: border-box; */
     padding: 0 30px;
   }
-  .signin-image {
+  .login-signup-main .signin-image {
     margin-left: 0px;
     margin-right: 0px;
     margin-top: 50px;
@@ -492,27 +489,27 @@ list-type-ulli, .login-signup-main .socials {
     -o-order: 2;
     -ms-order: 2;
   }
-  .signup-form,
-  .signup-image,
-  .signin-form,
-  .signin-image {
+  .login-signup-main .signup-form,
+  .login-signup-main .signup-image,
+  .login-signup-main .signin-form,
+  .login-signup-main .signin-image {
     width: auto;
   }
-  .signup-image > figure,
-  .signin-image > figure {
+  .login-signup-main .signup-image > figure,
+  .login-signup-main .signin-image > figure {
     display: none;
   }
-  .social-login {
+  .login-signup-main .social-login {
     justify-content: center;
     -moz-justify-content: center;
     -webkit-justify-content: center;
     -o-justify-content: center;
     -ms-justify-content: center;
   }
-  .form-button {
+  .login-signup-main .form-button {
     text-align: center;
   }
-  .signin-form {
+  .login-signup-main .signin-form {
     order: 1;
     -moz-order: 1;
     -webkit-order: 1;
@@ -522,19 +519,19 @@ list-type-ulli, .login-signup-main .socials {
     margin-left: 0px;
     padding: 0 30px;
   }
-  .form-title {
+  .login-signup-main .form-title {
     text-align: center;
   }
 }
 @media screen and (max-width: 400px) {
-  .social-login {
+  .login-signup-main .social-login {
     flex-direction: column;
     -moz-flex-direction: column;
     -webkit-flex-direction: column;
     -o-flex-direction: column;
     -ms-flex-direction: column;
   }
-  .social-label {
+  .login-signup-main .social-label {
     margin-right: 0px;
     margin-bottom: 10px;
   }

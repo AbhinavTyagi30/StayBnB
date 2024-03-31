@@ -3,6 +3,13 @@ import { useForm } from "react-hook-form";
 import { SignupStateInterface } from "../../utils/SignupStateInterface";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { signupAsync } from "../../redux/signupReducer";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../redux/store";
+import { UserStateType } from "../../utils/userStateType";
+import { Button, useToast } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const Signup = () => {
   const schema: ZodType<SignupStateInterface> = z
@@ -30,8 +37,56 @@ const Signup = () => {
     resolver: zodResolver(schema),
   });
 
+  const signupStore = useSelector((store: RootState) => store.signup);
+
+  const navigate = useNavigate();
+
+  const toast = useToast();
+
+  useEffect(() => {
+    if (signupStore.isAuth) {
+      navigate("/");
+    }
+
+    if (signupStore.isError) {
+      toast({
+        title: `Error`,
+        position: "top-right",
+        isClosable: true,
+        description: "Something went wrong",
+        status: "error",
+        duration: 5000,
+      });
+    }
+
+    if (signupStore.isAuth) {
+      toast({
+        title: "Account created.",
+        description: "We've created your account for you.",
+        status: "success",
+        position: "top-right",
+        isClosable: true,
+        duration: 5000,
+      });
+    }
+  }, [signupStore.isAuth, signupStore.isError]);
+
+  const dispatch = useDispatch<AppDispatch>();
+
   const handleSignup = (data: SignupStateInterface) => {
+    console.log("signup");
     console.log(data);
+
+    const userData: UserStateType = {
+      favorite: [],
+      isAdmin: false,
+      name: data.name,
+      email: data.email,
+      password: data.password,
+      id: "",
+    };
+
+    dispatch(signupAsync(userData));
   };
 
   return (
@@ -128,13 +183,26 @@ const Signup = () => {
           </label>
         )}
         <div className="form-group form-button">
-          <input
+          {/* <input
             type="submit"
             name="signup"
             id="signup"
             className="form-submit"
             value="Register"
-          />
+          /> */}
+
+          <Button
+            isLoading={signupStore.isLoading}
+            colorScheme="red"
+            loadingText="Signing Up"
+            variant="solid"
+            type="submit"
+            name="signup"
+            id="signup"
+            className="form-submit"
+          >
+            Register
+          </Button>
         </div>
       </form>
     </div>

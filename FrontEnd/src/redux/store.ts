@@ -9,10 +9,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 import authReducer from "./authReducer";
+import signupReducer from "./signupReducer";
 
 export const store = configureStore({
   reducer: {
     auth: authReducer,
+    signup: signupReducer,
   },
 });
 

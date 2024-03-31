@@ -1,7 +1,6 @@
-export interface SignupStateInterface {
-  name: string;
-  email: string;
-  password: string;
+import { UserBasicStateType } from "./userStateType";
+
+export interface SignupStateInterface extends UserBasicStateType {
   confirmPassword: string;
   agree_term: boolean;
 }
