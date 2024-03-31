@@ -34,7 +34,8 @@ const Login = () => {
 
   useEffect(() => {
     // console.log("re-rendring");
-    console.log(loginStore);
+
+    // console.log(loginStore);
 
     if (loginStore.isAuth) {
       navigate("/");
@@ -64,8 +65,6 @@ const Login = () => {
   }, [loginStore.isAuth, loginStore.isError]);
 
   const dispatch = useDispatch<AppDispatch>();
-
-  // const toast = useToast();
 
   const handleSignin = (data: LoginStateInterface) => {
     console.log("login");
