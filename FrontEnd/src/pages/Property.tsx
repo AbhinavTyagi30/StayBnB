@@ -1,6 +1,6 @@
 
-import { DownloadIcon, StarIcon } from "@chakra-ui/icons"
-import { Box, Button, Flex, Grid, GridItem, Image, ListItem, Modal, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay, Spacer, Text, UnorderedList } from "@chakra-ui/react"
+import { StarIcon } from "@chakra-ui/icons"
+import { Box, Button, Flex, Grid, GridItem, Image, ListItem, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Spacer, Text, UnorderedList, useClipboard, useToast } from "@chakra-ui/react"
 import PropertyDetails from "../components/PropertyPage/PropertyDetails"
 import { useEffect, useState } from "react"
 import axios from "axios"
@@ -13,9 +13,34 @@ import { PropertyData } from "../utils/propertyData"
 
 
 const Property = () => {
+  const toast = useToast();
     const [propertyData, setPropertyData] = useState<PropertyData | null>();
     const {id} = useParams();
     const [isOpen, setIsOpen] = useState(false);
+    const[save,setSaved] = useState(false);
+
+    const handleShare = () => {
+      navigator.clipboard.writeText(window.location.href)
+        .then(() => {
+          toast({
+            title: "URL Copied!",
+            status: "success",
+            duration: 3000,
+            isClosable: true,
+          });
+        })
+        .catch((error) => {
+          console.error('Could not copy text: ', error);
+          toast({
+            title: "Error",
+            description: "Could not copy URL to clipboard.",
+            status: "error",
+            duration: 3000,
+            isClosable: true,
+          });
+        });
+    };
+    
 
     const openModal = () => setIsOpen(true);
     const closeModal = () => setIsOpen(false);
@@ -32,7 +57,7 @@ const Property = () => {
             console.error('Error fetching data:', error);
           }
         };
-      
+        
         fetchData();
        
       }, [id]);
@@ -43,22 +68,32 @@ const Property = () => {
     {propertyData && 
     <Box ml="15%" mr="15%">
         <Flex m={2}>
-            <Text color={"grey.400"} fontWeight={"600"} fontSize={"x-large"}>{propertyData.name}</Text>
+            <Text color={"grey.400"} fontWeight={"600"} fontSize={{ base: "lg", md: "xl", lg: "2xl" }}>{propertyData.name}</Text>
             <Spacer/>
             <Flex gap={5}>
-            <Button >
-            <Text  textDecoration="underline" cursor="pointer" 
-            // onClick={handleShareClick} 
+            <Button textDecoration="underline" cursor="pointer" gap={1}
+            onClick={handleShare} 
             >
-               Share
+             <Image w={4}  src="https://cdn-icons-png.flaticon.com/128/3580/3580382.png" /> 
+            <Text>
+              Share
             </Text>
             </Button>
-            <Button>          
-            <Text textDecoration="underline" cursor="pointer" 
-            // onClick={handleShareClick} 
+            <Button textDecoration="underline" cursor="pointer" gap={1}
+            onClick={()=>setSaved((prev=>!prev))}
+            > 
+            {save ? <><Image w={5}  src="https://cdn-icons-png.flaticon.com/128/2589/2589175.png" />         
+            <Text  
             >
-             <DownloadIcon/>   Save
-            </Text>
+                Saved
+            </Text></>:
+            
+            <><Image w={4}  src="https://cdn-icons-png.flaticon.com/128/151/151910.png" />         
+            <Text  
+            >
+                Save
+            </Text></>}
+            
             </Button>
             </Flex>           
         </Flex>
@@ -86,8 +121,9 @@ const Property = () => {
             
             
         </Grid>
-        <Button onClick={openModal} position="absolute" right={19} bottom={5} fontSize={['xs', 's', 'md', 'lg']} size={['xxs', 'xs', 'xs', 'md']}>
-            Show All Images
+        <Button gap={2} onClick={openModal} position="absolute" right={19} bottom={5} fontSize={['xs', 's', 'md', 'lg']} size={['xxs', 'xs', 'xs', 'md']}>
+           <Image w={{ base: "3", md: "3", lg: "4" }} src="https://cdn-icons-png.flaticon.com/128/17/17704.png"/>
+            <Text>Show All Images</Text>
         </Button>
         </Box>
         
@@ -107,17 +143,17 @@ const Property = () => {
                     
                     </Text>  
             </Flex>
-            
+
            {/* model-image      */}
            <Modal isOpen={isOpen} onClose={closeModal} size="full">
         <ModalOverlay />
         <ModalContent>
           <ModalCloseButton />
-          <ModalBody p={"3%"}>
+          <ModalBody p={"4%"}>
             <Grid  gap={4}  >
             {propertyData.images.map((item, index) => {
                 return (
-                    <GridItem key={index} sx={{ _hover: {"& img": {opacity: 0.75,},},}} colSpan={1} bg='papayawhip'>
+                    <GridItem key={index} sx={{ _hover: {"& img": {opacity: 0.75,},},}} colSpan={1} >
                         <Image src={item} objectFit="cover" w="100%" h="100%" />
                     </GridItem>
         
@@ -132,7 +168,7 @@ const Property = () => {
            
         </Box>
         
-        <PropertyDetails propertyData={propertyData} />
+        <PropertyDetails propertyData={propertyData} id={id} />
 
 
     </Box>

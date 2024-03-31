@@ -7,12 +7,15 @@ import { PropertyData } from "../../utils/propertyData";
 import { useToast } from '@chakra-ui/react'
 import { StarIcon } from "@chakra-ui/icons";
 import '../../styles/propertyPageStyle/property.css';
+import { useNavigate } from "react-router-dom";
 
 interface PropertyDetailsProps {
   propertyData: PropertyData;
+  id?: string;
 }
 
-const PropertyDetails: React.FC<PropertyDetailsProps> = ({ propertyData })=> {
+const PropertyDetails: React.FC<PropertyDetailsProps> = ({ propertyData,id })=> {
+    const navigate = useNavigate();
     const [isOpenShow, setIsOpenShow] = useState(false);
     const [isOpenAmenity, setIsOpenAmenity] = useState(false);
 
@@ -36,7 +39,6 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ propertyData })=> {
     const infantsFee = propertyData.price/10;
     const petsFee = propertyData.price/10;
     const totalpriceBeforeTax = propertyData.price*stayNights;
-    // const totalprice = propertyData.price*stayNights+serviceFee+adultFee;
     const [totalprice,setTotalPrice] = useState(propertyData.price)
     const toast = useToast() 
 
@@ -95,25 +97,39 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ propertyData })=> {
       </Flex>
       </Box>
     <Divider borderColor="black" />
-      <GridItem  mt="4" mb={4} color={"grey.400"} fontSize={['sm', 'sm', 'md', 'lg']} >
+      <GridItem  mt="4" mb={4} color={"grey.400"}  fontSize={['sm', 'sm', 'md', 'lg']} >
+        <Flex m={4} gap={"10%"}>
+          <Image w={8} h={8} src="https://cdn-icons-png.flaticon.com/128/3177/3177361.png"/>
+        
         <Box>
-          <Text>Great Check-in Experience</Text>
+          <Text fontWeight={500}>Great Check-in Experience</Text>
           <Text>
             90% of recent guests gave the check-in process a 5-star rating.
           </Text>
         </Box>
+        </Flex>
+        
+        <Flex m={4} gap={"10%"}>
+        <Image w={8} h={8} src="https://cdn-icons-png.flaticon.com/128/414/414609.png"/> 
+        
         <Box>
-          <Text>Park for free</Text>
+          <Text fontWeight={500}>Park for free</Text>
           <Text>
             This is one of the few places in the area with free parking.
           </Text>
         </Box>
+        </Flex>
+
+        <Flex m={4} gap={"10%"}>
+        <Image w={8}h={8} src="https://cdn-icons-png.flaticon.com/128/2278/2278049.png"/> 
+        
         <Box>
-          <Text>Free cancellation before 5 March</Text>
+          <Text fontWeight={500}>Free cancellation before 5 March</Text>
           <Text>
             Guests can cancel their reservation for free before March 5th.
           </Text>
         </Box>
+        </Flex>
       </GridItem>
     <Divider borderColor="black" />
       <Box  mt="4" mb={4} color={"grey.400"} fontSize={['sm', 'sm', 'md', 'lg']}>
@@ -213,7 +229,14 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ propertyData })=> {
            
             <Text fontWeight={"500"} fontSize={['sm', 'md', 'lg', 'xl']}  >Select check-in date</Text>
             <Text fontSize={"large"}>Add your travel dates for exact pricing</Text>
-            <Flex gap="12%" m="2%">
+            <Flex gap="12%" m="2%"
+            css={`
+            @media (max-width: 666px) {
+              flex-direction: column;
+              align-items: center;
+            }
+          `}
+            >
               <Box  >
                 <Text ml={2} fontWeight={500} fontSize={"medium"}>Check-in Date:</Text>
                
@@ -286,7 +309,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ propertyData })=> {
             <Box >
             <Button borderRadius={"50%"} onClick={() => setAdult(prev => Math.max(prev - 1, 1))} disabled={adult <= 1} opacity={adult <= 1 ? 0.1 : 1}>-</Button>
               <Input ml={2} mr={2} w={10} p={1} type="number" value={adult} />
-                <Button borderRadius={"50%"} onClick={() => setAdult(prev => Math.min(prev + 1, 3))} disabled={adult >= 3} opacity={children >= 3 ? 0.1 : 1}>+</Button>
+                <Button borderRadius={"50%"} onClick={() => setAdult(prev => Math.min(prev + 1, 3))} disabled={adult >= 3} opacity={adult >= 3 ? 0.1 : 1}>+</Button>
             </Box>
           </Flex>
 
@@ -339,7 +362,9 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ propertyData })=> {
         </GridItem>
        
           }
-          <Button w={"100%"} p={6} colorScheme="red" color={"white"} fontSize={"large"}>Reserve</Button>
+          <Button w={"100%"} p={6} colorScheme="red" color={"white"} fontSize={"large"}
+          onClick={()=>{navigate("/checkout", { state: { id: id, totalprice:totalprice,checkinDate:checkinDate,checkoutDate:checkoutDate,stayNights:stayNights } })}}
+          >Reserve</Button>
           <Text textAlign={"center"} m={2}  color={"grey"} fontSize={"small"}>
               You won't be charged yet
           </Text>
@@ -462,7 +487,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ propertyData })=> {
             <Box >
             <Button borderRadius={"50%"} onClick={() => setAdult(prev => Math.max(prev - 1, 1))} disabled={adult <= 1} opacity={adult <= 1 ? 0.1 : 1}>-</Button>
               <Input ml={2} mr={2} w={10} p={1} type="number" value={adult} />
-                <Button borderRadius={"50%"} onClick={() => setAdult(prev => Math.min(prev + 1, 3))} disabled={adult >= 3} opacity={children >= 3 ? 0.1 : 1}>+</Button>
+                <Button borderRadius={"50%"} onClick={() => setAdult(prev => Math.min(prev + 1, 3))} disabled={adult >= 3} opacity={adult >= 3 ? 0.1 : 1}>+</Button>
             </Box>
           </Flex>
 
@@ -515,7 +540,9 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ propertyData })=> {
         </GridItem>
        
           }
-          <Button w={"100%"} p={6} colorScheme="red" color={"white"} fontSize={"large"}>Reserve</Button>
+          <Button w={"100%"} p={6} colorScheme="red" color={"white"} fontSize={"large"}
+           onClick={()=>{navigate("/checkout", { state: { id: id, totalprice:totalprice,checkinDate:checkinDate,checkoutDate:checkoutDate,stayNights:stayNights } })}}
+          >Reserve</Button>
           <Text textAlign={"center"} m={2}  color={"grey"} fontSize={"small"}>
               You won't be charged yet
           </Text>
