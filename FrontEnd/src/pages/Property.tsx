@@ -1,6 +1,6 @@
 
 import { StarIcon } from "@chakra-ui/icons"
-import { Box, Button, Flex, Grid, GridItem, Image, ListItem, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Spacer, Text, UnorderedList, useClipboard, useToast } from "@chakra-ui/react"
+import { Box, Button, Flex, Grid, GridItem, Image, ListItem, Modal, ModalBody, ModalCloseButton, ModalContent,  ModalOverlay, Spacer, Text, UnorderedList,  useToast } from "@chakra-ui/react"
 import PropertyDetails from "../components/PropertyPage/PropertyDetails"
 import { useEffect, useState } from "react"
 import axios from "axios"
