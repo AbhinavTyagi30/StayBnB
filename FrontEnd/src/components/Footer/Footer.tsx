@@ -6,6 +6,7 @@ import {
   Tabs,
   Text,
 } from "@chakra-ui/react";
+
 import "../../styles/Footer/footer.css";
 
 const allTabs: string[] = [
