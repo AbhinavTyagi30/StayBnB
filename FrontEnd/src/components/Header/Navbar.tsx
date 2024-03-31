@@ -25,6 +25,7 @@ import { RootState } from "../../redux/store";
 import { CiHeart } from "react-icons/ci";
 import { NavLink } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
+import { FilterResponsive } from "./FilterResponsive";
 
 export const Navbar: FC = () => {
   const loginStore = useSelector((store: RootState) => store.auth);
@@ -40,6 +41,7 @@ export const Navbar: FC = () => {
         borderBottom={"1px solid #ddd"}
         position={"sticky"}
         top={0}
+        bg={"white"}
       >
         <Show breakpoint="(min-width: 769px)">
           <Image
@@ -68,7 +70,7 @@ export const Navbar: FC = () => {
           <Input
             variant={"unstyled"}
             placeholder="Go Anywhere..."
-            minW={"320px"}
+            minW={{ sm: "280px" }}
             fontSize={"1rem"}
             fontWeight={"500"}
           />
@@ -102,6 +104,10 @@ export const Navbar: FC = () => {
             >
               <LuGlobe />
             </Box>
+          </Show>
+
+          <Show breakpoint="(max-width: 600px)">
+            <FilterResponsive />
           </Show>
 
           <Hide breakpoint="(max-width: 600px)">
@@ -193,6 +199,7 @@ export const Navbar: FC = () => {
           alignItems={"center"}
           gap={"0.8rem"}
           p={"0.5rem"}
+          bg={"white"}
         >
           <NavLink
             to={"/"}
