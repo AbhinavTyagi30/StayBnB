@@ -3,14 +3,16 @@ import { Home } from "../pages/Home";
 import Property from "../pages/Property";
 import Admin from "../pages/Admin";
 import { LoginSignUp } from "../pages/LoginSignUp";
+import { Wishlist } from "../pages/Wishlist";
 
 export const AllRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/property" element={<Property />} />
+      <Route path="/property/:id" element={<Property />} />
       <Route path="/admin" element={<Admin />} />
       <Route path="/login-signup" element={<LoginSignUp />} />
+      <Route path="/wishlist" element={<Wishlist />} />
     </Routes>
   );
 };
