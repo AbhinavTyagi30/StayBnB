@@ -5,6 +5,8 @@ import 'react-datepicker/dist/react-datepicker.css';
 import Map from "./Map";
 import { PropertyData } from "../../utils/propertyData";
 import { useToast } from '@chakra-ui/react'
+import { StarIcon } from "@chakra-ui/icons";
+import '../../styles/propertyPageStyle/property.css';
 
 interface PropertyDetailsProps {
   propertyData: PropertyData;
@@ -13,6 +15,12 @@ interface PropertyDetailsProps {
 const PropertyDetails: React.FC<PropertyDetailsProps> = ({ propertyData })=> {
     const [isOpenShow, setIsOpenShow] = useState(false);
     const [isOpenAmenity, setIsOpenAmenity] = useState(false);
+
+    const [isOpen, setIsOpen] = useState(false);
+
+  const openModal = () => setIsOpen(true);
+  const closeModal = () => setIsOpen(false);
+
     const [guests, setGuests] = useState(false);
     const [adult , setAdult] = useState(1);
     const [children , setChildren] = useState(0);
@@ -22,9 +30,14 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ propertyData })=> {
     const [stayNights, setStayNights] = useState(1);
 
 
-    const cleaningFee = propertyData.price/10
+    const serviceFee = propertyData.price/4;
+    const adultFee = propertyData.price/6;
+    const childrenFee = propertyData.price/8;
+    const infantsFee = propertyData.price/10;
+    const petsFee = propertyData.price/10;
     const totalpriceBeforeTax = propertyData.price*stayNights;
-    // const totalprice = propertyData.price*stayNights+cleaningFee;
+    // const totalprice = propertyData.price*stayNights+serviceFee+adultFee;
+    const [totalprice,setTotalPrice] = useState(propertyData.price)
     const toast = useToast() 
 
     const [checkinDate, setCheckinDate] = useState<Date | null>(null);
@@ -34,7 +47,9 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ propertyData })=> {
       };
       const handleCheckoutDateChange = (date: Date | null) => {
         setCheckoutDate(date)
+
         }; 
+        
 
         // night stay
         const calculateDateDifference = (startDate: Date | null, endDate: Date | null): number | null => {
@@ -48,15 +63,18 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ propertyData })=> {
           }
         };
         
-        // const differenceInDays = calculateDateDifference(checkinDate, checkoutDate);
-        //   console.log(differenceInDays);
+        
           
         useEffect(()=>{
           calculateDateDifference(checkinDate, checkoutDate);
-          const differenceInDays = calculateDateDifference(checkinDate, checkoutDate);
-          console.log(differenceInDays);
-
-        },[checkinDate, checkoutDate])
+          setTotalPrice(+(propertyData.price * stayNights
+             + serviceFee
+              + adultFee*adult
+              + childrenFee*children
+              + infantsFee*infants
+              + petsFee*pets
+              ).toFixed(2));
+        },[checkinDate, checkoutDate,stayNights,serviceFee,adult,children,infants, pets])
 
   return (
     <>
@@ -214,13 +232,13 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ propertyData })=> {
       
       <Box >
          {/* Sticky */}
-   <Box  boxShadow="10px 10px 10px 10px rgba(0, 0, 0, 0.1)"  
+   <Box className="topPropertyBox"  boxShadow="10px 10px 10px 10px rgba(0, 0, 0, 0.1)"  
    borderRadius={10}
    p={"4%"}
    
    w={400}
     position="sticky"
-    top="0"
+    top="8"
     
     zIndex="sticky"
     
@@ -326,26 +344,33 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ propertyData })=> {
               You won't be charged yet
           </Text>
           
-          <Grid gap={2}>
-          <Flex color={"grey.400"} fontSize={['sm', 'sm', 'md', 'md']} >
-            <Text>${propertyData.price} x {stayNights} night</Text>
+          <Grid gap={2} >
+          <Flex color={"grey.400"}  fontSize={['sm', 'sm', 'md', 'md']} >
+            <Text textDecor={"underline"}>${propertyData.price} x {stayNights} night</Text>
             <Spacer/>
-            <Text>${totalpriceBeforeTax}</Text>
+            <Text >${totalpriceBeforeTax}</Text>
           </Flex>
           <Flex>
-            <Text cursor="pointer" textDecor={"underline"} onClick={() =>
+            <Text mb={2} cursor="pointer" textDecor={"underline"} onClick={() =>
         toast({
-          title: 'Cleaning fee.',
-          description: "One-time fee charged by host to cover the cost of cleaning their space.",
+          title: 'StayBnB service fee.',
+          description: "This helps us run our platform and offer services like 24/7 support on your trip.",
           status: 'success',
           duration: 9000,
           isClosable: true,
         })
-      }>Cleaning fee</Text>
+      }>StayBnB service fee</Text>
             <Spacer/>
-            <Text>${cleaningFee}</Text>
+            <Text>${serviceFee}</Text>
           </Flex>
           </Grid>
+          <Divider borderColor="grey" />
+          <Flex>
+          <Text mt={2} fontSize={"lg"} fontWeight={600}>Total before taxes</Text>
+          <Spacer/>
+          <Text mt={2} fontSize={"lg"} fontWeight={600}>${totalprice}</Text>
+          </Flex>
+          
       </Box>
       
       {/* Sticky -End */}
@@ -356,6 +381,176 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ propertyData })=> {
    </Box>
    
    <Map/>
+   {/* stickyDown */}
+   <Box className="bottomBoxProperty" position="sticky"
+    bottom="0"
+    
+    zIndex="sticky">
+   <Flex  justifyContent="space-between"  boxShadow="10px 10px 10px 10px rgba(0, 0, 0, 0.1)"  
+   borderRadius={10}
+   p={"3%"}
+   pt={"4%"}
+   pl={"20%"}
+   pr={"22%"}
+   bg={"white"}
+   ml={"-25%"}
+   mr={"-25%"}
+    
+    
+    >
+      <Box >
+      <Text color={"grey"}fontSize={['sm', 'sm', 'md', 'md']} >Add dates for prices</Text>
+      <Text color={"black"} fontSize={['sm', 'sm', 'md', 'md']} fontWeight={400}>
+        <StarIcon />  {((propertyData.review_scores_rating / 100) * 5).toFixed(1)}  </Text>
+      </Box>
+      <Button p={6} fontWeight={600} color={"white"} bg={"#ff385c"} onClick={openModal} >Ckeck availability</Button>
+    </Flex>
+    </Box>
+    {/* model-checkin */}
+    <Modal isOpen={isOpen} onClose={closeModal} size="md" isCentered>
+        <ModalOverlay />
+        <ModalContent>
+
+          <ModalCloseButton />
+          <ModalBody pt={10} pb={10}>
+           
+            <Box  boxShadow="10px 10px 10px 10px rgba(0, 0, 0, 0.1)"  
+            borderRadius={10}
+            p={"4%"}
+            w={400}
+      >
+        <Flex  gap={{ base: "3%", md: "4%" }}>
+        <Heading fontWeight={"500"}  >${propertyData.price}</Heading>
+        
+        <Heading color={"grey"} fontWeight={"500"}  fontSize={['sm', 'md', 'lg', 'xl']}>night</Heading>
+        </Flex>
+
+        <Flex gap={"2%"}>
+          <Box>
+            <FormLabel ml={2} fontSize={['sm', 'sm', 'md', 'md']}>Check-in Date:</FormLabel>
+            <Box p={0.3} border="1px solid black">
+            <DatePicker
+             
+                selected={checkinDate}
+                onChange={handleCheckinDateChange}
+                placeholderText="  Check-in Date"
+              /></Box>
+          </Box>
+            
+          <Box>
+          <FormLabel ml={2} fontSize={['sm', 'sm', 'md', 'md']}>Check-out Date:</FormLabel>
+          <Box p={0.3} border="1px solid black" >
+          <DatePicker
+        selected={checkoutDate}
+        onChange={handleCheckoutDateChange}
+        placeholderText="  Check-in Date"
+      /></Box>
+
+          </Box>
+        </Flex>
+      <Select  mt={2} mb={2}  placeholder="Guests" onClick={()=>setGuests((prev)=>!prev)} >
+        
+      </Select>
+      {guests && 
+      <GridItem m={2} mt={6} borderRadius={10} borderWidth={0.5} borderColor="gray">
+          <Flex m={2}>
+            <Box>
+              <Text color={"grey.400"} fontWeight={"bold"} fontSize={['sm', 'sm', 'md', 'md']}>Adults</Text>
+              <Text color={"grey"} fontSize={['sm', 'sm', 'md', 'md']}>Age 13+</Text>
+            </Box>
+            <Spacer/>
+            <Box >
+            <Button borderRadius={"50%"} onClick={() => setAdult(prev => Math.max(prev - 1, 1))} disabled={adult <= 1} opacity={adult <= 1 ? 0.1 : 1}>-</Button>
+              <Input ml={2} mr={2} w={10} p={1} type="number" value={adult} />
+                <Button borderRadius={"50%"} onClick={() => setAdult(prev => Math.min(prev + 1, 3))} disabled={adult >= 3} opacity={children >= 3 ? 0.1 : 1}>+</Button>
+            </Box>
+          </Flex>
+
+          <Flex m={2}>
+            <Box>
+              <Text color={"grey.400"} fontWeight={"bold"} fontSize={['sm', 'sm', 'md', 'md']}>Children</Text>
+              <Text color={"grey"} fontSize={['sm', 'sm', 'md', 'md']}>Ages 2-12</Text>
+            </Box>
+            <Spacer/>
+            <Box >
+              <Button borderRadius={"50%"} onClick={() => setChildren(prev => Math.max(prev - 1, 0))} disabled={children <= 0} opacity={children <= 0 ? 0.1 : 1}>-</Button>
+              <Input ml={2} mr={2} w={10} p={1} type="number" value={children} />
+                <Button borderRadius={"50%"} onClick={() => setChildren(prev => Math.min(prev + 1, 2))} disabled={children >= 2} opacity={children >= 2 ? 0.1 : 1}>+</Button>
+            </Box>
+          </Flex>
+
+          <Flex m={2}>
+              <Box>
+                  <Text color={"grey.400"} fontWeight={"bold"} fontSize={['sm', 'sm', 'md', 'md']}>Infants</Text>
+                  <Text color={"grey"} fontSize={['sm', 'sm', 'md', 'md']}>Under 2</Text>
+              </Box>
+              <Spacer/>
+              <Box>
+                <Button borderRadius={"50%"} onClick={() => setInfants(prev => Math.max(prev - 1, 0))} disabled={infants <= 0} opacity={infants <= 0 ? 0.1 : 1}>-</Button>
+              <Input ml={2} mr={2} w={10} p={1} type="number" value={infants} />
+                <Button borderRadius={"50%"} onClick={() => setInfants(prev => Math.min(prev + 1, 5))} disabled={infants >= 5} opacity={infants >= 5 ? 0.1 : 1}>+</Button>
+              </Box>
+          </Flex>
+
+          <Flex m={2}>
+            <Box>
+              <Text color={"grey.400"} fontWeight={"bold"} fontSize={['sm', 'sm', 'md', 'md']}>Pets</Text>
+            </Box>
+            <Spacer/>
+            <Box >
+            <Button borderRadius={"50%"} onClick={() => setPets(prev => Math.max(prev - 1, 0))} disabled={pets <= 0} opacity={pets <= 0 ? 0.1 : 1}>-</Button>
+              <Input ml={2} mr={2} p={1} w={10} type="number" value={pets}/>
+              <Button borderRadius={"50%"} onClick={() => setPets(prev => Math.min(prev + 1, 4))} disabled={pets >= 4} opacity={pets >= 4 ? 0.1 : 1} >+</Button>
+            </Box>
+          </Flex>
+          <Text m={2}  color={"grey"} fontSize={"small"}>
+            This place has a maximum of 4 guests, not including infants. If you're bringing more than 2 pets, please let your Host know.
+          </Text>
+          <Text m={4}  textAlign="right" fontWeight={"bold"} fontSize={['sm', 'sm', 'md', 'md']} textDecor={"underline"} 
+          onClick={()=>setGuests((prev)=>!prev)}
+          >
+            Close
+          </Text>
+          
+        </GridItem>
+       
+          }
+          <Button w={"100%"} p={6} colorScheme="red" color={"white"} fontSize={"large"}>Reserve</Button>
+          <Text textAlign={"center"} m={2}  color={"grey"} fontSize={"small"}>
+              You won't be charged yet
+          </Text>
+          
+          <Grid gap={2} >
+          <Flex color={"grey.400"}  fontSize={['sm', 'sm', 'md', 'md']} >
+            <Text textDecor={"underline"}>${propertyData.price} x {stayNights} night</Text>
+            <Spacer/>
+            <Text >${totalpriceBeforeTax}</Text>
+          </Flex>
+          <Flex>
+            <Text mb={2} cursor="pointer" textDecor={"underline"} onClick={() =>
+        toast({
+          title: 'StayBnB service fee.',
+          description: "This helps us run our platform and offer services like 24/7 support on your trip.",
+          status: 'success',
+          duration: 9000,
+          isClosable: true,
+        })
+      }>StayBnB service fee</Text>
+            <Spacer/>
+            <Text>${serviceFee}</Text>
+          </Flex>
+          </Grid>
+          <Divider borderColor="grey" />
+          <Flex>
+          <Text mt={2} fontSize={"lg"} fontWeight={600}>Total before taxes</Text>
+          <Spacer/>
+          <Text mt={2} fontSize={"lg"} fontWeight={600}>${totalprice}</Text>
+          </Flex>
+          
+      </Box>
+          </ModalBody>
+        </ModalContent>
+      </Modal>
    </>
 
   )

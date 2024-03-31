@@ -1,6 +1,6 @@
 
 import { DownloadIcon, StarIcon } from "@chakra-ui/icons"
-import { Box, Button, Flex, Grid, GridItem, Image, ListItem, Spacer, Text, UnorderedList } from "@chakra-ui/react"
+import { Box, Button, Flex, Grid, GridItem, Image, ListItem, Modal, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay, Spacer, Text, UnorderedList } from "@chakra-ui/react"
 import PropertyDetails from "../components/PropertyPage/PropertyDetails"
 import { useEffect, useState } from "react"
 import axios from "axios"
@@ -15,7 +15,11 @@ import { PropertyData } from "../utils/propertyData"
 const Property = () => {
     const [propertyData, setPropertyData] = useState<PropertyData | null>();
     const {id} = useParams();
-    console.log(id);
+    const [isOpen, setIsOpen] = useState(false);
+
+    const openModal = () => setIsOpen(true);
+    const closeModal = () => setIsOpen(false);
+   
     
     useEffect(() => {
         const fetchData = async () => {
@@ -82,7 +86,7 @@ const Property = () => {
             
             
         </Grid>
-        <Button position="absolute" right={19} bottom={5} fontSize={['xs', 's', 'md', 'lg']} size={['xxs', 'xs', 'xs', 'md']}>
+        <Button onClick={openModal} position="absolute" right={19} bottom={5} fontSize={['xs', 's', 'md', 'lg']} size={['xxs', 'xs', 'xs', 'md']}>
             Show All Images
         </Button>
         </Box>
@@ -99,12 +103,31 @@ const Property = () => {
             <Flex gap={4} color={"grey.400"} fontWeight={"500"} fontSize={['sm', 'sm', 'md', 'lg']}>
             <Text ml="1%"  >
                 <StarIcon/> {((propertyData.review_scores_rating / 100) * 5).toFixed(1)}  </Text>
-                <Text  as="span" cursor={"pointer"}  textDecor={"underline"} >  {propertyData.review_scores_rating} reviews
+                <Text  as="span" cursor={"pointer"}  textDecor={"underline"} >  {propertyData.number_of_reviews} reviews
                     
                     </Text>  
             </Flex>
             
-                
+           {/* model-image      */}
+           <Modal isOpen={isOpen} onClose={closeModal} size="full">
+        <ModalOverlay />
+        <ModalContent>
+          <ModalCloseButton />
+          <ModalBody p={"3%"}>
+            <Grid  gap={4}  >
+            {propertyData.images.map((item, index) => {
+                return (
+                    <GridItem key={index} sx={{ _hover: {"& img": {opacity: 0.75,},},}} colSpan={1} bg='papayawhip'>
+                        <Image src={item} objectFit="cover" w="100%" h="100%" />
+                    </GridItem>
+        
+            )
+        })}
+            </Grid>
+            <Button p={5} fontWeight={600} mt={5} ml={"95%"} onClick={closeModal}>Close</Button>
+          </ModalBody>
+        </ModalContent>
+      </Modal>
             
            
         </Box>
