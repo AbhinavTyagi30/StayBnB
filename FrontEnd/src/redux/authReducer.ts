@@ -35,7 +35,10 @@ const authReducer = createSlice({
     },
 
     logout: (state, action: PayloadAction<AuthStateType>) => {
-      state = { ...action.payload };
+      state.isAuth = false;
+      state.isError = false;
+      state.isLoading = false;
+      state.user = action.payload.user;
     },
   },
 
