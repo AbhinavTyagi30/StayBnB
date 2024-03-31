@@ -1,4 +1,4 @@
-import { DownloadIcon, StarIcon } from "@chakra-ui/icons";
+import { StarIcon } from "@chakra-ui/icons";
 import {
   Box,
   Button,
@@ -7,9 +7,15 @@ import {
   GridItem,
   Image,
   ListItem,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalOverlay,
   Spacer,
   Text,
   UnorderedList,
+  useToast,
 } from "@chakra-ui/react";
 import PropertyDetails from "../components/PropertyPage/PropertyDetails";
 import { useEffect, useState } from "react";
@@ -18,9 +24,37 @@ import { useParams } from "react-router-dom";
 import { PropertyData } from "../utils/propertyData";
 
 const Property = () => {
+  const toast = useToast();
   const [propertyData, setPropertyData] = useState<PropertyData | null>();
   const { id } = useParams();
-  console.log(id);
+  const [isOpen, setIsOpen] = useState(false);
+  const [save, setSaved] = useState(false);
+
+  const handleShare = () => {
+    navigator.clipboard
+      .writeText(window.location.href)
+      .then(() => {
+        toast({
+          title: "URL Copied!",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
+      })
+      .catch((error) => {
+        console.error("Could not copy text: ", error);
+        toast({
+          title: "Error",
+          description: "Could not copy URL to clipboard.",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+        });
+      });
+  };
+
+  const openModal = () => setIsOpen(true);
+  const closeModal = () => setIsOpen(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -42,28 +76,50 @@ const Property = () => {
       {propertyData && (
         <Box ml="15%" mr="15%">
           <Flex m={2}>
-            <Text color={"grey.400"} fontWeight={"600"} fontSize={"x-large"}>
+            <Text
+              color={"grey.400"}
+              fontWeight={"600"}
+              fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
+            >
               {propertyData.name}
             </Text>
             <Spacer />
             <Flex gap={5}>
-              <Button>
-                <Text
-                  textDecoration="underline"
-                  cursor="pointer"
-                  // onClick={handleShareClick}
-                >
-                  Share
-                </Text>
+              <Button
+                textDecoration="underline"
+                cursor="pointer"
+                gap={1}
+                onClick={handleShare}
+              >
+                <Image
+                  w={4}
+                  src="https://cdn-icons-png.flaticon.com/128/3580/3580382.png"
+                />
+                <Text>Share</Text>
               </Button>
-              <Button>
-                <Text
-                  textDecoration="underline"
-                  cursor="pointer"
-                  // onClick={handleShareClick}
-                >
-                  <DownloadIcon /> Save
-                </Text>
+              <Button
+                textDecoration="underline"
+                cursor="pointer"
+                gap={1}
+                onClick={() => setSaved((prev) => !prev)}
+              >
+                {save ? (
+                  <>
+                    <Image
+                      w={5}
+                      src="https://cdn-icons-png.flaticon.com/128/2589/2589175.png"
+                    />
+                    <Text>Saved</Text>
+                  </>
+                ) : (
+                  <>
+                    <Image
+                      w={4}
+                      src="https://cdn-icons-png.flaticon.com/128/151/151910.png"
+                    />
+                    <Text>Save</Text>
+                  </>
+                )}
               </Button>
             </Flex>
           </Flex>
@@ -103,13 +159,19 @@ const Property = () => {
               })}
             </Grid>
             <Button
+              gap={2}
+              onClick={openModal}
               position="absolute"
               right={19}
               bottom={5}
               fontSize={["xs", "s", "md", "lg"]}
               size={["xxs", "xs", "xs", "md"]}
             >
-              Show All Images
+              <Image
+                w={{ base: "3", md: "3", lg: "4" }}
+                src="https://cdn-icons-png.flaticon.com/128/17/17704.png"
+              />
+              <Text>Show All Images</Text>
             </Button>
           </Box>
 
@@ -144,12 +206,49 @@ const Property = () => {
               </Text>
               <Text as="span" cursor={"pointer"} textDecor={"underline"}>
                 {" "}
-                {propertyData.review_scores_rating} reviews
+                {propertyData.number_of_reviews} reviews
               </Text>
             </Flex>
+
+            {/* model-image      */}
+            <Modal isOpen={isOpen} onClose={closeModal} size="full">
+              <ModalOverlay />
+              <ModalContent>
+                <ModalCloseButton />
+                <ModalBody p={"4%"}>
+                  <Grid gap={4}>
+                    {propertyData.images.map((item, index) => {
+                      return (
+                        <GridItem
+                          key={index}
+                          sx={{ _hover: { "& img": { opacity: 0.75 } } }}
+                          colSpan={1}
+                        >
+                          <Image
+                            src={item}
+                            objectFit="cover"
+                            w="100%"
+                            h="100%"
+                          />
+                        </GridItem>
+                      );
+                    })}
+                  </Grid>
+                  <Button
+                    p={5}
+                    fontWeight={600}
+                    mt={5}
+                    ml={"95%"}
+                    onClick={closeModal}
+                  >
+                    Close
+                  </Button>
+                </ModalBody>
+              </ModalContent>
+            </Modal>
           </Box>
 
-          <PropertyDetails propertyData={propertyData} />
+          <PropertyDetails propertyData={propertyData} id={id} />
         </Box>
       )}
     </>
