@@ -1,15 +1,12 @@
-import { z, ZodType } from "zod";
-import { useForm } from "react-hook-form";
-import { SignupStateInterface } from "../../utils/SignupStateInterface";
-
+import { Button } from "@chakra-ui/react";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { signupAsync } from "../../redux/signupReducer";
+import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
+import { z, ZodType } from "zod";
+import { signupAsync } from "../../redux/authReducer";
 import { AppDispatch, RootState } from "../../redux/store";
+import { SignupStateInterface } from "../../utils/SignupStateInterface";
 import { UserStateType } from "../../utils/userStateType";
-import { Button, useToast } from "@chakra-ui/react";
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 
 const Signup = () => {
   const schema: ZodType<SignupStateInterface> = z
@@ -37,39 +34,7 @@ const Signup = () => {
     resolver: zodResolver(schema),
   });
 
-  const signupStore = useSelector((store: RootState) => store.signup);
-
-  const navigate = useNavigate();
-
-  const toast = useToast();
-
-  useEffect(() => {
-    if (signupStore.isAuth) {
-      navigate("/");
-    }
-
-    if (signupStore.isError) {
-      toast({
-        title: `Error`,
-        position: "top-right",
-        isClosable: true,
-        description: "Something went wrong",
-        status: "error",
-        duration: 5000,
-      });
-    }
-
-    if (signupStore.isAuth) {
-      toast({
-        title: "Account created.",
-        description: "We've created your account for you.",
-        status: "success",
-        position: "top-right",
-        isClosable: true,
-        duration: 5000,
-      });
-    }
-  }, [signupStore.isAuth, signupStore.isError]);
+  const signupStore = useSelector((store: RootState) => store.auth);
 
   const dispatch = useDispatch<AppDispatch>();
 

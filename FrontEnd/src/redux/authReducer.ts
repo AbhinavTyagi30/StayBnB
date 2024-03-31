@@ -26,7 +26,21 @@ export { initialState as authInitialState };
 const authReducer = createSlice({
   name: "auth",
   initialState,
-  reducers: {},
+  reducers: {
+    login: (state, action: PayloadAction<UserStateType>) => {
+      state.isAuth = true;
+      state.isError = false;
+      state.isLoading = false;
+      state.user = action.payload;
+    },
+
+    logout: (state, action: PayloadAction<AuthStateType>) => {
+      state.isAuth = false;
+      state.isError = false;
+      state.isLoading = false;
+      state.user = action.payload.user;
+    },
+  },
 
   extraReducers: (builder) => {
     builder
@@ -50,6 +64,28 @@ const authReducer = createSlice({
           state.user = action.payload;
         }
       );
+
+    builder
+      .addCase(signupAsync.pending, (state) => {
+        console.log("inloading signup");
+        state.isLoading = true;
+        state.isError = false;
+      })
+      .addCase(signupAsync.rejected, (state) => {
+        console.log("inError signup");
+        state.isError = true;
+        state.isLoading = false;
+      })
+      .addCase(
+        signupAsync.fulfilled,
+        (state, action: PayloadAction<UserStateType>) => {
+          console.log("inSuccess signup");
+          state.isLoading = false;
+          state.isError = false;
+          state.isAuth = true;
+          state.user = action.payload;
+        }
+      );
   },
 });
 
@@ -64,6 +100,21 @@ export const loginAsync = createAsyncThunk(
     const responseData = response.data;
     console.log(responseData);
     console.log(responseData.user);
+    return responseData?.user;
+  }
+);
+
+export const signupAsync = createAsyncThunk(
+  "auth/signupAsync",
+  async (data: UserStateType) => {
+    const response = await axios.post(
+      `https://staybnb-server.onrender.com/register`,
+      data
+    );
+    console.log("response", response);
+    const responseData = response.data;
+    console.log("response data", responseData);
+    console.log("response data user", responseData.user);
     return responseData?.user;
   }
 );
