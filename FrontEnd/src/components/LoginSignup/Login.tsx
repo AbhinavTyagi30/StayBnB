@@ -1,16 +1,13 @@
-import { z, ZodType } from "zod";
 import { useForm } from "react-hook-form";
+import { z, ZodType } from "zod";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { LoginStateInterface } from "../../utils/LoginStateInterface";
 import { useDispatch, useSelector } from "react-redux";
+import { LoginStateInterface } from "../../utils/LoginStateInterface";
 
-import { useToast } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
 import { loginAsync } from "../../redux/authReducer";
 import { AppDispatch, RootState } from "../../redux/store";
-import { Button } from "@chakra-ui/react";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const schema: ZodType<LoginStateInterface> = z.object({
@@ -27,42 +24,6 @@ const Login = () => {
   });
 
   const loginStore = useSelector((store: RootState) => store.auth);
-
-  const navigate = useNavigate();
-
-  const toast = useToast();
-
-  useEffect(() => {
-    // console.log("re-rendring");
-
-    // console.log(loginStore);
-
-    if (loginStore.isAuth) {
-      navigate("/");
-    }
-
-    if (loginStore.isError) {
-      toast({
-        title: `Error`,
-        position: "top-right",
-        isClosable: true,
-        description: "Something went wrong",
-        status: "error",
-        duration: 5000,
-      });
-    }
-
-    if (loginStore.isAuth) {
-      toast({
-        title: `Success`,
-        position: "top-right",
-        isClosable: true,
-        description: "Login success",
-        status: "success",
-        duration: 5000,
-      });
-    }
-  }, [loginStore.isAuth, loginStore.isError]);
 
   const dispatch = useDispatch<AppDispatch>();
 
