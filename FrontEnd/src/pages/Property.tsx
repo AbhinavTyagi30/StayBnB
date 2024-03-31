@@ -8,10 +8,6 @@ import { useParams } from "react-router-dom"
 import { PropertyData } from "../utils/propertyData"
 
 
-
-
-
-
 const Property = () => {
   const toast = useToast();
     const [propertyData, setPropertyData] = useState<PropertyData | null>();
