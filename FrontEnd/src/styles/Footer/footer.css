@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+.footer-container {
+  font-family: "Montserrat", sans-serif;
+
+  max-width: 1080px;
+  width: 100%;
+
+  margin: auto;
+
+  > .footer-title {
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    padding: 10px;
+  }
+
+  > .tabs {
+    > .tablist {
+      > .tab {
+        font-size: 13px;
+        font-weight: 500;
+      }
+    }
+
+    > .tabpanels {
+      > .tabpanel {
+        height: fit-content;
+        > .showmore {
+          margin: auto;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-top: 20px;
+          margin-bottom: 20px;
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}

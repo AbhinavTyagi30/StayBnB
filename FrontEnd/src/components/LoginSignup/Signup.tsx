@@ -1,8 +1,12 @@
-import { z, ZodType } from "zod";
-import { useForm } from "react-hook-form";
-import { SignupStateInterface } from "../../utils/SignupStateInterface";
-
+import { Button } from "@chakra-ui/react";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
+import { z, ZodType } from "zod";
+import { signupAsync } from "../../redux/authReducer";
+import { AppDispatch, RootState } from "../../redux/store";
+import { SignupStateInterface } from "../../utils/SignupStateInterface";
+import { UserStateType } from "../../utils/userStateType";
 
 const Signup = () => {
   const schema: ZodType<SignupStateInterface> = z
@@ -30,10 +34,24 @@ const Signup = () => {
     resolver: zodResolver(schema),
   });
 
+  const signupStore = useSelector((store: RootState) => store.auth);
+
+  const dispatch = useDispatch<AppDispatch>();
+
   const handleSignup = (data: SignupStateInterface) => {
+    console.log("signup");
     console.log(data);
 
-    // dispatch(signup(data));
+    const userData: UserStateType = {
+      favorite: [],
+      isAdmin: false,
+      name: data.name,
+      email: data.email,
+      password: data.password,
+      id: "",
+    };
+
+    dispatch(signupAsync(userData));
   };
 
   return (
@@ -130,13 +148,26 @@ const Signup = () => {
           </label>
         )}
         <div className="form-group form-button">
-          <input
+          {/* <input
             type="submit"
             name="signup"
             id="signup"
             className="form-submit"
             value="Register"
-          />
+          /> */}
+
+          <Button
+            isLoading={signupStore.isLoading}
+            colorScheme="red"
+            loadingText="Signing Up"
+            variant="solid"
+            type="submit"
+            name="signup"
+            id="signup"
+            className="form-submit"
+          >
+            Register
+          </Button>
         </div>
       </form>
     </div>
