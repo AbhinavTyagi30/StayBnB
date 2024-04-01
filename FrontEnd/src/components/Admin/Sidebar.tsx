@@ -30,6 +30,8 @@ import {
 } from 'react-icons/fi'
 import { IconType } from 'react-icons'
 import { FC } from 'react'
+import FetchTable from "./apiService/FetchTable";
+import FetchProperty from "./apiService/FetchProperty";
 interface LinkItemProps {
   name: string
   icon: IconType
@@ -59,7 +61,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
       bg={useColorModeValue('white', 'gray.900')}
       borderRight="1px"
       borderRightColor={useColorModeValue('gray.200', 'gray.700')}
-      w={{ base: 'full', md: 60 }}
+      w={{ base: 0, md: 60 }}
       pos="fixed"
       h="full"
       {...rest}>
@@ -208,8 +210,7 @@ const Sidebar :FC = () => {
       {/* mobilenav */}
       <MobileNav onOpen={onOpen} />
       <Box ml={{ base: 0, md: 60 }} p="4">
-        {
- <StatGroup >
+ {/* <StatGroup >
 <Stat h={"5em"} w={"10em"}>
   <StatLabel>New Users</StatLabel>
   <StatNumber>34643</StatNumber>
@@ -226,15 +227,11 @@ const Sidebar :FC = () => {
     9.05%
   </StatHelpText>
 </Stat>
-</StatGroup>
-
-
-
-
-
-        }
-      </Box>
-    </Box>
+</StatGroup> */}
+</Box>
+      <Box ml={{ base: 0, md: 60 }} p="4"> <FetchProperty/></Box>
+  </Box>
+  
   )
 }
 
