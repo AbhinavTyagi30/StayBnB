@@ -1,4 +1,7 @@
 import {
+  Button,
+  Grid,
+  GridItem,
   Tab,
   TabList,
   TabPanel,
@@ -7,6 +10,8 @@ import {
   Text,
 } from "@chakra-ui/react";
 
+import { useState } from "react";
+import AnimateHeight, { Height } from "react-animate-height";
 import "../../styles/Footer/footer.css";
 
 const allTabs: string[] = [
@@ -20,7 +25,25 @@ const allTabs: string[] = [
   "Things to do",
 ];
 
-const tabContent = {
+interface tabContentType {
+  url: string;
+  location: string;
+  property_type: string;
+}
+
+interface tabContentsType {
+  Popular: tabContentType[];
+  ArtsCulture: tabContentType[];
+  Outdoors: tabContentType[];
+  Mountains: tabContentType[];
+  Beach: tabContentType[];
+  UniqueStays: tabContentType[];
+  Categories: tabContentType[];
+  ThingsToDo: tabContentType[];
+  [key: string]: tabContentType[];
+}
+
+const tabContents: tabContentsType = {
   Popular: [
     {
       url: "",
@@ -2997,29 +3020,91 @@ const tabContent = {
 };
 
 const Footer = () => {
+  const initialHeight = 180;
+  const [height, setHeight] = useState<Height>(initialHeight);
   return (
     <div className="footer-container">
       <Text className="footer-title" fontSize="2xl">
         Inspiration for future getaways
       </Text>
 
-      <Tabs>
-        <TabList>
+      <Tabs className="tabs">
+        <TabList className="tablist">
           {allTabs.map((tabs) => {
-            return <Tab key={tabs}>{tabs}</Tab>;
+            return (
+              <Tab className="tab" key={tabs}>
+                {tabs}
+              </Tab>
+            );
           })}
         </TabList>
 
-        <TabPanels>
-          <TabPanel>
-            <p>one!</p>
-          </TabPanel>
-          <TabPanel>
-            <p>two!</p>
-          </TabPanel>
-          <TabPanel>
-            <p>three!</p>
-          </TabPanel>
+        <TabPanels className="tabpanels">
+          {Object.keys(tabContents).map((tabContent: string) => {
+            return (
+              <TabPanel className="tabpanel" key={tabContent}>
+                <AnimateHeight
+                  id="example-panel"
+                  className="animated-height-panel"
+                  duration={500}
+                  height={height} // see props documentation below
+                >
+                  <Grid
+                    className="gridContainer"
+                    templateColumns={{
+                      base: "repeat(2, 1fr)",
+                      lg: "repeat(3, 1fr)",
+                      xl: "repeat(6, 1fr)",
+                    }}
+                    gap={6}
+                  >
+                    {tabContents[tabContent].map(
+                      (content: tabContentType, index: number) => {
+                        return (
+                          <GridItem className="gridItem" key={index} w="100%">
+                            <a
+                              className="url"
+                              href={content.url}
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                gap: "5px",
+                              }}
+                            >
+                              <span
+                                className="location"
+                                style={{ fontSize: "13px", fontWeight: 600 }}
+                              >
+                                {content.location}
+                              </span>
+                              <span
+                                className="property"
+                                style={{ fontSize: "13px" }}
+                              >
+                                {content.property_type}
+                              </span>
+                            </a>
+                          </GridItem>
+                        );
+                      }
+                    )}
+                  </Grid>
+                </AnimateHeight>
+
+                <Button
+                  className="showmore"
+                  variant="ghost"
+                  aria-expanded={height !== initialHeight}
+                  aria-controls="example-panel"
+                  onClick={() =>
+                    setHeight(height === initialHeight ? "auto" : initialHeight)
+                  }
+                >
+                  {height === initialHeight ? "See more" : "See less"}
+                </Button>
+              </TabPanel>
+            );
+          })}
         </TabPanels>
       </Tabs>
     </div>
