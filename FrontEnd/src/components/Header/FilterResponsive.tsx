@@ -18,7 +18,17 @@ export function FilterResponsive() {
 
   return (
     <>
-      <Button onClick={onToggle}>Click Me</Button>
+      <Button
+        onClick={onToggle}
+        p={"1rem"}
+        border={"1px solid #ddd"}
+        borderRadius={"0.8rem"}
+        mr={"0.5rem"}
+        fontSize={"0.8rem"}
+        fontWeight={"600"}
+      >
+        Filters
+      </Button>
       <Slide direction="bottom" in={isOpen} style={{ zIndex: 100 }}>
         <Box
           p="40px"

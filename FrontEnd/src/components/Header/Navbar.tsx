@@ -42,6 +42,7 @@ export const Navbar: FC = () => {
         position={"sticky"}
         top={0}
         bg={"white"}
+        zIndex={"10"}
       >
         <Show breakpoint="(min-width: 769px)">
           <Image
@@ -200,6 +201,7 @@ export const Navbar: FC = () => {
           gap={"0.8rem"}
           p={"0.5rem"}
           bg={"white"}
+          zIndex={10}
         >
           <NavLink
             to={"/"}

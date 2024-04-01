@@ -757,7 +757,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({
             bg={"#ff385c"}
             onClick={openModal}
           >
-            Ckeck availability
+            Check availability
           </Button>
         </Flex>
       </Box>

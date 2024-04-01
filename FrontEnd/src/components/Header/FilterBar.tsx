@@ -6,7 +6,15 @@ export const FilterBar = () => {
   const [selectedFilter, setSelectedFilter] = useState<number>(0);
 
   return (
-    <Box display={"flex"} justifyContent={"flex-start"} alignItems={"center"}>
+    <Box
+      display={"flex"}
+      justifyContent={"flex-start"}
+      alignItems={"center"}
+      position={"sticky"}
+      top={20}
+      bg="white"
+      zIndex={"10"}
+    >
       <Box
         padding={"1rem 3rem"}
         display={"flex"}
@@ -14,7 +22,7 @@ export const FilterBar = () => {
         alignItems={"center"}
         gap={"1.75rem"}
         w={"100%"}
-        overflowX="hidden"
+        overflowX="auto"
         m={{ base: "0rem 0rem", lg: "0rem 1.5rem" }}
       >
         {filterImageLinks.map((item, index) => {
@@ -50,7 +58,7 @@ export const FilterBar = () => {
         })}
       </Box>
 
-      <Show>
+      <Show breakpoint="(min-width: 601px)">
         <Box
           p={"1rem"}
           border={"1px solid #ddd"}
@@ -64,7 +72,7 @@ export const FilterBar = () => {
         </Box>
       </Show>
 
-      <Show>
+      <Show breakpoint="(min-width: 601px)">
         <Box
           display="flex"
           justifyContent={"center"}
@@ -82,6 +90,7 @@ export const FilterBar = () => {
             display={"flex"}
             justifyContent={"center"}
             alignItems={"center"}
+            whiteSpace={"nowrap"}
           >
             Display Prices Before Taxes
           </Text>
