@@ -133,7 +133,7 @@ const Property = () => {
             >
               {propertyData.images.slice(0, 1).map((item, index) => {
                 return (
-                  <GridItem
+                  <GridItem 
                     key={index}
                     sx={{ _hover: { "& img": { opacity: 0.6 } } }}
                     rowSpan={2}
