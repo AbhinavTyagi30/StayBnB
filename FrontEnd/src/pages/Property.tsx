@@ -75,11 +75,11 @@ const Property = () => {
     <>
       {propertyData && (
         <Box ml="15%" mr="15%">
-          <Flex m={2}>
+          <Flex m={2} display={{ base: "grid", md: "flex" }}>
             <Text
               color={"grey.400"}
               fontWeight={"600"}
-              fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
+              fontSize={{ base: "md", md: "xl", lg: "2xl" }}
             >
               {propertyData.name}
             </Text>
@@ -123,7 +123,6 @@ const Property = () => {
               </Button>
             </Flex>
           </Flex>
-
           <Box position="relative" m={3}>
             <Grid
               borderRadius={10}
@@ -174,7 +173,6 @@ const Property = () => {
               <Text>Show All Images</Text>
             </Button>
           </Box>
-
           <Box>
             <Text
               ml="1%"
@@ -221,7 +219,13 @@ const Property = () => {
                       return (
                         <GridItem
                           key={index}
-                          sx={{ _hover: { "& img": { opacity: 0.75 } } }}
+                          sx={{
+                            opacity: 0.75,
+                            transition: "opacity 0.3s",
+                            _hover: {
+                              opacity: 1,
+                            },
+                          }}
                           colSpan={1}
                         >
                           <Image
@@ -247,7 +251,6 @@ const Property = () => {
               </ModalContent>
             </Modal>
           </Box>
-
           <PropertyDetails propertyData={propertyData} id={id} />
         </Box>
       )}
