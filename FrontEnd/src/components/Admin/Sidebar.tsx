@@ -1,5 +1,5 @@
 'use client'
-import { Image, Stat, StatArrow, StatGroup, StatHelpText, StatLabel, StatNumber } from "@chakra-ui/react";
+import { Image } from "@chakra-ui/react";
 import {
   IconButton,
   Avatar,
@@ -30,7 +30,6 @@ import {
 } from 'react-icons/fi'
 import { IconType } from 'react-icons'
 import { FC } from 'react'
-import FetchTable from "./apiService/FetchTable";
 import FetchProperty from "./apiService/FetchProperty";
 interface LinkItemProps {
   name: string

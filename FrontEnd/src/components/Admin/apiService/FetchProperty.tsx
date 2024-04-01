@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import fetchData from "./fetchData";
 import Data from "../../../utils/AdminDataInterface";
-import { Box, Button, Card, CardBody, Checkbox, Flex, Grid, Image, Stack, Table, TableCaption, TableContainer, Tbody, Td, Th, Thead, Tr } from "@chakra-ui/react";
+import { Box, Button, Checkbox, Table, TableContainer, Tbody, Td, Th, Thead, Tr } from "@chakra-ui/react";
 import '../../../styles/App.css'
 'use client'
 
@@ -31,7 +31,7 @@ import { AddIcon, DeleteIcon, EditIcon } from "@chakra-ui/icons";
 //   }
 const FetchProperty :FC = () =>{
     const [data, setData] = useState<Data[]>([]);
-    const [selected, setSelected] = useState(false);
+
     // const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     //     <PostData/>
     console.log("Data is" , data);
