@@ -17,7 +17,6 @@ import {
   ModalContent,
   ModalHeader,
   ModalOverlay,
-  Select,
   Spacer,
   Text,
   UnorderedList,
@@ -31,7 +30,6 @@ import { useToast } from "@chakra-ui/react";
 import { ChevronDownIcon, ChevronUpIcon, StarIcon } from "@chakra-ui/icons";
 import "../../styles/propertyPageStyle/property.css";
 import { useNavigate } from "react-router-dom";
-import { px } from "framer-motion";
 
 interface PropertyDetailsProps {
   propertyData: PropertyData;
