@@ -28,9 +28,10 @@ import "react-datepicker/dist/react-datepicker.css";
 import Map from "./Map";
 import { PropertyData } from "../../utils/propertyData";
 import { useToast } from "@chakra-ui/react";
-import { StarIcon } from "@chakra-ui/icons";
+import { ChevronDownIcon, ChevronUpIcon, StarIcon } from "@chakra-ui/icons";
 import "../../styles/propertyPageStyle/property.css";
 import { useNavigate } from "react-router-dom";
+import { px } from "framer-motion";
 
 interface PropertyDetailsProps {
   propertyData: PropertyData;
@@ -152,6 +153,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({
               <Flex m={4} gap={"10%"}>
                 <Image
                   w={8}
+                  mt={3}
                   h={8}
                   src="https://cdn-icons-png.flaticon.com/128/3177/3177361.png"
                 />
@@ -168,6 +170,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({
               <Flex m={4} gap={"10%"}>
                 <Image
                   w={8}
+                  mt={3}
                   h={8}
                   src="https://cdn-icons-png.flaticon.com/128/414/414609.png"
                 />
@@ -182,6 +185,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({
 
               <Flex m={4} gap={"10%"}>
                 <Image
+                  mt={3}
                   w={8}
                   h={8}
                   src="https://cdn-icons-png.flaticon.com/128/2278/2278049.png"
@@ -407,7 +411,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({
                 </Heading>
               </Flex>
 
-              <Flex gap={"2%"}>
+              <Flex gap={"1%"}>
                 <Box>
                   <FormLabel ml={2} fontSize={["sm", "sm", "md", "md"]}>
                     Check-in Date:
@@ -434,12 +438,21 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({
                   </Box>
                 </Box>
               </Flex>
-              <Select
+              <Button
+                color={"grey"}
+                w="100%"
+                fontWeight={400}
                 mt={2}
+                pl={"6%"}
+                border={"1px solid grey"}
                 mb={2}
-                placeholder="Guests"
                 onClick={() => setGuests((prev) => !prev)}
-              ></Select>
+              >
+                <Text>{adult + children} Guests</Text>
+
+                <Spacer />
+                {guests ? <ChevronUpIcon /> : <ChevronDownIcon />}
+              </Button>
               {guests && (
                 <GridItem
                   m={2}
@@ -785,7 +798,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({
                 </Heading>
               </Flex>
 
-              <Flex gap={"2%"}>
+              <Flex gap={"1%"}>
                 <Box>
                   <FormLabel ml={2} fontSize={["sm", "sm", "md", "md"]}>
                     Check-in Date:
@@ -812,12 +825,21 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({
                   </Box>
                 </Box>
               </Flex>
-              <Select
+              <Button
+                color={"grey"}
+                w="100%"
+                fontWeight={400}
                 mt={2}
+                pl={"6%"}
+                border={"1px solid grey"}
                 mb={2}
-                placeholder="Guests"
                 onClick={() => setGuests((prev) => !prev)}
-              ></Select>
+              >
+                <Text>{adult + children} Guests</Text>
+
+                <Spacer />
+                {guests ? <ChevronUpIcon /> : <ChevronDownIcon />}
+              </Button>
               {guests && (
                 <GridItem
                   m={2}
