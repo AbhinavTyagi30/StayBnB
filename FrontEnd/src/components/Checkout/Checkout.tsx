@@ -1,7 +1,7 @@
 import  { useState, ChangeEvent, FormEvent } from 'react';
 import { Image, Badge, Box } from '@chakra-ui/react';
 import { StarIcon } from '@chakra-ui/icons';
-// import './Checkout.css';
+
 
 interface FormData {
   name: string;
@@ -49,7 +49,24 @@ export function Checkout(): JSX.Element {
     reviewCount: 34,
     rating: 4
   };
-
+  // const [data,setData] = useState()
+  // edit
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.get<PropertyData>(
+  //         `https://staybnb-server.onrender.com/property/${id}`
+  //       );
+  //       setData(response.data);
+  //     } catch (error) {
+  //       console.error('Error fetching data:', error);
+  //     }
+  //   };
+    
+  //   fetchData();
+   
+  // }, [id]);
+ //edit
   return (
     <>
       <div id="main" className="wrapper">
