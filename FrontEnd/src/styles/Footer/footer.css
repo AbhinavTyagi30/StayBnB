@@ -3,7 +3,7 @@
 .footer-container {
   font-family: "Montserrat", sans-serif;
 
-  max-width: 1080px;
+  /* max-width: 1440px; */
   width: 100%;
 
   margin: auto;
@@ -33,6 +33,24 @@
           margin-top: 20px;
           margin-bottom: 20px;
           font-size: 13px;
+        }
+      }
+    }
+  }
+
+  > .footerFoot {
+    > .footerFootLinkContainer {
+      > ul {
+        padding: 8px 0px;
+        list-style: none;
+        > li {
+          padding: 8px 0px;
+          font-size: 13px;
+          font-weight: 400;
+
+          &:hover {
+            text-decoration: underline;
+          }
         }
       }
     }

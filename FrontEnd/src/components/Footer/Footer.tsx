@@ -1,5 +1,7 @@
 import {
+  Box,
   Button,
+  css,
   Grid,
   GridItem,
   Tab,
@@ -3023,13 +3025,24 @@ const Footer = () => {
   const initialHeight = 180;
   const [height, setHeight] = useState<Height>(initialHeight);
   return (
-    <div className="footer-container">
-      <Text className="footer-title" fontSize="2xl">
+    <Box className="footer-container" p={{ base: "1rem", lg: "1rem 4rem" }}>
+      <Text className="footer-title" fontSize={{ base: "xl", xl: "2xl" }}>
         Inspiration for future getaways
       </Text>
 
       <Tabs className="tabs">
-        <TabList className="tablist">
+        <TabList
+          className="tablist"
+          overflowX="auto"
+          css={css({
+            scrollbarWidth: "none",
+            "::-webkit-scrollbar": { display: "none" },
+
+            boxShadow: "inset 0 -2px 0 rgba(0, 0, 0, 0.1)",
+            border: "0 none",
+          })}
+          py={1}
+        >
           {allTabs.map((tabs) => {
             return (
               <Tab className="tab" key={tabs}>
@@ -3061,7 +3074,11 @@ const Footer = () => {
                     {tabContents[tabContent].map(
                       (content: tabContentType, index: number) => {
                         return (
-                          <GridItem className="gridItem" key={index} w="100%">
+                          <GridItem
+                            className="gridItem"
+                            key={content.location + index}
+                            w="100%"
+                          >
                             <a
                               className="url"
                               href={content.url}
@@ -3107,7 +3124,7 @@ const Footer = () => {
           })}
         </TabPanels>
       </Tabs>
-    </div>
+    </Box>
   );
 };
 
