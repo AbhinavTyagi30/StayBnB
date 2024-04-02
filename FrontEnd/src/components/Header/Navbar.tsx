@@ -42,7 +42,7 @@ export const Navbar: FC = () => {
         position={"sticky"}
         top={0}
         bg={"white"}
-        zIndex={"10"}
+        zIndex="11"
       >
         <Show breakpoint="(min-width: 769px)">
           <Image

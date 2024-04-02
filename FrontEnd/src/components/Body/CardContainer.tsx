@@ -82,7 +82,7 @@ export const CardContainer: FC = () => {
           justifyItems={"center"}
           position={"relative"}
           p={"1rem 3rem"}
-          rowGap={"1.5rem"}
+          gap={"1rem"}
         >
           {data.property.map((item) => {
             return <Cards key={item.id} item={item} />;

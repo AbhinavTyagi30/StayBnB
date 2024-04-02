@@ -5,6 +5,8 @@ import { StarIcon } from "@chakra-ui/icons";
 import { BiHeart } from "react-icons/bi";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 
 interface CardsPropInterface {
   item: PropertyInterface;
@@ -24,7 +26,6 @@ export const Cards = ({ item }: CardsPropInterface) => {
       onClick={() => {
         navigate(`/property/${item.id}`);
       }}
-      w={"300px"}
       border={"none"}
       boxShadow={"none"}
       fontFamily={"Montserrat, sans-serif"}
@@ -41,16 +42,29 @@ export const Cards = ({ item }: CardsPropInterface) => {
           }}
         />
       </Box>
-      <Box w="300px" h="300px">
-        <Image
-          src={item.images[0]}
-          alt={item.name}
-          w="100%"
-          h="100%"
-          objectFit={"cover"}
-          borderRadius={"0.8rem"}
-        />
-      </Box>
+
+      <Swiper
+        slidesPerView={1}
+        loop={true}
+        onSlideChange={() => console.log("slide change")}
+        onSwiper={(swiper) => console.log(swiper)}
+        style={{ width: "300px" }}
+      >
+        {item.images.map((image, index) => (
+          <SwiperSlide key={index}>
+            <Text>{index}</Text>
+            <Image
+              src={image}
+              alt={item.name}
+              w="100%"
+              aspectRatio={"1/1"}
+              objectFit={"cover"}
+              borderRadius={"0.8rem"}
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
       <Box
         display={"flex"}
         justifyContent={"space-between"}
@@ -84,6 +98,10 @@ export const Cards = ({ item }: CardsPropInterface) => {
       </Text>
       <Text fontSize={"15px"} fontWeight={"400"} color={"#717171"}>
         {item.smart_location}
+      </Text>
+      <Text fontSize={"15px"} fontWeight={"400"} color={"#717171"}>
+        <strong style={{ fontWeight: "600" }}>{`$${item.price} `}</strong>
+        night
       </Text>
     </Card>
   );
