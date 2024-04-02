@@ -39,14 +39,15 @@ const Signup = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   const handleSignup = (data: SignupStateInterface) => {
-    console.log("signup");
-    console.log(data);
+    // console.log("signup");
+    // console.log(data);
 
     const userData: UserStateType = {
+      ...data,
       favorite: [],
       isAdmin: false,
-      name: data.name,
-      email: data.email,
+      name: data.name.toLowerCase(),
+      email: data.email.toLowerCase(),
       password: data.password,
       id: "",
     };
