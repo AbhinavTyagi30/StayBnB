@@ -3021,6 +3021,41 @@ const tabContents: tabContentsType = {
   ],
 };
 
+interface footLinkType {
+  Support: string[];
+  Hosting: string[];
+  Airbnb: string[];
+  [key: string]: string[];
+}
+
+const footLink: footLinkType = {
+  Support: [
+    "Help Centre",
+    "AirCover",
+    "Anti-discrimination",
+    "Disability support",
+    "Cancellation options",
+    "Report neighbourhood concern",
+  ],
+
+  Hosting: [
+    "Airbnb your home",
+    "AirCover for Hosts",
+    "Hosting resources",
+    "Community forum",
+    "Hosting responsibly",
+    "Join a free Hosting class",
+  ],
+
+  Airbnb: [
+    "Newsroom",
+    "New features",
+    "Careers",
+    "Investors",
+    "Airbnb.org emergency stays",
+  ],
+};
+
 const Footer = () => {
   const initialHeight = 180;
   const [height, setHeight] = useState<Height>(initialHeight);
@@ -3124,6 +3159,40 @@ const Footer = () => {
           })}
         </TabPanels>
       </Tabs>
+      <hr />
+      <Grid
+        templateColumns={{
+          base: "repeat(1, 1fr)",
+          xl: "repeat(3, 1fr)",
+        }}
+        gap={6}
+        className="footerFoot"
+        mt={10}
+      >
+        {Object.keys(footLink).map((heading: string) => {
+          return (
+            <GridItem
+              key={heading}
+              w="100%"
+              className="footerFootLinkContainer"
+            >
+              <Text fontSize="sm" style={{ fontWeight: "600" }}>
+                {heading}
+              </Text>
+
+              <ul>
+                {footLink[heading].map((item: string, index: number) => {
+                  return (
+                    <li key={item + index}>
+                      <a href="">{item}</a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </GridItem>
+          );
+        })}
+      </Grid>
     </Box>
   );
 };
