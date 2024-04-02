@@ -15,6 +15,10 @@ import {
 import { useState } from "react";
 import AnimateHeight, { Height } from "react-animate-height";
 import "../../styles/Footer/footer.css";
+import { FooterLanguageCountry } from "./FooterLanguageCountry";
+import { FooterPrivacyPolicy } from "./FooterPrivacyPolicy";
+import { FooterSocial } from "./FooterSocial";
+import { FooterCopyright } from "./FooterCopyright";
 
 const allTabs: string[] = [
   "Popular",
@@ -3167,7 +3171,7 @@ const Footer = () => {
         }}
         gap={6}
         className="footerFoot"
-        mt={10}
+        my={10}
       >
         {Object.keys(footLink).map((heading: string) => {
           return (
@@ -3193,6 +3197,50 @@ const Footer = () => {
           );
         })}
       </Grid>
+      <hr />
+      <Box my={8}>
+        <Box
+          display={{ base: "none", lg: "flex" }}
+          justifyContent={"space-between"}
+        >
+          <Box display={"flex"} gap={"5px"} alignItems={"center"}>
+            <FooterCopyright />
+
+            <FooterPrivacyPolicy />
+          </Box>
+
+          <Box display={"flex"} gap={6}>
+            <FooterLanguageCountry />
+            <FooterSocial />
+          </Box>
+        </Box>
+
+        <Box
+          display={{ base: "none", md: "flex", lg: "none" }}
+          flexDirection={"column"}
+          justifyContent={"center"}
+          alignItems={"center"}
+          gap={3}
+        >
+          <Box display={"flex"} gap={6} alignItems={"center"}>
+            <FooterLanguageCountry />
+            <FooterSocial />
+          </Box>
+
+          <FooterCopyright />
+          <FooterPrivacyPolicy />
+        </Box>
+
+        <Box
+          display={{ base: "flex", md: "none" }}
+          gap={3}
+          flexDirection={"column"}
+        >
+          <FooterLanguageCountry />
+          <FooterCopyright />
+          <FooterPrivacyPolicy />
+        </Box>
+      </Box>
     </Box>
   );
 };
