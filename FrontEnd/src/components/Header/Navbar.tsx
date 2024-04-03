@@ -220,8 +220,8 @@ export const Navbar: FC = () => {
             }}
           >
             <Box display={"grid"} alignItems={"center"} justifyItems={"center"}>
-              <FaSearch size={"20px"} />
-              <Text>Explore</Text>
+              <FaSearch size={"16px"} />
+              <Text fontSize={"14px"}>Explore</Text>
             </Box>
           </NavLink>
 
@@ -232,8 +232,8 @@ export const Navbar: FC = () => {
             }}
           >
             <Box display={"grid"} alignItems={"center"} justifyItems={"center"}>
-              <CiHeart size={"20px"} />
-              <Text>Wishlists</Text>
+              <CiHeart size={"16px"} />
+              <Text fontSize={"14px"}>Wishlists</Text>
             </Box>
           </NavLink>
 
@@ -249,8 +249,8 @@ export const Navbar: FC = () => {
                 alignItems={"center"}
                 justifyItems={"center"}
               >
-                <Avatar size={"2xs"} bg={"teal"} />
-                <Text>Profile</Text>
+                <Avatar size={"2xs"} name={loginStore.user.name} />
+                <Text fontSize={"14px"}>Log out</Text>
               </Box>
             </NavLink>
           ) : (
@@ -266,7 +266,7 @@ export const Navbar: FC = () => {
                 justifyItems={"center"}
               >
                 <Avatar size={"2xs"} />
-                <Text>Log in</Text>
+                <Text fontSize={"14px"}>Log in</Text>
               </Box>
             </NavLink>
           )}
