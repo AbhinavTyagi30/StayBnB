@@ -7,6 +7,7 @@ import { LoginSignUp } from "../pages/LoginSignUp";
 import { Checkout } from "../components/Checkout/Checkout";
 
 import { Wishlist } from "../pages/Wishlist";
+import { Payment } from "../components/Checkout/Payment";
 
 
 export const AllRoutes = () => {
@@ -15,6 +16,7 @@ export const AllRoutes = () => {
       <Route path="/" element={<Home />} />
       <Route path="/property/:id" element={<Property />} />
       <Route path="/checkout" element={<Checkout/>} />
+      <Route path='/payment' element={<Payment/>}/>
       <Route path="/admin" element={<Admin />} />
       <Route path="/login-signup" element={<LoginSignUp />} />
       <Route path="/wishlist" element={<Wishlist />} />
