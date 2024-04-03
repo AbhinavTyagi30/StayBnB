@@ -15,32 +15,10 @@ import {
   Tr,
 } from "@chakra-ui/react";
 import "../../../styles/AdminPage.css";
-("use client");
-// import {
-//   IconButton,
-//   useBreakpointValue,
-//   Heading,
-//   Text,
-//   Container,
-// } from '@chakra-ui/react'
-// Here we have used react-icons package for the icons
-// import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi'
-// And react-slick as our Carousel Lib
-// import Slider from 'react-slick'
 import { ChevronLeftIcon, ChevronRightIcon, DeleteIcon, EditIcon } from "@chakra-ui/icons";
 import {  TableFooter } from "@mui/material";
 import  InitialFocus  from "../InitialFocus";
-// const settings = {
-//     dots: true,
-//     arrows: false,
-//     fade: true,
-//     infinite: true,
-//     autoplay: true,
-//     speed: 500,
-//     autoplaySpeed: 5000,
-//     slidesToShow: 1,
-//     slidesToScroll: 1,
-//   }
+
 const FetchProperty: FC = () => {
   const [data, setData] = useState<Data[]>([]);
   const[page,setPage] = useState<number>(1);
