@@ -37,6 +37,9 @@ const navigate = useNavigate();
 
   return (
     <>
+    {/* checkout here */}
+
+    
    <div id = "checkout-component">
      
           <div id="orderSummary">
