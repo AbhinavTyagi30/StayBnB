@@ -119,7 +119,7 @@ const Cards = ({ item }: CardsPropInterface) => {
             <FaHeart
               fontSize={"1.5rem"}
               className="heartFull"
-              colorRendering={"red"}
+              floodColor={"red"}
               onClick={(event) => {
                 event.stopPropagation();
                 handleFavorite(item);
@@ -136,6 +136,8 @@ const Cards = ({ item }: CardsPropInterface) => {
             />
           )}
         </Box>
+
+        {/* Guest Favorite */}
 
         {/* Swiper Image Component */}
 
