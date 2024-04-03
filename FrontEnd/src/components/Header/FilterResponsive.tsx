@@ -11,6 +11,7 @@ import {
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
+import { FaSlidersH } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 
 export function FilterResponsive() {
@@ -20,24 +21,18 @@ export function FilterResponsive() {
     <>
       <Button
         onClick={onToggle}
-        p={"1rem"}
-        border={"1px solid #ddd"}
-        borderRadius={"0.8rem"}
+        border={"1px solid black"}
+        borderRadius={"full"}
         mr={"0.5rem"}
-        fontSize={"0.8rem"}
-        fontWeight={"600"}
+        ml={"0.5rem"}
+        fontWeight={"900"}
+        fontSize={"1rem"}
+        bg={"white"}
       >
-        Filters
+        <FaSlidersH />
       </Button>
-      <Slide direction="bottom" in={isOpen} style={{ zIndex: 100 }}>
-        <Box
-          p="40px"
-          color="black"
-          mb={"3rem"}
-          bg="white"
-          rounded="md"
-          shadow="md"
-        >
+      <Slide direction="bottom" in={isOpen} style={{ zIndex: 11 }}>
+        <Box p="40px" color="black" bg="white" rounded="md" shadow="md">
           <Box
             display={"flex"}
             alignItems={"center"}

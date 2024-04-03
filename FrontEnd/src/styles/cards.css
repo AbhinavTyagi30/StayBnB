@@ -1,0 +1,18 @@
+.swiper-button-next::after {
+  opacity: 0;
+  color: white;
+}
+
+.swiper-button-prev::after {
+  opacity: 0;
+  color: white;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: white !important;
+}
+
+.card-image:hover .swiper-button-next::after,
+.card-image:hover .swiper-button-prev::after {
+  opacity: 100;
+}

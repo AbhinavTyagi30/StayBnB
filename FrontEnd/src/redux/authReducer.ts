@@ -3,6 +3,7 @@ import { AuthStateType } from "../utils/authStateType";
 import { LoginStateInterface } from "../utils/LoginStateInterface";
 import axios from "axios";
 import { UserStateType } from "../utils/userStateType";
+import { PropertyInterface } from "../utils/propertyInterface";
 
 //initial authState
 const initialState: AuthStateType = {
@@ -86,6 +87,14 @@ const authReducer = createSlice({
           state.user = action.payload;
         }
       );
+
+    builder.addCase(
+      addFavsAsync.fulfilled,
+      (state, action: PayloadAction<UserStateType>) => {
+        console.log("success in adding to favorite");
+        state.user = action.payload;
+      }
+    );
   },
 });
 
@@ -116,6 +125,26 @@ export const signupAsync = createAsyncThunk(
     console.log("response data", responseData);
     console.log("response data user", responseData.user);
     return responseData?.user;
+  }
+);
+
+export interface addFavDataInterface {
+  userId: string;
+  property: {
+    favorite: PropertyInterface[];
+  };
+}
+
+export const addFavsAsync = createAsyncThunk(
+  "auth/addFav",
+  async (data: addFavDataInterface) => {
+    const response = await axios.patch(
+      `https://staybnb-server.onrender.com/users/${data.userId}`,
+      data.property
+    );
+
+    const responseData = response.data;
+    return responseData;
   }
 );
 

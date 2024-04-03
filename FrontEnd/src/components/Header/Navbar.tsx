@@ -23,12 +23,13 @@ import { LuGlobe } from "react-icons/lu";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { CiHeart } from "react-icons/ci";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import { FilterResponsive } from "./FilterResponsive";
 
 export const Navbar: FC = () => {
   const loginStore = useSelector((store: RootState) => store.auth);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -42,13 +43,16 @@ export const Navbar: FC = () => {
         position={"sticky"}
         top={0}
         bg={"white"}
-        zIndex={"10"}
+        zIndex="11"
       >
         <Show breakpoint="(min-width: 769px)">
           <Image
             src={logo}
             alt="Staybnb logo"
             height={"3.5rem"}
+            onClick={() => {
+              navigate("/");
+            }}
             _hover={{ cursor: "pointer" }}
           />
         </Show>
@@ -150,6 +154,9 @@ export const Navbar: FC = () => {
                     fontSize={"14px"}
                     fontWeight={"600"}
                     _hover={{ bg: "#f7f7f7" }}
+                    onClick={() => {
+                      navigate("/login-signup");
+                    }}
                   >
                     Log In
                   </MenuItem>
@@ -160,6 +167,9 @@ export const Navbar: FC = () => {
                     fontSize={"14px"}
                     fontWeight={"400"}
                     _hover={{ bg: "#f7f7f7" }}
+                    onClick={() => {
+                      navigate("/login-signup");
+                    }}
                   >
                     Sign up
                   </MenuItem>
