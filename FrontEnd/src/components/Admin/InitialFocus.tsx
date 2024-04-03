@@ -23,11 +23,6 @@ import React, { FC } from "react"
             <ModalHeader>Add Data Here</ModalHeader>
             <ModalCloseButton />
             <ModalBody pb={6}>
-              <FormControl>
-                <FormLabel>Image Link</FormLabel>
-                <Input name="image" ref={initialRef} placeholder='Image Link Here' />
-              </FormControl>
-  
               <FormControl mt={4} display={"grid"} gridTemplateColumns={"auto"}>
                 <FormLabel>Name</FormLabel>
                 <Input name="Name" placeholder='Property name' />

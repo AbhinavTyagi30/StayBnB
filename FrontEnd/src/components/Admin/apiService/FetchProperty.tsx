@@ -15,19 +15,24 @@ import {
   Tr,
 } from "@chakra-ui/react";
 import "../../../styles/AdminPage.css";
-import { ChevronLeftIcon, ChevronRightIcon, DeleteIcon, EditIcon } from "@chakra-ui/icons";
-import {  TableFooter } from "@mui/material";
-import  InitialFocus  from "../InitialFocus";
+import {
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  DeleteIcon,
+  EditIcon,
+} from "@chakra-ui/icons";
+import InitialFocus from "../InitialFocus";
 
 const FetchProperty: FC = () => {
   const [data, setData] = useState<Data[]>([]);
-  const[page,setPage] = useState<number>(1);
-  const pageLimit  = 10;
-//   console.log("Data is", data);
+  const [page, setPage] = useState<number>(1);
+  const pageLimit = 10;
+  //   console.log("Data is", data);
   useEffect(() => {
     const fetchFun = async () => {
       try {
-        const res = await fetchData({page});
+        console.log(page);
+        const res = await fetchData(page);
         setData(res);
       } catch (err) {
         console.log(err);
@@ -35,23 +40,15 @@ const FetchProperty: FC = () => {
     };
     fetchFun();
   }, [page]);
-const prevPage = () =>{
-    if(page !=1){
-    setPage(prev => prev-1)
-    }
-}
-const nextPage = () =>{
-    if(page != (data.length/pageLimit)){
-        setPage(prev => prev+1);
-    }
-}
-
-
   return (
     <>
       <TableContainer className="adminTable">
-        <Box display={"flex"} justifyContent={"flex-end"} alignContent={"flex-end"}>
-        <InitialFocus/>
+        <Box
+          display={"flex"}
+          justifyContent={"flex-end"}
+          alignContent={"flex-end"}
+        >
+          <InitialFocus />
         </Box>
         <Table
           variant={"striped"}
@@ -103,7 +100,8 @@ const nextPage = () =>{
                   {item.host_name}
                 </Td>
                 <Td>
-                  Beds : {item.bedrooms}<br></br>Bath : {item.bathrooms}
+                  Beds : {item.bedrooms}
+                  <br></br>Bath : {item.bathrooms}
                 </Td>
                 <Td>{item.smart_location}</Td>
                 <Td>{item.price * 80}INR</Td>
@@ -119,15 +117,29 @@ const nextPage = () =>{
                 </Td>
               </Tr>
             ))}
-             </Tbody>
-          <TableFooter>
-            <Flex direction={"row"} gap={"1em"}>
-         {page >1? <Button onClick={()=>{prevPage()}} colorScheme="blue"><ChevronLeftIcon/></Button> : " "}
-          {page >= (data.length/pageLimit)? <Button onClick={()=>{nextPage()}} colorScheme="blue" ><ChevronRightIcon/></Button>:""}
-          </Flex>
-          </TableFooter>
+          </Tbody>
         </Table>
       </TableContainer>
+      <Flex direction={"row"} gap={"1em"}>
+        <Button
+          isDisabled={page == 1}
+          onClick={() => {
+            setPage((prev) => prev - 1);
+          }}
+          colorScheme="blue"
+        >
+          <ChevronLeftIcon />
+        </Button>
+        <Button
+          isDisabled={page == pageLimit}
+          onClick={() => {
+            setPage((prev) => prev + 1);
+          }}
+          colorScheme="blue"
+        >
+          <ChevronRightIcon />
+        </Button>
+      </Flex>
     </>
   );
 };
