@@ -28,9 +28,16 @@ const Login = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   const handleSignin = (data: LoginStateInterface) => {
-    console.log("login");
-    console.log(data);
-    dispatch(loginAsync(data));
+    // console.log("login");
+    // console.log(data);
+
+    const serverData: LoginStateInterface = {
+      ...data,
+      email: data.email.toLowerCase(),
+    };
+    // console.log(serverData);
+
+    dispatch(loginAsync(serverData));
   };
 
   return (

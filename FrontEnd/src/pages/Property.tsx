@@ -37,6 +37,8 @@ const Property = () => {
         toast({
           title: "URL Copied!",
           status: "success",
+          position: "top",
+          variant: "top-accent",
           duration: 3000,
           isClosable: true,
         });
@@ -85,20 +87,14 @@ const Property = () => {
             </Text>
             <Spacer />
             <Flex gap={5}>
-              <Button
-                textDecoration="underline"
-                cursor="pointer"
-                gap={1}
-                onClick={handleShare}
-              >
+              <Button cursor="pointer" gap={1} onClick={handleShare}>
                 <Image
-                  w={4}
+                  maxW={4}
                   src="https://cdn-icons-png.flaticon.com/128/3580/3580382.png"
                 />
                 <Text>Share</Text>
               </Button>
               <Button
-                textDecoration="underline"
                 cursor="pointer"
                 gap={1}
                 onClick={() => setSaved((prev) => !prev)}
@@ -106,7 +102,7 @@ const Property = () => {
                 {save ? (
                   <>
                     <Image
-                      w={5}
+                      maxW={5}
                       src="https://cdn-icons-png.flaticon.com/128/2589/2589175.png"
                     />
                     <Text>Saved</Text>
@@ -114,7 +110,7 @@ const Property = () => {
                 ) : (
                   <>
                     <Image
-                      w={4}
+                      maxW={4}
                       src="https://cdn-icons-png.flaticon.com/128/151/151910.png"
                     />
                     <Text>Save</Text>
@@ -129,12 +125,14 @@ const Property = () => {
               overflow={"hidden"}
               templateRows="repeat(2, 1fr)"
               templateColumns="repeat(4, 1fr)"
-              gap={4}
+              gap={"1%"}
             >
               {propertyData.images.slice(0, 1).map((item, index) => {
                 return (
                   <GridItem
                     key={index}
+                    //  h={[ "200", "300", "400"]}
+                    maxH={350}
                     sx={{ _hover: { "& img": { opacity: 0.6 } } }}
                     rowSpan={2}
                     colSpan={2}
@@ -148,6 +146,8 @@ const Property = () => {
                 return (
                   <GridItem
                     key={index}
+                    // h={[ "92", "142", "192"]}
+                    maxH={172}
                     sx={{ _hover: { "& img": { opacity: 0.75 } } }}
                     colSpan={1}
                     bg="papayawhip"
@@ -162,12 +162,14 @@ const Property = () => {
               onClick={openModal}
               position="absolute"
               right={19}
+              padding={1}
               bottom={5}
               fontSize={["xs", "s", "md", "lg"]}
               size={["xxs", "xs", "xs", "md"]}
             >
               <Image
-                w={{ base: "3", md: "3", lg: "4" }}
+                // w={{ base: "3", md: "3", lg: "4" }}
+                maxW={4}
                 src="https://cdn-icons-png.flaticon.com/128/17/17704.png"
               />
               <Text>Show All Images</Text>

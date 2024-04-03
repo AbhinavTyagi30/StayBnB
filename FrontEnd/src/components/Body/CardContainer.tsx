@@ -3,7 +3,7 @@ import { FC, useEffect, useState } from "react";
 import { PropertyInterface } from "../../utils/propertyInterface";
 
 import axios from "axios";
-import { Cards } from "./Cards";
+import Cards from "./Cards";
 
 const baseUrl = `https://staybnb-server.onrender.com/property`;
 
@@ -75,14 +75,15 @@ export const CardContainer: FC = () => {
           display={"grid"}
           gridTemplateColumns={{
             base: "repeat(1,1fr)",
+            sm: "repeat(2,1fr)",
             md: "repeat(2,1fr)",
             lg: "repeat(3,1fr)",
             xl: "repeat(4,1fr)",
           }}
           justifyItems={"center"}
           position={"relative"}
-          p={"1rem 3rem"}
-          rowGap={"1.5rem"}
+          p={{ base: "1rem", lg: "1rem 4rem" }}
+          gap={"1rem"}
         >
           {data.property.map((item) => {
             return <Cards key={item.id} item={item} />;
