@@ -43,7 +43,7 @@ import  InitialFocus  from "../InitialFocus";
 //   }
 const FetchProperty: FC = () => {
   const [data, setData] = useState<Data[]>([]);
-  const[page,setPage] = useState(1);
+  const[page,setPage] = useState<number>(1);
   const pageLimit  = 10;
 //   console.log("Data is", data);
   useEffect(() => {
@@ -57,12 +57,12 @@ const FetchProperty: FC = () => {
     };
     fetchFun();
   }, [page]);
-const prevPage = (page) =>{
+const prevPage = (page:number) =>{
     if(page !=1){
     setPage(prev => prev-1)
     }
 }
-const nextPage = (page) =>{
+const nextPage = (page:number) =>{
     if(page != (data.length/pageLimit)){
         setPage(prev => prev+1);
     }

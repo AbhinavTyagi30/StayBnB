@@ -25,22 +25,22 @@ import React, { FC } from "react"
             <ModalBody pb={6}>
               <FormControl>
                 <FormLabel>Image Link</FormLabel>
-                <Input ref={initialRef} placeholder='Image Link Here' />
+                <Input name="image" ref={initialRef} placeholder='Image Link Here' />
               </FormControl>
   
               <FormControl mt={4} display={"grid"} gridTemplateColumns={"auto"}>
                 <FormLabel>Name</FormLabel>
-                <Input placeholder='Property name' />
+                <Input name="Name" placeholder='Property name' />
                 <FormLabel>Host Name</FormLabel>
-                <Input placeholder='Host name' />
+                <Input name="host" placeholder='Host name' />
                 <FormLabel>Beds</FormLabel>
-                <Input placeholder='Host name' />
-                <FormLabel>Host Name</FormLabel>
-                <Input placeholder='Host name' />
-                <FormLabel>Host Name</FormLabel>
-                <Input placeholder='Host name' />
-                <FormLabel>Host Name</FormLabel>
-                <Input placeholder='Host name' />
+                <Input name="beds" placeholder='Number of Beds' type="number"/>
+                <FormLabel>Baths</FormLabel>
+                <Input name="Bath" placeholder='Number of Baths' type="number" />
+                <FormLabel>Location</FormLabel>
+                <Input name="location" placeholder='location' />
+                <FormLabel>Price</FormLabel>
+                <Input name="price" placeholder='Price' />
               </FormControl>
             </ModalBody>
   
