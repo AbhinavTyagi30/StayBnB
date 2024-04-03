@@ -15,10 +15,10 @@ import {
 import { useState } from "react";
 import AnimateHeight, { Height } from "react-animate-height";
 import "../../styles/Footer/footer.css";
+import { FooterCopyright } from "./FooterCopyright";
 import { FooterLanguageCountry } from "./FooterLanguageCountry";
 import { FooterPrivacyPolicy } from "./FooterPrivacyPolicy";
 import { FooterSocial } from "./FooterSocial";
-import { FooterCopyright } from "./FooterCopyright";
 
 const allTabs: string[] = [
   "Popular",
@@ -3069,8 +3069,10 @@ const Footer = () => {
         Inspiration for future getaways
       </Text>
 
-      <Tabs className="tabs">
+      <Tabs className="tabs" colorScheme="gray">
         <TabList
+          color="blackAlpha.500"
+          _selected={{ color: "blackAlpha" }}
           className="tablist"
           overflowX="auto"
           css={css({
