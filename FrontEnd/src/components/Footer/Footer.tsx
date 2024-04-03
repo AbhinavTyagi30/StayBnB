@@ -1,5 +1,7 @@
 import {
+  Box,
   Button,
+  css,
   Grid,
   GridItem,
   Tab,
@@ -13,6 +15,10 @@ import {
 import { useState } from "react";
 import AnimateHeight, { Height } from "react-animate-height";
 import "../../styles/Footer/footer.css";
+import { FooterLanguageCountry } from "./FooterLanguageCountry";
+import { FooterPrivacyPolicy } from "./FooterPrivacyPolicy";
+import { FooterSocial } from "./FooterSocial";
+import { FooterCopyright } from "./FooterCopyright";
 
 const allTabs: string[] = [
   "Popular",
@@ -3019,17 +3025,63 @@ const tabContents: tabContentsType = {
   ],
 };
 
+interface footLinkType {
+  Support: string[];
+  Hosting: string[];
+  Airbnb: string[];
+  [key: string]: string[];
+}
+
+const footLink: footLinkType = {
+  Support: [
+    "Help Centre",
+    "AirCover",
+    "Anti-discrimination",
+    "Disability support",
+    "Cancellation options",
+    "Report neighbourhood concern",
+  ],
+
+  Hosting: [
+    "Airbnb your home",
+    "AirCover for Hosts",
+    "Hosting resources",
+    "Community forum",
+    "Hosting responsibly",
+    "Join a free Hosting class",
+  ],
+
+  Airbnb: [
+    "Newsroom",
+    "New features",
+    "Careers",
+    "Investors",
+    "Airbnb.org emergency stays",
+  ],
+};
+
 const Footer = () => {
   const initialHeight = 180;
   const [height, setHeight] = useState<Height>(initialHeight);
   return (
-    <div className="footer-container">
-      <Text className="footer-title" fontSize="2xl">
+    <Box className="footer-container" p={{ base: "1rem", lg: "1rem 4rem" }}>
+      <Text className="footer-title" fontSize={{ base: "xl", xl: "2xl" }}>
         Inspiration for future getaways
       </Text>
 
       <Tabs className="tabs">
-        <TabList className="tablist">
+        <TabList
+          className="tablist"
+          overflowX="auto"
+          css={css({
+            scrollbarWidth: "none",
+            "::-webkit-scrollbar": { display: "none" },
+
+            boxShadow: "inset 0 -2px 0 rgba(0, 0, 0, 0.1)",
+            border: "0 none",
+          })}
+          py={1}
+        >
           {allTabs.map((tabs) => {
             return (
               <Tab className="tab" key={tabs}>
@@ -3061,7 +3113,11 @@ const Footer = () => {
                     {tabContents[tabContent].map(
                       (content: tabContentType, index: number) => {
                         return (
-                          <GridItem className="gridItem" key={index} w="100%">
+                          <GridItem
+                            className="gridItem"
+                            key={content.location + index}
+                            w="100%"
+                          >
                             <a
                               className="url"
                               href={content.url}
@@ -3107,7 +3163,85 @@ const Footer = () => {
           })}
         </TabPanels>
       </Tabs>
-    </div>
+      <hr />
+      <Grid
+        templateColumns={{
+          base: "repeat(1, 1fr)",
+          xl: "repeat(3, 1fr)",
+        }}
+        gap={6}
+        className="footerFoot"
+        my={10}
+      >
+        {Object.keys(footLink).map((heading: string) => {
+          return (
+            <GridItem
+              key={heading}
+              w="100%"
+              className="footerFootLinkContainer"
+            >
+              <Text fontSize="sm" style={{ fontWeight: "600" }}>
+                {heading}
+              </Text>
+
+              <ul>
+                {footLink[heading].map((item: string, index: number) => {
+                  return (
+                    <li key={item + index}>
+                      <a href="">{item}</a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </GridItem>
+          );
+        })}
+      </Grid>
+      <hr />
+      <Box my={8}>
+        <Box
+          display={{ base: "none", lg: "flex" }}
+          justifyContent={"space-between"}
+        >
+          <Box display={"flex"} gap={"5px"} alignItems={"center"}>
+            <FooterCopyright />
+
+            <FooterPrivacyPolicy />
+          </Box>
+
+          <Box display={"flex"} gap={6}>
+            <FooterLanguageCountry />
+            <FooterSocial />
+          </Box>
+        </Box>
+
+        <Box
+          display={{ base: "none", md: "flex", lg: "none" }}
+          flexDirection={"column"}
+          justifyContent={"center"}
+          alignItems={"center"}
+          gap={3}
+        >
+          <Box display={"flex"} gap={6} alignItems={"center"}>
+            <FooterLanguageCountry />
+            <FooterSocial />
+          </Box>
+
+          <FooterCopyright />
+          <FooterPrivacyPolicy />
+        </Box>
+
+        <Box
+          display={{ base: "flex", md: "none" }}
+          gap={3}
+          flexDirection={"column"}
+        >
+          <FooterLanguageCountry />
+          <FooterCopyright />
+          <FooterPrivacyPolicy />
+        </Box>
+      </Box>
+    </Box>
   );
 };
 
