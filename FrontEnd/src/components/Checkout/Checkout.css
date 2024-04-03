@@ -38,7 +38,7 @@
     margin-bottom: 15px;
   }
   
-  #orderSummary>div {
+  #orderSummary .price-details{
     display: flex;
     justify-content: space-between;
   }
@@ -50,6 +50,9 @@
   .green {
     color: green;
   }
+  
+
+
   
   .gray {
     color: rgb(110, 110, 110);
