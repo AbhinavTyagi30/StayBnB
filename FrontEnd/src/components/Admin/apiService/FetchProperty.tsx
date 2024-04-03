@@ -57,12 +57,12 @@ const FetchProperty: FC = () => {
     };
     fetchFun();
   }, [page]);
-const prevPage = (page:number) =>{
+const prevPage = () =>{
     if(page !=1){
     setPage(prev => prev-1)
     }
 }
-const nextPage = (page:number) =>{
+const nextPage = () =>{
     if(page != (data.length/pageLimit)){
         setPage(prev => prev+1);
     }
@@ -144,8 +144,8 @@ const nextPage = (page:number) =>{
              </Tbody>
           <TableFooter>
             <Flex direction={"row"} gap={"1em"}>
-         {page >1? <Button onClick={prevPage} colorScheme="blue"><ChevronLeftIcon/></Button> : " "}
-          {page >= (data.length/pageLimit)? <Button onClick={nextPage} colorScheme="blue" ><ChevronRightIcon/></Button>:""}
+         {page >1? <Button onClick={()=>{prevPage()}} colorScheme="blue"><ChevronLeftIcon/></Button> : " "}
+          {page >= (data.length/pageLimit)? <Button onClick={()=>{nextPage()}} colorScheme="blue" ><ChevronRightIcon/></Button>:""}
           </Flex>
           </TableFooter>
         </Table>
