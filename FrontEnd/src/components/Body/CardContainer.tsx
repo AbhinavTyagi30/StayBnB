@@ -3,7 +3,7 @@ import { FC, useEffect, useState } from "react";
 import { PropertyInterface } from "../../utils/propertyInterface";
 
 import axios from "axios";
-import { Cards } from "./Cards";
+import Cards from "./Cards";
 
 const baseUrl = `https://staybnb-server.onrender.com/property`;
 

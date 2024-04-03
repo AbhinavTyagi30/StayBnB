@@ -40,7 +40,7 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
 import { addFavDataInterface, addFavsAsync } from "../../redux/authReducer";
-import { useRef } from "react";
+import { memo, useRef } from "react";
 import { FaHeart } from "react-icons/fa";
 import { FiHeart } from "react-icons/fi";
 
@@ -48,7 +48,7 @@ interface CardsPropInterface {
   item: PropertyInterface;
 }
 
-export const Cards = ({ item }: CardsPropInterface) => {
+const Cards = ({ item }: CardsPropInterface) => {
   const navigate: NavigateFunction = useNavigate();
 
   const loginStore = useSelector((store: RootState) => store.auth);
@@ -256,3 +256,5 @@ export const Cards = ({ item }: CardsPropInterface) => {
     </>
   );
 };
+
+export default memo(Cards);
