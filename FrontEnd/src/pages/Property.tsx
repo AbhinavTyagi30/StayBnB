@@ -186,7 +186,7 @@ const Property = () => {
               onClick={openModal}
               position="absolute"
               right={19}
-              padding={1}
+              padding={2}
               bottom={5}
               fontSize={["xs", "s", "md", "lg"]}
               size={["xxs", "xs", "xs", "md"]}
@@ -266,9 +266,10 @@ const Property = () => {
                   </Grid>
                   <Button
                     p={5}
+                    position={"absolute"}
                     fontWeight={600}
                     mt={5}
-                    ml={"95%"}
+                    right={"5%"}
                     onClick={closeModal}
                   >
                     Close
