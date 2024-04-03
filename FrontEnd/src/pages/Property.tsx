@@ -38,7 +38,7 @@ const Property = () => {
           title: "URL Copied!",
           status: "success",
           position: "top",
-          variant:"top-accent",
+          variant: "top-accent",
           duration: 3000,
           isClosable: true,
         });
@@ -89,7 +89,7 @@ const Property = () => {
             <Flex gap={5}>
               <Button cursor="pointer" gap={1} onClick={handleShare}>
                 <Image
-                  w={4}
+                  maxW={4}
                   src="https://cdn-icons-png.flaticon.com/128/3580/3580382.png"
                 />
                 <Text>Share</Text>
@@ -102,7 +102,7 @@ const Property = () => {
                 {save ? (
                   <>
                     <Image
-                      w={5}
+                      maxW={5}
                       src="https://cdn-icons-png.flaticon.com/128/2589/2589175.png"
                     />
                     <Text>Saved</Text>
@@ -110,7 +110,7 @@ const Property = () => {
                 ) : (
                   <>
                     <Image
-                      w={4}
+                      maxW={4}
                       src="https://cdn-icons-png.flaticon.com/128/151/151910.png"
                     />
                     <Text>Save</Text>
@@ -162,12 +162,14 @@ const Property = () => {
               onClick={openModal}
               position="absolute"
               right={19}
+              padding={1}
               bottom={5}
               fontSize={["xs", "s", "md", "lg"]}
               size={["xxs", "xs", "xs", "md"]}
             >
               <Image
-                w={{ base: "3", md: "3", lg: "4" }}
+                // w={{ base: "3", md: "3", lg: "4" }}
+                maxW={4}
                 src="https://cdn-icons-png.flaticon.com/128/17/17704.png"
               />
               <Text>Show All Images</Text>
