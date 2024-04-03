@@ -47,6 +47,9 @@ export function Payment() {
     };
 
     return (
+
+        //  payment method..
+
         <div className="container">
             <div className={`card-container ${isFlipped ? 'flipped' : ''}`}>
                 <div className="front">
