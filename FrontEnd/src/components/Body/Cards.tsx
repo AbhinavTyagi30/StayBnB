@@ -29,6 +29,8 @@ import {
   Scrollbar,
   A11y,
   EffectFade,
+  Mousewheel,
+  Autoplay,
 } from "swiper/modules";
 
 // Import Swiper styles
@@ -36,6 +38,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+
 import { addFavDataInterface, addFavsAsync } from "../../redux/authReducer";
 import { useRef } from "react";
 import { FaHeart } from "react-icons/fa";
@@ -62,10 +65,36 @@ export const Cards = ({ item }: CardsPropInterface) => {
       return;
     }
 
-    let data: addFavDataInterface = {
-      userId: loginStore.user.id,
-      property: { favorite: [...loginStore.user.favorite, item] },
-    };
+    let currFav: PropertyInterface[] = loginStore.user.favorite.filter(
+      (curr) => curr.id === item.id
+    );
+
+    let data: addFavDataInterface;
+
+    if (currFav.length > 0) {
+      let updatedFav: PropertyInterface[] = loginStore.user.favorite.filter(
+        (curr) => {
+          console.log(curr.id);
+          console.log(item.id);
+          if (curr.id != item.id) {
+            console.log("curr", curr);
+            return curr;
+          }
+        }
+      );
+
+      console.log(updatedFav);
+
+      data = {
+        userId: loginStore.user.id,
+        property: { favorite: [...updatedFav] },
+      };
+    } else {
+      data = {
+        userId: loginStore.user.id,
+        property: { favorite: [...loginStore.user.favorite, item] },
+      };
+    }
 
     console.log(data);
 
@@ -90,6 +119,7 @@ export const Cards = ({ item }: CardsPropInterface) => {
             <FaHeart
               fontSize={"1.5rem"}
               className="heartFull"
+              colorRendering={"red"}
               onClick={(event) => {
                 event.stopPropagation();
                 handleFavorite(item);
@@ -107,14 +137,25 @@ export const Cards = ({ item }: CardsPropInterface) => {
           )}
         </Box>
 
+        {/* Swiper Image Component */}
+
         <Swiper
-          modules={[Navigation, Pagination, Scrollbar, A11y, EffectFade]}
+          modules={[
+            Navigation,
+            Pagination,
+            Scrollbar,
+            A11y,
+            EffectFade,
+            Mousewheel,
+            Autoplay,
+          ]}
           spaceBetween={50}
           slidesPerView={1}
           navigation
           effect="fade"
           pagination={{ clickable: true }}
           style={{ width: "100%" }}
+          className="card-image"
         >
           {item.images.map((image, index) => (
             <SwiperSlide key={index}>
@@ -129,6 +170,8 @@ export const Cards = ({ item }: CardsPropInterface) => {
             </SwiperSlide>
           ))}
         </Swiper>
+
+        {/* Card info */}
 
         <Box
           display={"flex"}
@@ -175,7 +218,10 @@ export const Cards = ({ item }: CardsPropInterface) => {
         </Text>
       </Card>
 
+      {/* Login Alert Dialog */}
+
       <AlertDialog
+        motionPreset="slideInTop"
         isOpen={isOpen}
         leastDestructiveRef={cancelRef}
         onClose={onClose}

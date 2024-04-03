@@ -50,6 +50,9 @@ export const Navbar: FC = () => {
             src={logo}
             alt="Staybnb logo"
             height={"3.5rem"}
+            onClick={() => {
+              navigate("/");
+            }}
             _hover={{ cursor: "pointer" }}
           />
         </Show>

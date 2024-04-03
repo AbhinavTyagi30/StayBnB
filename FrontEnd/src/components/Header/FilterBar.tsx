@@ -1,5 +1,6 @@
 import { Box, Flex, Image, Show, Switch, Text } from "@chakra-ui/react";
 import { filterImageLinks } from "../../assets/filter image/filterImage";
+import "../../styles/filterBar.css";
 import { useState } from "react";
 
 export const FilterBar = () => {
@@ -16,7 +17,7 @@ export const FilterBar = () => {
       zIndex={"10"}
     >
       <Box
-        padding={"1rem 3rem"}
+        padding={{ base: "1rem", lg: "1rem 3rem" }}
         display={"flex"}
         justifyContent={"flex-start"}
         alignItems={"center"}
@@ -82,7 +83,7 @@ export const FilterBar = () => {
           p={"1rem"}
           border={"1px solid #ddd"}
           borderRadius={"0.8rem"}
-          mr={"4rem"}
+          mr={{ base: "1rem", lg: "4rem" }}
         >
           <Text
             fontSize={"0.8rem"}

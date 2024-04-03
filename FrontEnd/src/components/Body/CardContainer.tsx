@@ -75,13 +75,14 @@ export const CardContainer: FC = () => {
           display={"grid"}
           gridTemplateColumns={{
             base: "repeat(1,1fr)",
+            sm: "repeat(2,1fr)",
             md: "repeat(2,1fr)",
             lg: "repeat(3,1fr)",
             xl: "repeat(4,1fr)",
           }}
           justifyItems={"center"}
           position={"relative"}
-          p={"1rem 3rem"}
+          p={{ base: "1rem", lg: "1rem 4rem" }}
           gap={"1rem"}
         >
           {data.property.map((item) => {
