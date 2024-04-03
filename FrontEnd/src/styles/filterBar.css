@@ -1,0 +1,4 @@
+::-webkit-scrollbar {
+  width: 100px;
+  height: 1px; /* Width of the scrollbar */
+}
