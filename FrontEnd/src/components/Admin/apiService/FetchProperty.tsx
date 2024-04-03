@@ -4,7 +4,7 @@ import Data from "../../../utils/AdminDataInterface";
 import {
   Box,
   Button,
-  Checkbox,
+  Flex,
   Image,
   Table,
   TableContainer,
@@ -14,9 +14,8 @@ import {
   Thead,
   Tr,
 } from "@chakra-ui/react";
-import "../../../styles/App.css";
+import "../../../styles/AdminPage.css";
 ("use client");
-
 // import {
 //   IconButton,
 //   useBreakpointValue,
@@ -28,7 +27,9 @@ import "../../../styles/App.css";
 // import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi'
 // And react-slick as our Carousel Lib
 // import Slider from 'react-slick'
-import { AddIcon, DeleteIcon, EditIcon } from "@chakra-ui/icons";
+import { ChevronLeftIcon, ChevronRightIcon, DeleteIcon, EditIcon } from "@chakra-ui/icons";
+import {  TableFooter } from "@mui/material";
+import  InitialFocus  from "../InitialFocus";
 // const settings = {
 //     dots: true,
 //     arrows: false,
@@ -42,34 +43,37 @@ import { AddIcon, DeleteIcon, EditIcon } from "@chakra-ui/icons";
 //   }
 const FetchProperty: FC = () => {
   const [data, setData] = useState<Data[]>([]);
-
-  // const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-  //     <PostData/>
-  console.log("Data is", data);
+  const[page,setPage] = useState(1);
+  const pageLimit  = 10;
+//   console.log("Data is", data);
   useEffect(() => {
     const fetchFun = async () => {
       try {
-        const res = await fetchData();
+        const res = await fetchData({page});
         setData(res);
       } catch (err) {
         console.log(err);
       }
     };
     fetchFun();
-  }, []);
+  }, [page]);
+const prevPage = (page) =>{
+    if(page !=1){
+    setPage(prev => prev-1)
+    }
+}
+const nextPage = (page) =>{
+    if(page != (data.length/pageLimit)){
+        setPage(prev => prev+1);
+    }
+}
+
+
   return (
     <>
       <TableContainer className="adminTable">
-        <Box className="buttons">
-          <Button>
-            <AddIcon />
-          </Button>
-          {/* <Button>
-            <EditIcon />
-          </Button> */}
-          <Button>
-            <DeleteIcon />
-          </Button>
+        <Box display={"flex"} justifyContent={"flex-end"} alignContent={"flex-end"}>
+        <InitialFocus/>
         </Box>
         <Table
           variant={"striped"}
@@ -79,8 +83,6 @@ const FetchProperty: FC = () => {
         >
           <Thead>
             <Tr>
-              <Th></Th>
-
               <Th>ID</Th>
               <Th>Image</Th>
               <Th>Name</Th>
@@ -89,15 +91,13 @@ const FetchProperty: FC = () => {
               <Th>Location</Th>
               <Th>Price</Th>
               <Th>Edit</Th>
+              <Th>Delete</Th>
             </Tr>
           </Thead>
           {/* white-space: nowrap; overflow: hidden; text-overflow: ellipsis; */}
           <Tbody>
             {data.map((item, index) => (
               <Tr key={index}>
-                <Td>
-                  <Checkbox size={"sm"} bgColor={"white"}></Checkbox>
-                </Td>
                 <Td w={"2"}>{item.id}</Td>
                 <Td h={"50px"}>
                   <Image
@@ -125,7 +125,7 @@ const FetchProperty: FC = () => {
                   {item.host_name}
                 </Td>
                 <Td>
-                  Beds: {item.bedrooms} <br></br>Bath : {item.bathrooms}
+                  Beds : {item.bedrooms}<br></br>Bath : {item.bathrooms}
                 </Td>
                 <Td>{item.smart_location}</Td>
                 <Td>{item.price * 80}INR</Td>
@@ -134,70 +134,20 @@ const FetchProperty: FC = () => {
                     <EditIcon />
                   </Button>
                 </Td>
+                <Td>
+                  <Button>
+                    <DeleteIcon />
+                  </Button>
+                </Td>
               </Tr>
-              // {/* <Box key={index} position={'relative'} height={'10em'} width={'10em'} overflow={'hidden'}>
-              //       {/* CSS files for react-slick */}
-              //       <link
-              //         rel="stylesheet"
-              //         type="text/css"
-              //         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
-              //       />
-              //       <link
-              //         rel="stylesheet"
-              //         type="text/css"
-              //         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
-              //       />
-              //       {/* Left Icon */}
-              //       <IconButton
-              //         aria-label="left-arrow"
-              //         variant="ghost"
-              //         position="absolute"
-              //         left={side}
-              //         top={top}
-              //         transform={'translate(0%, -50%)'}
-              //         zIndex={2}
-              //         onClick={() => slider?.slickPrev()}>
-              //         <BiLeftArrowAlt size="10px" />
-              //       </IconButton>
-              //       {/* Right Icon */}
-              //       <IconButton
-              //         aria-label="right-arrow"
-              //         variant="ghost"
-              //         position="absolute"
-              //         right={side}
-              //         top={top}
-              //         transform={'translate(0%, -50%)'}
-              //         zIndex={2}
-              //         onClick={() => slider?.slickNext()}>
-              //         <BiRightArrowAlt size="10px" />
-              //       </IconButton>
-              //       {/* Slider */}
-              //       <Slider {...settings} ref={(slider) => setSlider(slider)}>
-              //         {item.images.map((image, ind) => (
-              //           <Box
-              //             key={ind}
-              //             height={'sm'}
-              //             position="relative"
-              //             backgroundPosition="center"
-              //             backgroundSize="cover"
-              //             backgroundImage={`url(${image})`}>
-              //             {/* This is the block you need to change, to customize the caption
-              //             <Container size="container.lg" height="600px" position="relative">
-              //               <Stack
-              //                 spacing={6}
-              //                 w={'full'}
-              //                 maxW={'lg'}
-              //                 position="absolute"
-              //                 top="50%"
-              //                 transform="translate(0, -50%)">
-              //               </Stack>
-              //             </Container> */}
-              //           </Box>
-              //         ))}
-              //       </Slider>
-              //     </Box> */}
             ))}
-          </Tbody>
+             </Tbody>
+          <TableFooter>
+            <Flex direction={"row"} gap={"1em"}>
+         {page >1? <Button onClick={prevPage} colorScheme="blue"><ChevronLeftIcon/></Button> : " "}
+          {page >= (data.length/pageLimit)? <Button onClick={nextPage} colorScheme="blue" ><ChevronRightIcon/></Button>:""}
+          </Flex>
+          </TableFooter>
         </Table>
       </TableContainer>
     </>
