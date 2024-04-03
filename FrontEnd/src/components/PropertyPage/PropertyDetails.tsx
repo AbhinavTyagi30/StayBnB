@@ -431,7 +431,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({
                     <DatePicker
                       selected={checkoutDate}
                       onChange={handleCheckoutDateChange}
-                      placeholderText="  Check-in Date"
+                      placeholderText="  Check-out Date"
                     />
                   </Box>
                 </Box>
@@ -818,7 +818,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({
                     <DatePicker
                       selected={checkoutDate}
                       onChange={handleCheckoutDateChange}
-                      placeholderText="  Check-in Date"
+                      placeholderText="  Check-out Date"
                     />
                   </Box>
                 </Box>
