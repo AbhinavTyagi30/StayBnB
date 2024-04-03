@@ -1,11 +1,13 @@
 .swiper-button-next::after {
   opacity: 0;
   color: white;
+  font-size: 20px !important;
 }
 
 .swiper-button-prev::after {
   opacity: 0;
   color: white;
+  font-size: 20px !important;
 }
 
 .swiper-pagination-bullet-active {
@@ -14,5 +16,5 @@
 
 .card-image:hover .swiper-button-next::after,
 .card-image:hover .swiper-button-prev::after {
-  opacity: 100;
+  opacity: 1;
 }

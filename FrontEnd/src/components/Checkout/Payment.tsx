@@ -47,6 +47,9 @@ export function Payment() {
     };
 
     return (
+
+        //  payment method..
+
         <div className="container">
             <div className={`card-container ${isFlipped ? 'flipped' : ''}`}>
                 <div className="front">
@@ -74,7 +77,6 @@ export function Payment() {
                         <span>cvv</span>
                         <div className="cvv-box">{cvv}</div>
 
-                        {/* problem   1 */}
                         <img style={{ color: 'white' }} src={visa} alt="" />
                     </div>
                 </div>

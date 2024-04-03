@@ -29,7 +29,9 @@ const LoginSignUp: FC = () => {
   const toast = useToast();
 
   useEffect(() => {
-    if (store.isAuth) {
+    if (store.isAuth && store.user.isAdmin) {
+      navigate("/admin");
+    } else if (store.isAuth && !store.user.isAdmin) {
       navigate("/");
     }
 

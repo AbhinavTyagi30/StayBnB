@@ -1,0 +1,17 @@
+.adminTable Td{
+    white-space: nowrap;
+    column-gap: 1em;
+ }
+ table Tr>Td>Button:hover {
+     color: tomato;
+ }
+ .cardBox{
+     display: flex;
+     flex-direction: row;
+ }
+ .buttons{
+     display: flex;
+     flex-direction: row;
+     align-items: flex-end;
+     justify-content: end;
+ }
