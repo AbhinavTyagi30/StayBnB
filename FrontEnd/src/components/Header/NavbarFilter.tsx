@@ -51,10 +51,10 @@ export function NavbarFilter() {
           <ModalHeader>Filters</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Box p="40px" color="black" bg="white" rounded="md" shadow="md">
+            <Box p="40px" color="black" bg="white" rounded="md">
               {/* Price Range Slider */}
 
-              <Box mt={4}>
+              <Box>
                 <Heading fontSize={"1.2rem"} fontWeight={"600"}>
                   Price Range
                 </Heading>
