@@ -1,6 +1,6 @@
 import logo from "../../assets/logo/long-logo.png";
 import "../../styles/navbar.css";
-import { FC, useEffect, useRef, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import {
   AlertDialog,
   AlertDialogBody,
@@ -35,8 +35,13 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import { FilterResponsive } from "./FilterResponsive";
 import { authInitialState, logout } from "../../redux/authReducer";
+import { FilterInterface } from "../../pages/Home";
 
-export const Navbar: FC = () => {
+interface PropInterface {
+  setFilters?: Dispatch<SetStateAction<FilterInterface>>;
+}
+
+export const Navbar = ({ setFilters }: PropInterface) => {
   const loginStore = useSelector((store: RootState) => store.auth);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -45,8 +50,6 @@ export const Navbar: FC = () => {
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   const cancelRef = useRef<HTMLButtonElement | null>(null);
-
-  console.log(query);
 
   const [renderLogout, setRenderLogout] = useState<number>(0);
 
@@ -65,7 +68,11 @@ export const Navbar: FC = () => {
     }
   }, [renderLogout]);
 
-  useEffect;
+  const handleSearchClick = () => {
+    if (setFilters) {
+      setFilters((prev) => ({ ...prev, q: query }));
+    }
+  };
 
   return (
     <>
@@ -120,7 +127,13 @@ export const Navbar: FC = () => {
             }}
           />
 
-          <Circle size="40px" bg="#ff385c" color="white" as={"button"}>
+          <Circle
+            size="40px"
+            bg="#ff385c"
+            color="white"
+            as={"button"}
+            onClick={handleSearchClick}
+          >
             <Search2Icon />
           </Circle>
         </Box>
