@@ -151,7 +151,7 @@ https://youtu.be/LvAEtXPFIic
 
 ## Video Walkthrough of the codebase
 
-Attach a very short video walkthrough of codebase [ 1 - 5 minutes ]
+Attach a very short video walkthrough of the codebase [ 1 - 5 minutes ]
 
 ## Features
 
@@ -164,16 +164,16 @@ Attach a very short video walkthrough of codebase [ 1 - 5 minutes ]
 
 ## Design Decisions or Assumptions
 
-The project is a clone of popular rental booking website airbnb. To facilitate proper design and flow of our project following assumptions were made :
+The project is a clone of the popular rental booking website Airbnb. To facilitate the proper design and flow of our project following assumptions were made :
 
 - One admin for all CRUD operations instead of multiple admins and super admin
 - One wishlist per user
-- User must be logged in to access wishlist or add property to wishlist
-- Admin user does not need to access the main website and is redirected to admin dashboard
+- User must be logged in to access the wishlist or add property to the wishlist
+- Admin user does not need to access the main website and is redirected to the admin dashboard
 
 ## Installation & Getting started
 
-To run frontend website, enter the following commands in your terminal:
+To run the frontend website, enter the following commands in your terminal:
 
 ```bash
 # Move into the FrontEnd Directory
@@ -186,7 +186,7 @@ npm install
 npm run dev
 ```
 
-The project uses a mock server deployed using json-server on render. The server can be accessed here : https://staybnb-server.onrender.com/
+The project uses a mock server deployed using JSON-server on render. The server can be accessed here: https://staybnb-server.onrender.com/
 
 If you would like to run a local server instead, use the following commands:
 
@@ -202,13 +202,13 @@ Warning: The project is built around the deployed server which can be accessed u
 
 ## Usage
 
-The website lands at the home page. On the home page, following functions can be performed:
+The website lands on the home page. On the home page, the following functions can be performed:
 
 1. Get required property data. Use search and filters to filter the data according to requirements.
 
 ![Home page](./FrontEnd/src/assets/screenshots/image.png)
 
-2. You can login by clicking on the dropdown icon on the right hand side.
+2. You can log in by clicking on the dropdown icon on the right-hand side.
 
 ![Login Menu](./FrontEnd/src/assets/screenshots/image-1.png)
 
@@ -216,15 +216,15 @@ On mobile view, the login button is available in the lower right corner of the b
 
 ![mobile view](./FrontEnd/src/assets/screenshots/image-2.png)
 
-3. If you are logged in, you can add any property to your wishlist. Just click on the heart icon to add property to wishlist. If you are not logged in, clicking on the heart icon will instead trigger a prompt asking you to log in.
+3. If you are logged in, you can add any property to your wishlist. Just click on the heart icon to add a property to your wishlist. If you are not logged in, clicking on the heart icon will instead trigger a prompt asking you to log in.
 
 Properties can not be added to the wishlist without logging in.
 
 ![Login prompt will appear if you click on wishlist button without logging in](./FrontEnd/src/assets/screenshots/image-3.png)
 
-You can route to the login and signup page by either clicking the login or signup buttons in the dropdown menu or by clicking the login button on the prompt. On mobile view, login page can be reached by clicking on the login button in the right hand corner of the bottom nav bar.
+You can route to the login and signup page by either clicking the login or signup buttons in the dropdown menu or by clicking the login button on the prompt. On mobile view, the login page can be reached by clicking on the login button in the right-hand corner of the bottom nav bar.
 
-Once on the login page, you can login or signup based upon your choice. Currently admin can not sign up and you must use provided admin credentials if you wish to log in as admin:
+Once on the login page, you can log in or signup based on your choice. Currently admin can not sign up and you must use the provided admin credentials if you wish to log in as admin:
 
 1. Enter a valid email and password to sign in. You may use the following credentials if you want :
 
@@ -242,31 +242,31 @@ Once on the login page, you can login or signup based upon your choice. Currentl
 
 ![Login page](./FrontEnd/src/assets/screenshots/image-4.png)
 
-2. You can also sign up if you so choose. Enter a valid email and password and a valid name. You can only signup as user and not a admin.
+2. You can also sign up if you so choose. Enter a valid email and password and a valid name. You can only sign up as a user and not an admin.
 
 ![Signup page](./FrontEnd/src/assets/screenshots/image-5.png)
 
 Once logged in, you will be either redirected to the home page (if you signed as a user) or the admin page (if you used the provided admin credentials)
 
-On the home page, you may access a user-specific wishlist which can be used to store your favorite properties.
+On the home page, you may access a user-specific wishlist which can be used to store your favourite properties.
 
 ![Property in wishlist](./FrontEnd/src/assets/screenshots/image-6.png)
 
-Wishlist can only be accessed if you are logged in as user. Accessing wishlist without logging in will prompt you to sign in and will not display any data.
+Wishlist can only be accessed if you are logged in as a user. Accessing the wishlist without logging in will prompt you to sign in and will not display any data.
 
 To access the property details, you can click on the body of the property card and it will redirect you to the property details page.
 
 ![Property page ](./FrontEnd/src/assets/screenshots/image-7.png)
 
-You can use the form on right hand side (bottom bar on mobile view) to enter your check-in and check-out dates and add more guest-specific information if needed.
+You can use the form on the right-hand side (bottom bar on mobile view) to enter your check-in and check-out dates and add more guest-specific information if needed.
 You will be displayed your total costs depending upon the price per night of property and the number of nights you have decided to stay.
-You may also change the overall number if guests.
+You may also change the overall number of guests.
 
 ![Reserve room form](./FrontEnd/src/assets/screenshots/image-8.png)
 
-Clicking on the reserve button will re-direct you to the checkout page.
+Clicking on the reserve button will redirect you to the checkout page.
 
-On the checkout page, you are displayed the property information and total price one last time.
+On the checkout page, you can view  the property information and the total price one last time.
 You can click on the confirm button to move onto the payments page.
 
 ![Checkout page](./FrontEnd/src/assets/screenshots/image-9.png)
@@ -275,7 +275,7 @@ On the payments page, enter your card details and other credentials to finally c
 
 ![Payments page](./FrontEnd/src/assets/screenshots/image-10.png)
 
-You can also sign in as admin using the given credentials to access the ADMIN DASHBOARD.
+You can also sign in as an admin using the given credentials to access the ADMIN DASHBOARD.
 
 ![Admin Dashboard](./FrontEnd/src/assets/screenshots/image-11.png)
 
@@ -289,7 +289,7 @@ On the admin dashboard, you can:
 
 For security purposes, the admin dashboard is a private route which can only be accessed using the following login credentials:
 
-email : admin@admin.com
+email: admin@admin.com
 
 password: adminPass@123
 
@@ -297,22 +297,26 @@ Disclaimer: The admin email and password are case-sensitive and must be entered 
 
 ## API Endpoints
 
-The deployed server can be used to fetch and sort any data. Further, it can be used to login and register a user.
+The deployed server can be used to fetch and sort any data. Further, it can be used to log in and register a user.
 
 api : https://staybnb-server.onrender.com/
 
 GET https://staybnb-server.onrender.com/property - retrieve all items
+
 GET https://staybnb-server.onrender.com//property/id - retrieve an item with the specific id
+
 POST https://staybnb-server.onrender.com/propery - create a new item
-PATCH https://staybnb-server.onrender.com/property/id - edit the item with specific id
+
+PATCH https://staybnb-server.onrender.com/property/id - edit the item with a specific ID
+
 
 GET https://staybnb-server.onrender.com/users - retrieve all users
 POST https://staybnb-server.onrender.com/register - register a new user
-POST https://staybnb-server.onrender.com/login - log in an existing user
+POST https://staybnb-server.onrender.com/login - log in as an existing user
 
 ## Technology Stack
 
-The techstack used for the project:
+The tech stack used for the project:
 
 FrontEnd :
 
@@ -323,12 +327,5 @@ FrontEnd :
 
 Backend :
 
-- Json-server and Json-server-auth
+- JSON-server and Json-server-auth
 
-## Contributors
-
-Abhinav Tyagi (ft30_169) - GITHUB
-Satyajeet Kumar Rao () - GITHUB
-Harsh Kumar - () - GITHUB
-Krishna Pratap - () - GITHUB
-Ravi Kumar - () - GITHUB
