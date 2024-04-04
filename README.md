@@ -151,7 +151,9 @@ https://youtu.be/LvAEtXPFIic
 
 ## Video Walkthrough of the codebase
 
-Attach a very short video walkthrough of the codebase [ 1 - 5 minutes ]
+A quick walkthrough of the project can be found here: 
+
+https://youtu.be/lMl3_aH_QPw
 
 ## Features
 
@@ -299,20 +301,22 @@ Disclaimer: The admin email and password are case-sensitive and must be entered 
 
 The deployed server can be used to fetch and sort any data. Further, it can be used to log in and register a user.
 
-api : https://staybnb-server.onrender.com/
+API : https://staybnb-server.onrender.com/
 
-GET https://staybnb-server.onrender.com/property - retrieve all items
+Endpoints: 
 
-GET https://staybnb-server.onrender.com//property/id - retrieve an item with the specific id
+1. Property: 
 
-POST https://staybnb-server.onrender.com/propery - create a new item
+- GET https://staybnb-server.onrender.com/property - retrieve all items
+- GET https://staybnb-server.onrender.com//property/id - retrieve an item with the specific id
+- POST https://staybnb-server.onrender.com/propery - create a new item
+- PATCH https://staybnb-server.onrender.com/property/id - edit the item with a specific ID
 
-PATCH https://staybnb-server.onrender.com/property/id - edit the item with a specific ID
+2. users:
 
-
-GET https://staybnb-server.onrender.com/users - retrieve all users
-POST https://staybnb-server.onrender.com/register - register a new user
-POST https://staybnb-server.onrender.com/login - log in as an existing user
+- GET https://staybnb-server.onrender.com/users - retrieve all users
+- POST https://staybnb-server.onrender.com/register - register a new user
+- POST https://staybnb-server.onrender.com/login - log in as an existing user
 
 ## Technology Stack
 
