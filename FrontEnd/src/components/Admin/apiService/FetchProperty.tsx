@@ -6,6 +6,7 @@ import {
   Button,
   Flex,
   Image,
+  Input,
   Table,
   TableContainer,
   Tbody,
@@ -22,24 +23,60 @@ import {
   EditIcon,
 } from "@chakra-ui/icons";
 import InitialFocus from "../InitialFocus";
-
+import { IoFilterSharp } from "react-icons/io5";
 const FetchProperty: FC = () => {
   const [data, setData] = useState<Data[]>([]);
   const [page, setPage] = useState<number>(1);
+  const [filteredData, setFilteredData] = useState<Data[]>([]);
+  const [searchQuery, setSearchQuery] = useState("");
+//   const [sortColumn, setSortColumn] = useState<keyof Data>("name");
+//   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
   const pageLimit = 10;
   //   console.log("Data is", data);
   useEffect(() => {
     const fetchFun = async () => {
       try {
-        console.log(page);
         const res = await fetchData(page);
         setData(res);
+        setFilteredData(res);
       } catch (err) {
         console.log(err);
       }
     };
     fetchFun();
   }, [page]);
+  console.log(data);
+  const handleFilter = () => {
+    // const lowerCaseQuery = searchQuery.toLowerCase();
+    // setFilteredData(
+    //   filteredData.filter((item) => {
+    //     console.log(item);
+    //     // // Filter logic based on item properties and searchQuery
+    //     // return item.filter((element) => find(lowerCaseQuery));
+    //   })
+    // );
+  };
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    // setSearchQuery();
+    setSearchQuery(event.target.value);
+    if (searchQuery == "  ") {
+      setFilteredData(data);
+    } else {
+      handleFilter();
+    }
+  };
+//   const handleSort = () => {
+//     setFilteredData(
+//       filteredData.sort((a, b) => {
+//         const sortKey = sortColumn as keyof Data;
+//         if (sortOrder === "asc") {
+//           return a[sortKey] < b[sortKey] ? -1 : 1;
+//         } else {
+//           return a[sortKey] > b[sortKey] ? -1 : 1;
+//         }
+//       })
+//     );
+//   };
   return (
     <>
       <TableContainer className="adminTable">
@@ -48,8 +85,20 @@ const FetchProperty: FC = () => {
           justifyContent={"flex-end"}
           alignContent={"flex-end"}
         >
+          <Input
+            maxW={"sm"}
+            onChange={handleInputChange}
+            value={searchQuery}
+            type="text"
+            placeholder="eg.location"
+            name="smart_location"
+          />
           <InitialFocus />
+          <Button>
+            <IoFilterSharp />
+          </Button>
         </Box>
+
         <Table
           variant={"striped"}
           size={"sm"}
@@ -71,7 +120,7 @@ const FetchProperty: FC = () => {
           </Thead>
           {/* white-space: nowrap; overflow: hidden; text-overflow: ellipsis; */}
           <Tbody>
-            {data.map((item, index) => (
+            {filteredData.map((item, index) => (
               <Tr key={index}>
                 <Td w={"2"}>{item.id}</Td>
                 <Td h={"50px"}>
