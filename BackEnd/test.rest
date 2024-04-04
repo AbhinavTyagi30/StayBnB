@@ -21,6 +21,19 @@ Content-Type: application/json
   "isAdmin": false
 }
 
+### Register test user
+
+POST https://staybnb-server.onrender.com/register
+Content-Type: application/json
+
+{
+  "email": "user@user.com",
+  "password": "12345678",
+  "name": "Test User",
+  "favorite": [],
+  "isAdmin": false
+}
+
 ### LOGIN REGISTERED USER
 
 POST https://staybnb-server.onrender.com/login
