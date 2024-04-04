@@ -1,7 +1,13 @@
 import logo from "../../assets/logo/long-logo.png";
 import "../../styles/navbar.css";
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import {
+  AlertDialog,
+  AlertDialogBody,
+  AlertDialogContent,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogOverlay,
   Avatar,
   Box,
   Button,
@@ -16,6 +22,7 @@ import {
   MenuList,
   Show,
   Text,
+  useDisclosure,
   useToast,
 } from "@chakra-ui/react";
 import { HamburgerIcon, Search2Icon } from "@chakra-ui/icons";
@@ -35,6 +42,9 @@ export const Navbar: FC = () => {
   const dispatch = useDispatch();
   const logoutToast = useToast();
   const [query, setQuery] = useState<string>("");
+
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const cancelRef = useRef<HTMLButtonElement | null>(null);
 
   console.log(query);
 
@@ -213,10 +223,7 @@ export const Navbar: FC = () => {
                     fontSize={"14px"}
                     fontWeight={"400"}
                     _hover={{ bg: "#f7f7f7" }}
-                    onClick={() => {
-                      dispatch(logout(authInitialState));
-                      setRenderLogout(1);
-                    }}
+                    onClick={onOpen}
                   >
                     Log out
                   </MenuItem>
@@ -319,6 +326,44 @@ export const Navbar: FC = () => {
           )}
         </Box>
       </Show>
+
+      {/* Log out alert */}
+
+      <AlertDialog
+        motionPreset="slideInTop"
+        isOpen={isOpen}
+        leastDestructiveRef={cancelRef}
+        onClose={onClose}
+      >
+        <AlertDialogOverlay>
+          <AlertDialogContent>
+            <AlertDialogHeader fontSize="lg" fontWeight="bold">
+              Log out
+            </AlertDialogHeader>
+
+            <AlertDialogBody>
+              Are you sure? You will be logged out of your account.
+            </AlertDialogBody>
+
+            <AlertDialogFooter>
+              <Button ref={cancelRef} onClick={onClose}>
+                Cancel
+              </Button>
+              <Button
+                colorScheme="red"
+                onClick={() => {
+                  dispatch(logout(authInitialState));
+                  setRenderLogout(1);
+                  onClose();
+                }}
+                ml={3}
+              >
+                Log out
+              </Button>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialogOverlay>
+      </AlertDialog>
     </>
   );
 };
