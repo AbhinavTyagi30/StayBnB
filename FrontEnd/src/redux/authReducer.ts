@@ -148,4 +148,6 @@ export const addFavsAsync = createAsyncThunk(
   }
 );
 
+export const { login, logout } = authReducer.actions;
+
 export default authReducer.reducer;
