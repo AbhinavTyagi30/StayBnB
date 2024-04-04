@@ -1,7 +1,6 @@
 import { AddIcon } from "@chakra-ui/icons"
-import { Button, FormControl, FormLabel, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure } from "@chakra-ui/react"
+import { Button, FormControl, FormLabel, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay, useDisclosure } from "@chakra-ui/react"
 import React, { FC } from "react"
-import PostData from "./apiService/PostData";
 import axios from "axios";
 
 interface FormData{
