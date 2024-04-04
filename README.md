@@ -151,7 +151,9 @@ https://youtu.be/LvAEtXPFIic
 
 ## Video Walkthrough of the codebase
 
-Attach a very short video walkthrough of the codebase [ 1 - 5 minutes ]
+A quick walkthrough of the project can be found here: 
+
+https://youtu.be/lMl3_aH_QPw
 
 ## Features
 
