@@ -11,13 +11,6 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const baseUrl = `https://staybnb-server.onrender.com/property`;
 
-/* https://staybnb-server.onrender.com/property?
-
-
-
-
-&guestFavorite=true */
-
 interface propInterface {
   filters: FilterInterface;
   setFilters: Dispatch<SetStateAction<FilterInterface>>;
@@ -96,31 +89,6 @@ export const CardContainer = ({ filters, setFilters }: propInterface) => {
         isError: false,
         property: [...newData],
       }));
-
-      /* setData((prev) => {
-        let updatedProperty: PropertyInterface[] = [...prev.property];
-
-        for (let i = 0; i < newData.length; i++) {
-          if (updatedProperty.length === 0) {
-            updatedProperty = [...newData];
-          } else {
-            let filteredData = updatedProperty.filter(
-              (item) => item.id === newData[i].id
-            );
-
-            if (filteredData.length == 0) {
-              updatedProperty.push(newData[i]);
-            }
-          }
-        } 
-
-        return {
-          ...prev,
-          isLoading: false,
-          isError: false,
-          property: [...updatedProperty],
-        }; 
-      }); */
     } catch (error) {
       console.log(error);
       setData((prev) => ({
@@ -225,21 +193,6 @@ export const CardContainer = ({ filters, setFilters }: propInterface) => {
               <FaChevronRight />
             </Button>
           </ButtonGroup>
-          {/* <Button
-            bg={"black"}
-            colorScheme="dark"
-            p={"14px 24px"}
-            fontFamily={"Montserrat, sans-serif"}
-            fontWeight={"600"}
-            fontSize={"15px"}
-            boxSize={"border-box"}
-            isDisabled={page === maxPage}
-            onClick={() => {
-              setPage((prev) => prev + 1);
-            }}
-          >
-            Show more
-          </Button> */}
         </Box>
       )}
     </Box>
