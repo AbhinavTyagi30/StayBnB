@@ -16,5 +16,30 @@
         display: block;
     }
   }
- 
+  @media only screen and (max-width: 480px){
+    .GridImages{
+        display: none;
+    }
+    .ShowImage{
+        display: block;
+    }
+    
+  }
+  @media only screen and (min-width: 481px){
+    .ShowImage{
+        display: none;
+    }
+  }
+  @media only screen and (max-width: 768px){
+    .shareIcon{
+        display: none;
+    }
+    .saveIcon{
+        display: none;
+    }
+    .property{
+        margin-left: 8%;
+        margin-right: 8%;
+    }
+  }
  

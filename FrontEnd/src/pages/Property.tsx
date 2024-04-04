@@ -1,4 +1,5 @@
 import { StarIcon } from "@chakra-ui/icons";
+import "../styles/propertyPageStyle/property.css";
 import {
   Box,
   Button,
@@ -22,6 +23,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { PropertyData } from "../utils/propertyData";
+import { Navbar } from "../components/Header/Navbar";
+import { Footer } from "../components/Footer/Footer";
 
 const Property = () => {
   const toast = useToast();
@@ -75,9 +78,10 @@ const Property = () => {
 
   return (
     <>
+      <Navbar />
       {propertyData && (
-        <Box ml="15%" mr="15%">
-          <Flex m={2} display={{ base: "grid", md: "flex" }}>
+        <Box className="property" ml={"10%"} mr={"10%"}>
+          <Flex m={2}>
             <Text
               color={"grey.400"}
               fontWeight={"600"}
@@ -86,17 +90,17 @@ const Property = () => {
               {propertyData.name}
             </Text>
             <Spacer />
-            <Flex gap={5}>
-              <Button cursor="pointer" gap={1} onClick={handleShare}>
+            <Flex gap={"5%"}>
+              <Button cursor="pointer" gap={"4%"} onClick={handleShare}>
                 <Image
-                  maxW={4}
+                  maxW={3}
                   src="https://cdn-icons-png.flaticon.com/128/3580/3580382.png"
                 />
-                <Text>Share</Text>
+                <Text className="shareIcon">Share</Text>
               </Button>
               <Button
                 cursor="pointer"
-                gap={1}
+                gap={"4%"}
                 onClick={() => setSaved((prev) => !prev)}
               >
                 {save ? (
@@ -105,7 +109,7 @@ const Property = () => {
                       maxW={5}
                       src="https://cdn-icons-png.flaticon.com/128/2589/2589175.png"
                     />
-                    <Text>Saved</Text>
+                    <Text className="saveIcon">Saved</Text>
                   </>
                 ) : (
                   <>
@@ -113,13 +117,32 @@ const Property = () => {
                       maxW={4}
                       src="https://cdn-icons-png.flaticon.com/128/151/151910.png"
                     />
-                    <Text>Save</Text>
+                    <Text className="saveIcon">Save</Text>
                   </>
                 )}
               </Button>
             </Flex>
           </Flex>
-          <Box position="relative" m={3}>
+          <Box className="ShowImage" position={"relative"}>
+            <Image borderRadius={10} maxH={350} src={propertyData.images[0]} />
+            <Button
+              position={"absolute"}
+              maxW={120}
+              maxH={8}
+              right={2}
+              bottom={2}
+              gap={2}
+              borderRadius={10}
+              onClick={openModal}
+            >
+              <Image
+                maxW={3}
+                src="https://cdn-icons-png.flaticon.com/128/17/17704.png"
+              />
+              <Text fontSize={"xs"}>Show All Images</Text>
+            </Button>
+          </Box>
+          <Box className="GridImages" position="relative" m={3}>
             <Grid
               borderRadius={10}
               overflow={"hidden"}
@@ -130,6 +153,7 @@ const Property = () => {
               {propertyData.images.slice(0, 1).map((item, index) => {
                 return (
                   <GridItem
+                    className="mainImage"
                     key={index}
                     //  h={[ "200", "300", "400"]}
                     maxH={350}
@@ -162,7 +186,7 @@ const Property = () => {
               onClick={openModal}
               position="absolute"
               right={19}
-              padding={1}
+              padding={2}
               bottom={5}
               fontSize={["xs", "s", "md", "lg"]}
               size={["xxs", "xs", "xs", "md"]}
@@ -242,9 +266,10 @@ const Property = () => {
                   </Grid>
                   <Button
                     p={5}
+                    position={"absolute"}
                     fontWeight={600}
                     mt={5}
-                    ml={"95%"}
+                    right={"5%"}
                     onClick={closeModal}
                   >
                     Close
@@ -256,6 +281,7 @@ const Property = () => {
           <PropertyDetails propertyData={propertyData} id={id} />
         </Box>
       )}
+      <Footer />
     </>
   );
 };
