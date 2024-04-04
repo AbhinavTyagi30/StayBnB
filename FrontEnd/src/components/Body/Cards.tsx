@@ -113,7 +113,9 @@ const Cards = ({ item }: CardsPropInterface) => {
         position={"relative"}
         w={"100%"}
       >
-        <Box position={"absolute"} right={1.5} top={1.5} zIndex={"2"}>
+        {/* Wishlist Icon */}
+
+        <Box position={"absolute"} right={"5"} top={"5"} zIndex={"2"}>
           {loginStore.user.favorite.filter((curr) => curr.id === item.id)
             .length > 0 ? (
             <FaHeart
@@ -138,6 +140,25 @@ const Cards = ({ item }: CardsPropInterface) => {
         </Box>
 
         {/* Guest Favorite */}
+
+        {item.guestFavorite && (
+          <Box
+            bg={"white"}
+            p={"0.25rem 0.5rem"}
+            w="fit-content"
+            borderRadius={"full"}
+            fontFamily={"Montserrat, sans-serif"}
+            fontWeight={"600"}
+            fontSize={"14px"}
+            lineHeight={"20px"}
+            position={"absolute"}
+            top={"5"}
+            left="5"
+            zIndex={2}
+          >
+            Guest favorite
+          </Box>
+        )}
 
         {/* Swiper Image Component */}
 
@@ -168,6 +189,7 @@ const Cards = ({ item }: CardsPropInterface) => {
                 aspectRatio={"1/1"}
                 objectFit={"cover"}
                 borderRadius={"0.8rem"}
+                loading="lazy"
               />
             </SwiperSlide>
           ))}
