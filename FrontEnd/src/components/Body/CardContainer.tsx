@@ -1,4 +1,4 @@
-import { Box, Button } from "@chakra-ui/react";
+import { Box, Button, Text } from "@chakra-ui/react";
 import { FC, useEffect, useState } from "react";
 import { PropertyInterface } from "../../utils/propertyInterface";
 
@@ -33,6 +33,7 @@ export const CardContainer: FC = () => {
 
   const [data, setData] = useState<InitialPropertyType>(initialPropertyState);
   const [page, setPage] = useState<number>(1);
+  const [maxPage, setMaxPage] = useState<number>(2);
 
   const getData = async (url: string) => {
     try {
@@ -43,6 +44,10 @@ export const CardContainer: FC = () => {
       }));
 
       let response = await axios.get(url);
+
+      let totalItems = response.headers["x-total-count"];
+      setMaxPage(Math.ceil(totalItems / 12));
+
       let newData = response.data;
       setData((prev) => ({
         ...prev,
@@ -64,42 +69,62 @@ export const CardContainer: FC = () => {
     getData(`${baseUrl}?_page=${page}&_limit=12`);
   }, [page]);
 
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
-
   return (
     <Box>
       {data.property.length > 0 && (
-        <Box
-          display={"grid"}
-          gridTemplateColumns={{
-            base: "repeat(1,1fr)",
-            sm: "repeat(2,1fr)",
-            md: "repeat(2,1fr)",
-            lg: "repeat(3,1fr)",
-            xl: "repeat(4,1fr)",
-          }}
-          justifyItems={"center"}
-          position={"relative"}
-          p={{ base: "1rem", lg: "1rem 4rem" }}
-          gap={"1rem"}
-        >
-          {data.property.map((item) => {
-            return <Cards key={item.id} item={item} />;
-          })}
-          <Button
-            position={"absolute"}
-            bottom={10}
-            bg={"black"}
-            colorScheme="dark"
-            onClick={() => {
-              setPage((prev) => prev + 1);
+        <>
+          <Box
+            display={"grid"}
+            gridTemplateColumns={{
+              base: "repeat(1,1fr)",
+              sm: "repeat(2,1fr)",
+              md: "repeat(2,1fr)",
+              lg: "repeat(3,1fr)",
+              xl: "repeat(4,1fr)",
             }}
+            justifyItems={"center"}
+            position={"relative"}
+            p={{ base: "1rem", lg: "1rem 4rem" }}
+            gap={"1rem"}
           >
-            Show More
-          </Button>
-        </Box>
+            {data.property.map((item) => {
+              return <Cards key={item.id} item={item} />;
+            })}
+          </Box>
+
+          {/* Show more button */}
+
+          <Box
+            display={"flex"}
+            flexDirection={"column"}
+            justifyContent={"center"}
+            alignItems={"center"}
+            gap={"1rem"}
+          >
+            <Text
+              fontFamily={"Montserrat, sans-serif"}
+              fontWeight={"500"}
+              fontSize={"18px"}
+            >
+              Continue Exploring
+            </Text>
+            <Button
+              bg={"black"}
+              colorScheme="dark"
+              p={"14px 24px"}
+              fontFamily={"Montserrat, sans-serif"}
+              fontWeight={"600"}
+              fontSize={"15px"}
+              boxSize={"border-box"}
+              isDisabled={page === maxPage}
+              onClick={() => {
+                setPage((prev) => prev + 1);
+              }}
+            >
+              Show more
+            </Button>
+          </Box>
+        </>
       )}
       {data.isError && <h1>Sorry Some error occurred</h1>}
       {data.isLoading && <h1>Loading...</h1>}
