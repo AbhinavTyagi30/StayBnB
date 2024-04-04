@@ -1,6 +1,6 @@
 import logo from "../../assets/logo/long-logo.png";
 import "../../styles/navbar.css";
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import {
   Avatar,
   Box,
@@ -16,23 +16,48 @@ import {
   MenuList,
   Show,
   Text,
+  useToast,
 } from "@chakra-ui/react";
 import { HamburgerIcon, Search2Icon } from "@chakra-ui/icons";
 
 import { LuGlobe } from "react-icons/lu";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { CiHeart } from "react-icons/ci";
 import { NavLink, useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import { FilterResponsive } from "./FilterResponsive";
+import { authInitialState, logout } from "../../redux/authReducer";
 
 export const Navbar: FC = () => {
   const loginStore = useSelector((store: RootState) => store.auth);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const logoutToast = useToast();
+  const [query, setQuery] = useState<string>("");
+
+  const [renderLogout, setRenderLogout] = useState<number>(0);
+
+  useEffect(() => {
+    if (renderLogout === 1) {
+      if (!loginStore.isAuth) {
+        logoutToast({
+          title: "Logged out!",
+          description: "You've successfully logged out of your account.",
+          status: "error",
+          duration: 9000,
+          isClosable: true,
+          position: "top-right",
+        });
+      }
+    }
+  }, [renderLogout]);
+
+  useEffect;
 
   return (
     <>
+      {/* Top navbar */}
       <Box
         display={"flex"}
         justifyContent={"space-between"}
@@ -78,6 +103,9 @@ export const Navbar: FC = () => {
             minW={{ sm: "280px" }}
             fontSize={"1rem"}
             fontWeight={"500"}
+            onChange={(event) => {
+              setQuery(event.target.value);
+            }}
           />
 
           <Circle size="40px" bg="#ff385c" color="white" as={"button"}>
@@ -167,7 +195,7 @@ export const Navbar: FC = () => {
                   </MenuItem>
                 )}
 
-                {!loginStore.isAuth && (
+                {!loginStore.isAuth ? (
                   <MenuItem
                     fontSize={"14px"}
                     fontWeight={"400"}
@@ -177,6 +205,18 @@ export const Navbar: FC = () => {
                     }}
                   >
                     Sign up
+                  </MenuItem>
+                ) : (
+                  <MenuItem
+                    fontSize={"14px"}
+                    fontWeight={"400"}
+                    _hover={{ bg: "#f7f7f7" }}
+                    onClick={() => {
+                      dispatch(logout(authInitialState));
+                      setRenderLogout(1);
+                    }}
+                  >
+                    Log out
                   </MenuItem>
                 )}
 
