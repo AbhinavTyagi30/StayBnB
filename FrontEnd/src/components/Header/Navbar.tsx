@@ -165,7 +165,7 @@ export const Navbar = ({ setFilters }: PropInterface) => {
           </Show>
 
           <Show breakpoint="(max-width: 600px)">
-            <FilterResponsive />
+            <FilterResponsive setFilters={setFilters} />
           </Show>
 
           {/* User dropdown menu */}
