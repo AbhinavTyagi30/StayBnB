@@ -42,7 +42,7 @@ export const Home: FC = () => {
   return (
     <div>
       <Navbar setFilters={setFilters} />
-      <FilterBar />
+      <FilterBar setFilters={setFilters} />
       <CardContainer filters={filters} setFilters={setFilters} />
       <Footer />
     </div>
