@@ -115,6 +115,8 @@ export const Navbar: FC = () => {
             <FilterResponsive />
           </Show>
 
+          {/* User dropdown menu */}
+
           <Hide breakpoint="(max-width: 600px)">
             <Menu>
               <MenuButton
@@ -146,6 +148,9 @@ export const Navbar: FC = () => {
                     fontSize={"14px"}
                     fontWeight={"600"}
                     _hover={{ bg: "#f7f7f7" }}
+                    onClick={() => {
+                      navigate("/wishlist");
+                    }}
                   >
                     Wishlists
                   </MenuItem>
