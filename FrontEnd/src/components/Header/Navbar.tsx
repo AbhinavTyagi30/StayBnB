@@ -36,6 +36,8 @@ export const Navbar: FC = () => {
   const logoutToast = useToast();
   const [query, setQuery] = useState<string>("");
 
+  console.log(query);
+
   const [renderLogout, setRenderLogout] = useState<number>(0);
 
   useEffect(() => {
