@@ -31,6 +31,9 @@ import {
 import { IconType } from 'react-icons'
 import { FC } from 'react'
 import FetchProperty from "./apiService/FetchProperty";
+import { AppDispatch } from "../../redux/store";
+import { useDispatch } from "react-redux";
+import { authInitialState, logout } from "../../redux/authReducer";
 interface LinkItemProps {
   name: string
   icon: IconType
@@ -54,6 +57,7 @@ const LinkItems: Array<LinkItemProps> = [
 ]
 
 const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
+  
   return (
     <Box
       transition="3s ease"
@@ -113,6 +117,7 @@ const NavItem  =  ({ icon, children, ...rest }: NavItemProps) => {
 }
 
 const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
+  const dispatch = useDispatch<AppDispatch>();
   return (
     <Flex
       ml={{ base: 0, md: 60 }}
@@ -179,7 +184,7 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
               <MenuItem>Settings</MenuItem>
               <MenuItem>Billing</MenuItem>
               <MenuDivider />
-              <MenuItem>Sign out</MenuItem>
+              <MenuItem onClick={()=>{dispatch(logout(authInitialState))}}>Sign out</MenuItem>
             </MenuList>
           </Menu>
         </Flex>
