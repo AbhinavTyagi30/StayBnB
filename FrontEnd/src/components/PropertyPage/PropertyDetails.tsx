@@ -28,7 +28,7 @@ import Map from "./Map";
 import { PropertyData } from "../../utils/propertyData";
 import { useToast } from "@chakra-ui/react";
 import { ChevronDownIcon, ChevronUpIcon, StarIcon } from "@chakra-ui/icons";
-import "../../styles/propertyPageStyle/property.css";
+
 import { useNavigate } from "react-router-dom";
 
 interface PropertyDetailsProps {
@@ -394,7 +394,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({
               p={"4%"}
               w={400}
               position="sticky"
-              top="8"
+              top="115"
               zIndex="sticky"
             >
               <Flex gap={{ base: "3%", md: "4%" }}>
@@ -748,7 +748,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({
           ml={"-25%"}
           mr={"-25%"}
         >
-          <Box>
+          <Box ml={2}>
             <Text color={"grey"} fontSize={["sm", "sm", "md", "md"]}>
               Add dates for prices
             </Text>
@@ -777,13 +777,8 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({
         <ModalOverlay />
         <ModalContent>
           <ModalCloseButton />
-          <ModalBody pt={10} pb={10}>
-            <Box
-              boxShadow="10px 10px 10px 10px rgba(0, 0, 0, 0.1)"
-              borderRadius={10}
-              p={"4%"}
-              w={400}
-            >
+          <ModalBody pt={10} pl={4} pb={10}>
+            <Box p={"4%"} w={400}>
               <Flex gap={{ base: "3%", md: "4%" }}>
                 <Heading fontWeight={"500"}>${propertyData.price}</Heading>
 
