@@ -41,7 +41,7 @@ export const Home: FC = () => {
 
   return (
     <div>
-      <Navbar />
+      <Navbar setFilters={setFilters} />
       <FilterBar />
       <CardContainer filters={filters} setFilters={setFilters} />
       <Footer />
