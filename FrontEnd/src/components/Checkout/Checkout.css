@@ -76,6 +76,9 @@ h2 {
   .wrapper {
     padding: 10px;
   }
+  #submit-form{
+    width: 100%;
+  }
 
   #main {
     flex-direction: column-reverse;
