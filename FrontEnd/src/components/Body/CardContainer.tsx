@@ -1,4 +1,4 @@
-import { Box, Button, Text } from "@chakra-ui/react";
+import { Box, Button, ButtonGroup } from "@chakra-ui/react";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { PropertyInterface } from "../../utils/propertyInterface";
 
@@ -7,17 +7,9 @@ import Cards from "./Cards";
 import { CardSkeleton } from "./CardSkeleton";
 import { FilterInterface } from "../../pages/Home";
 import { useSearchParams } from "react-router-dom";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const baseUrl = `https://staybnb-server.onrender.com/property`;
-
-/* https://staybnb-server.onrender.com/property?
-q=london
-&accommodates_gte=3
-&bedrooms_gte=3
-&bathrooms_gte=3
-&price_lte=10000&price_gte=10
-&_page=1&_limit=12
-&guestFavorite=true */
 
 interface propInterface {
   filters: FilterInterface;
@@ -66,7 +58,6 @@ export const CardContainer = ({ filters, setFilters }: propInterface) => {
     let currUrl: string = window.location.href;
     let searchParamQuery: string =
       currUrl.indexOf("?") >= 0 ? currUrl.slice(currUrl.indexOf("?")) : "";
-    console.log(searchParamQuery);
 
     let queryUrl = `${baseUrl}${searchParamQuery}`;
     getData(queryUrl);
@@ -91,31 +82,13 @@ export const CardContainer = ({ filters, setFilters }: propInterface) => {
       let totalItems = response.headers["x-total-count"];
       setMaxPage(Math.ceil(totalItems / 12));
 
-      let newData = response.data;
-      setData((prev) => {
-        let updatedProperty: PropertyInterface[] = [...prev.property];
-
-        for (let i = 0; i < newData.length; i++) {
-          if (updatedProperty.length === 0) {
-            updatedProperty = [...newData];
-          } else {
-            let filteredData = updatedProperty.filter(
-              (item) => item.id === newData[i].id
-            );
-
-            if (filteredData.length == 0) {
-              updatedProperty.push(newData[i]);
-            }
-          }
-        }
-
-        return {
-          ...prev,
-          isLoading: false,
-          isError: false,
-          property: [...updatedProperty],
-        };
-      });
+      let newData: PropertyInterface[] = response.data;
+      setData((prev) => ({
+        ...prev,
+        isLoading: false,
+        isError: false,
+        property: [...newData],
+      }));
     } catch (error) {
       console.log(error);
       setData((prev) => ({
@@ -126,8 +99,14 @@ export const CardContainer = ({ filters, setFilters }: propInterface) => {
     }
   };
 
+  useEffect(() => {
+    console.log(filters);
+  }, [filters]);
+
   return (
     <Box>
+      {data.isError && <h1>Sorry Some error occurred</h1>}
+      {data.isLoading && <CardSkeleton />}
       {data.property.length > 0 && (
         <>
           <Box
@@ -150,8 +129,6 @@ export const CardContainer = ({ filters, setFilters }: propInterface) => {
           </Box>
         </>
       )}
-      {data.isError && <h1>Sorry Some error occurred</h1>}
-      {data.isLoading && <CardSkeleton />}
 
       {/* Show more button */}
 
@@ -162,29 +139,60 @@ export const CardContainer = ({ filters, setFilters }: propInterface) => {
           justifyContent={"center"}
           alignItems={"center"}
           gap={"1rem"}
+          mt={"2rem"}
         >
-          <Text
-            fontFamily={"Montserrat, sans-serif"}
-            fontWeight={"500"}
-            fontSize={"18px"}
-          >
-            Continue Exploring
-          </Text>
-          <Button
-            bg={"black"}
-            colorScheme="dark"
-            p={"14px 24px"}
-            fontFamily={"Montserrat, sans-serif"}
-            fontWeight={"600"}
-            fontSize={"15px"}
-            boxSize={"border-box"}
-            isDisabled={page === maxPage}
-            onClick={() => {
-              setPage((prev) => prev + 1);
-            }}
-          >
-            Show more
-          </Button>
+          <ButtonGroup>
+            <Button
+              bg={"black"}
+              colorScheme="dark"
+              fontSize={"15px"}
+              isDisabled={page === 1}
+              onClick={() => {
+                setPage((prev) => prev - 1);
+              }}
+            >
+              <FaChevronLeft />
+            </Button>
+            {page - 1 > 0 && (
+              <Button
+                bg={"black"}
+                colorScheme="dark"
+                fontSize={"15px"}
+                onClick={() => setPage((prev) => prev - 1)}
+              >
+                {page - 1}
+              </Button>
+            )}
+
+            <Button colorScheme="red" fontSize={"15px"}>
+              {page}
+            </Button>
+
+            {page + 1 <= maxPage && (
+              <Button
+                bg={"black"}
+                colorScheme="dark"
+                fontSize={"15px"}
+                onClick={() => {
+                  setPage((prev) => prev + 1);
+                }}
+              >
+                {page + 1}
+              </Button>
+            )}
+
+            <Button
+              bg={"black"}
+              colorScheme="dark"
+              fontSize={"15px"}
+              isDisabled={page === maxPage}
+              onClick={() => {
+                setPage((prev) => prev + 1);
+              }}
+            >
+              <FaChevronRight />
+            </Button>
+          </ButtonGroup>
         </Box>
       )}
     </Box>
