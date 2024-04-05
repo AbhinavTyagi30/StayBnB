@@ -65,14 +65,14 @@ const Cards = ({ item }: CardsPropInterface) => {
       return;
     }
 
-    let currFav: PropertyInterface[] = loginStore.user.favorite.filter(
+    const currFav: PropertyInterface[] = loginStore.user.favorite.filter(
       (curr) => curr.id === item.id
     );
 
     let data: addFavDataInterface;
 
     if (currFav.length > 0) {
-      let updatedFav: PropertyInterface[] = loginStore.user.favorite.filter(
+      const updatedFav: PropertyInterface[] = loginStore.user.favorite.filter(
         (curr) => {
           console.log(curr.id);
           console.log(item.id);
