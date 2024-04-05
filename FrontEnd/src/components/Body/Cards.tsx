@@ -230,13 +230,34 @@ const Cards = ({ item }: CardsPropInterface) => {
             </Text>
           </Box>
         </Box>
-        <Text fontSize={"15px"} fontWeight={"400"} color={"#717171"}>
+        <Text
+          fontSize={"15px"}
+          fontWeight={"400"}
+          color={"#717171"}
+          onClick={() => {
+            navigate(`/property/${item.id}`);
+          }}
+        >
           {item.host_name}
         </Text>
-        <Text fontSize={"15px"} fontWeight={"400"} color={"#717171"}>
+        <Text
+          fontSize={"15px"}
+          fontWeight={"400"}
+          color={"#717171"}
+          onClick={() => {
+            navigate(`/property/${item.id}`);
+          }}
+        >
           {item.smart_location}
         </Text>
-        <Text fontSize={"15px"} fontWeight={"400"} color={"#717171"}>
+        <Text
+          fontSize={"15px"}
+          fontWeight={"400"}
+          color={"#717171"}
+          onClick={() => {
+            navigate(`/property/${item.id}`);
+          }}
+        >
           <strong style={{ fontWeight: "600" }}>{`$${item.price} `}</strong>
           night
         </Text>

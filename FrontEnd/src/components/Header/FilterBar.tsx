@@ -1,10 +1,15 @@
 import { Box, Flex, Image, Show, Switch, Text } from "@chakra-ui/react";
 import { filterImageLinks } from "../../assets/filter image/filterImage";
 import "../../styles/filterBar.css";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { NavbarFilter } from "./NavbarFilter";
+import { FilterInterface } from "../../pages/Home";
 
-export const FilterBar = () => {
+export const FilterBar = ({
+  setFilters,
+}: {
+  setFilters?: Dispatch<SetStateAction<FilterInterface>>;
+}) => {
   const [selectedFilter, setSelectedFilter] = useState<number>(0);
 
   return (
@@ -61,7 +66,7 @@ export const FilterBar = () => {
       </Box>
 
       <Show breakpoint="(min-width: 601px)">
-        <NavbarFilter />
+        <NavbarFilter setFilters={setFilters} />
       </Show>
 
       <Show breakpoint="(min-width: 601px)">
