@@ -51,6 +51,19 @@ StayBnB
 │   │   │   ├── logo/
 │   │   │   │   ├── logo.png
 │   │   │   │   └── long-logo.png
+│   │   │   ├── screenshots/
+│   │   │   │   ├── image-1.png
+│   │   │   │   ├── image-10.png
+│   │   │   │   ├── image-11.png
+│   │   │   │   ├── image-2.png
+│   │   │   │   ├── image-3.png
+│   │   │   │   ├── image-4.png
+│   │   │   │   ├── image-5.png
+│   │   │   │   ├── image-6.png
+│   │   │   │   ├── image-7.png
+│   │   │   │   ├── image-8.png
+│   │   │   │   ├── image-9.png
+│   │   │   │   └── image.png
 │   │   │   ├── signin-image.jpg
 │   │   │   ├── signup-image.jpg
 │   │   │   └── visa.png
@@ -66,7 +79,8 @@ StayBnB
 │   │   │   ├── Body/
 │   │   │   │   ├── CardContainer.tsx
 │   │   │   │   ├── CardSkeleton.tsx
-│   │   │   │   └── Cards.tsx
+│   │   │   │   ├── Cards.tsx
+│   │   │   │   └── EmptySearch.tsx
 │   │   │   ├── Checkout/
 │   │   │   │   ├── Checkout.css
 │   │   │   │   ├── Checkout.tsx
@@ -87,9 +101,12 @@ StayBnB
 │   │   │   ├── LoginSignup/
 │   │   │   │   ├── Login.tsx
 │   │   │   │   └── Signup.tsx
-│   │   │   └── PropertyPage/
+│   │   │   ├── PropertyPage/
 │   │   │   │   ├── Map.tsx
 │   │   │   │   └── PropertyDetails.tsx
+│   │   │   └── wishlist/
+│   │   │   │   ├── EmptyWishlist.tsx
+│   │   │   │   └── LoginWishList.tsx
 │   │   ├── main.tsx
 │   │   ├── pages/
 │   │   │   ├── Admin.tsx
@@ -120,15 +137,7 @@ StayBnB
 │   │   │   │   │   │   │   ├── material-design-iconic-font.css
 │   │   │   │   │   │   │   └── material-design-iconic-font.min.css
 │   │   │   │   │   │   └── fonts/
-│   │   │   │   │   │   │   ├── Material-Design-Iconic-Font.eot
-│   │   │   │   │   │   │   ├── Material-Design-Iconic-Font.svg
-│   │   │   │   │   │   │   ├── Material-Design-Iconic-Font.ttf
-│   │   │   │   │   │   │   ├── Material-Design-Iconic-Font.woff
-│   │   │   │   │   │   │   └── Material-Design-Iconic-Font.woff2
 │   │   │   │   └── scss/
-│   │   │   │   │   ├── common/
-│   │   │   │   │   ├── layouts/
-│   │   │   │   │   └── style.scss
 │   │   │   ├── cards.css
 │   │   │   ├── filterBar.css
 │   │   │   ├── index.css
@@ -139,7 +148,7 @@ StayBnB
 │   ├── tsconfig.json
 │   ├── tsconfig.node.json
 │   └── vite.config.ts
-├── README.md
+└── README.md
 
 ```
 
