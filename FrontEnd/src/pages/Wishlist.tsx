@@ -1,9 +1,11 @@
-import { Box, Text } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { Navbar } from "../components/Header/Navbar";
 import { Footer } from "../components/Footer/Footer";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import Cards from "../components/Body/Cards";
+import { LoginWishList } from "../components/wishlist/LoginWishList";
+import { EmptyWishlist } from "../components/wishlist/EmptyWishlist";
 
 export const Wishlist = () => {
   const loginStore = useSelector((store: RootState) => store.auth);
@@ -15,7 +17,7 @@ export const Wishlist = () => {
         <Box>
           <Box>
             {loginStore.user.favorite.length === 0 ? (
-              "Add items to your wishlist from home page"
+              <EmptyWishlist />
             ) : (
               <Box
                 display={"grid"}
@@ -40,7 +42,7 @@ export const Wishlist = () => {
         </Box>
       ) : (
         <Box>
-          <Text>To access your wishlist, please log in</Text>
+          <LoginWishList />
         </Box>
       )}
 

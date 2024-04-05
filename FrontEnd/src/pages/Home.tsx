@@ -32,7 +32,7 @@ export const Home: FC = () => {
     bedrooms_gte: "1",
     bathrooms_gte: "1",
     price_gte: "1",
-    price_lte: "10000",
+    price_lte: "350",
     _page: "1",
     _limit: "12",
   };

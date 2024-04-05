@@ -8,6 +8,7 @@ import { CardSkeleton } from "./CardSkeleton";
 import { FilterInterface } from "../../pages/Home";
 import { useSearchParams } from "react-router-dom";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { EmptySearch } from "./EmptySearch";
 
 const baseUrl = `https://staybnb-server.onrender.com/property`;
 
@@ -107,7 +108,9 @@ export const CardContainer = ({ filters, setFilters }: propInterface) => {
     <Box>
       {data.isError && <h1>Sorry Some error occurred</h1>}
       {data.isLoading && <CardSkeleton />}
-      {data.property.length > 0 && (
+      {data.property.length === 0 ? (
+        <EmptySearch />
+      ) : (
         <>
           <Box
             display={"grid"}
