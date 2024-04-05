@@ -395,7 +395,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({
               w={400}
               position="sticky"
               top="115"
-              zIndex="sticky"
+              // zIndex="sticky"
             >
               <Flex gap={{ base: "3%", md: "4%" }}>
                 <Heading fontWeight={"500"}>${propertyData.price}</Heading>
@@ -734,7 +734,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({
         className="bottomBoxProperty"
         position="sticky"
         bottom="0"
-        zIndex="sticky"
+        // zIndex="sticky"
       >
         <Flex
           justifyContent="space-between"

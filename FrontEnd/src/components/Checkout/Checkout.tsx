@@ -5,6 +5,8 @@ import { StarIcon } from "@chakra-ui/icons";
 import "../Checkout/Checkout.css";
 import { PropertyData } from "../../utils/propertyData";
 import axios from "axios";
+import { Navbar } from "../Header/Navbar";
+import { Footer } from "../Footer/Footer";
 
 export function Checkout(): JSX.Element {
   const navigate = useNavigate();
@@ -31,23 +33,24 @@ export function Checkout(): JSX.Element {
   // console.log(location);
   console.log(state);
 
-  const checkoutHandle = ()=>{
+  const checkoutHandle = () => {
     setTimeout(() => {
       navigate("/payment");
     }, 1000);
-  
-  }
-
-
+  };
 
   return (
     <>
       {/* checkout here */}
 
+      <Navbar />
+
       <div id="checkout-component">
         <div id="orderSummary">
           <h1>
-            <strong style={{textDecoration:"underline"}}>Booking Details :-</strong>
+            <strong style={{ textDecoration: "underline" }}>
+              Booking Details :-
+            </strong>
             <span id="totalitem"></span>
           </h1>
           <Box
@@ -82,14 +85,14 @@ export function Checkout(): JSX.Element {
                   {data?.beds} beds &bull; {data?.bathrooms} baths
                 </Box>
               </Box>
-              <Box 
-              w='100%'
+              <Box
+                w="100%"
                 mt="1"
                 fontWeight="semibold"
                 as="h4"
                 lineHeight="tight"
                 noOfLines={1}
-              > 
+              >
                 {data?.name}
               </Box>
               <Box>
@@ -146,14 +149,12 @@ export function Checkout(): JSX.Element {
           </div>
 
           <hr />
-          <button
-            id="submit-form"
-            onClick={checkoutHandle}
-          >
+          <button id="submit-form" onClick={checkoutHandle}>
             confirm for Payment
           </button>
         </div>
       </div>
+      <Footer />
     </>
   );
 }
