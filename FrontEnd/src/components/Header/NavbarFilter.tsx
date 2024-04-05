@@ -83,7 +83,7 @@ export function NavbarFilter({ setFilters }: PropInterface) {
                   Nightly prices before fees and taxes
                 </Text>
                 <RangeSlider
-                  defaultValue={[0, 350]}
+                  defaultValue={[minPrice, maxPrice]}
                   min={0}
                   max={350}
                   step={10}
