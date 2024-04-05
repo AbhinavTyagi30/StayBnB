@@ -29,7 +29,7 @@ export function FilterResponsive({ setFilters }: PropInterface) {
 
   //filter states
   const [minPrice, setMinPrice] = useState<number>(0);
-  const [maxPrice, setMaxPrice] = useState<number>(1000);
+  const [maxPrice, setMaxPrice] = useState<number>(350);
   const [guests, setGuests] = useState<number>(1);
   const [bedrooms, setBedrooms] = useState<number>(1);
   const [bathrooms, setBathrooms] = useState<number>(1);
@@ -88,9 +88,9 @@ export function FilterResponsive({ setFilters }: PropInterface) {
               Nightly prices before fees and taxes
             </Text>
             <RangeSlider
-              defaultValue={[0, 1000]}
+              defaultValue={[0, 350]}
               min={0}
-              max={1000}
+              max={350}
               step={10}
               mt={5}
               onChangeEnd={(val) => {
