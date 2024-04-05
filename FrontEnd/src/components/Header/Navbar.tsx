@@ -70,7 +70,7 @@ export const Navbar = ({ setFilters }: PropInterface) => {
 
   const handleSearchClick = () => {
     if (setFilters) {
-      setFilters((prev) => ({ ...prev, q: query }));
+      setFilters((prev) => ({ ...prev, q: query, _page: "1", _limit: "12" }));
     }
   };
 

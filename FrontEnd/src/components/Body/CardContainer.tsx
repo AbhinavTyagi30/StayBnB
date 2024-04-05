@@ -18,7 +18,7 @@ interface propInterface {
 }
 
 const getPageFromSearch = (pageParam: string | null): number => {
-  let page: number = Number(pageParam);
+  const page: number = Number(pageParam);
 
   if (Number.isNaN(page)) {
     return 1;
@@ -56,11 +56,11 @@ export const CardContainer = ({ filters, setFilters }: propInterface) => {
   useEffect(() => {
     setSearchParams({ ...filters });
 
-    let currUrl: string = window.location.href;
-    let searchParamQuery: string =
+    const currUrl: string = window.location.href;
+    const searchParamQuery: string =
       currUrl.indexOf("?") >= 0 ? currUrl.slice(currUrl.indexOf("?")) : "";
 
-    let queryUrl = `${baseUrl}${searchParamQuery}`;
+    const queryUrl = `${baseUrl}${searchParamQuery}`;
     getData(queryUrl);
   }, [filters]);
 
@@ -78,12 +78,12 @@ export const CardContainer = ({ filters, setFilters }: propInterface) => {
         isError: false,
       }));
 
-      let response = await axios.get(url);
+      const response = await axios.get(url);
 
-      let totalItems = response.headers["x-total-count"];
+      const totalItems = response.headers["x-total-count"];
       setMaxPage(Math.ceil(totalItems / 12));
 
-      let newData: PropertyInterface[] = response.data;
+      const newData: PropertyInterface[] = response.data;
       setData((prev) => ({
         ...prev,
         isLoading: false,

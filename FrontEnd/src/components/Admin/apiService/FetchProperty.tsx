@@ -29,8 +29,8 @@ const FetchProperty: FC = () => {
   const [page, setPage] = useState<number>(1);
   const [filteredData, setFilteredData] = useState<Data[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
-//   const [sortColumn, setSortColumn] = useState<keyof Data>("name");
-//   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
+  //   const [sortColumn, setSortColumn] = useState<keyof Data>("name");
+  //   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
   const pageLimit = 10;
   //   console.log("Data is", data);
   useEffect(() => {
@@ -65,18 +65,18 @@ const FetchProperty: FC = () => {
       handleFilter();
     }
   };
-//   const handleSort = () => {
-//     setFilteredData(
-//       filteredData.sort((a, b) => {
-//         const sortKey = sortColumn as keyof Data;
-//         if (sortOrder === "asc") {
-//           return a[sortKey] < b[sortKey] ? -1 : 1;
-//         } else {
-//           return a[sortKey] > b[sortKey] ? -1 : 1;
-//         }
-//       })
-//     );
-//   };
+  //   const handleSort = () => {
+  //     setFilteredData(
+  //       filteredData.sort((a, b) => {
+  //         const sortKey = sortColumn as keyof Data;
+  //         if (sortOrder === "asc") {
+  //           return a[sortKey] < b[sortKey] ? -1 : 1;
+  //         } else {
+  //           return a[sortKey] > b[sortKey] ? -1 : 1;
+  //         }
+  //       })
+  //     );
+  //   };
   return (
     <>
       <TableContainer className="adminTable">
@@ -153,7 +153,7 @@ const FetchProperty: FC = () => {
                   <br></br>Bath : {item.bathrooms}
                 </Td>
                 <Td>{item.smart_location}</Td>
-                <Td>{item.price * 80}INR</Td>
+                <Td>${item.price}</Td>
                 <Td>
                   <Button>
                     <EditIcon />
