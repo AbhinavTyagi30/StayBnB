@@ -53,23 +53,36 @@ export function Payment() {
     event.preventDefault();
 
 
-    setTimeout(()=>{
+    if (cardNumber.trim() === '' || cardHolder.trim() === '' || expMonth === 'mm' || expYear === 'yy' || cvv.trim() === '') {
+      toast({
+        title: 'Oops!! ☹' ,
+        description: "Please fill the details first.",
+        status: 'error',
+        duration: 2000,
+        isClosable: true,
+      })
+
+    } else {
+  
+
+      setTimeout(()=>{
       const examplePromise = new Promise((resolve) => {
-        setTimeout(() => resolve(200), 4000)
+        setTimeout(() => resolve(200), 2000)
       })
         toast.promise(examplePromise, {
-        success: { title: 'Payment successful', description: 'Thankyou so much, Have a nice weekend!' },
+        success: { title: 'Payment successful 🤗', description: 'Thankyou so much, Have a nice weekend!' },
         error: { title: 'Promise rejected', description: 'Something wrong' },
-        loading: { title: 'Payment is on progress ', description: 'Please wait' },
+        loading: { title: 'Payment is on progress ', description: 'Please wait.' },
       })   
   
-    },1000)
+    },500)
   
 
     setTimeout(()=>{
     navigate("/")
-  },7000)
-  };
+  },4000)
+  }
+}
 
   return (
     //  payment method..
@@ -86,7 +99,7 @@ export function Payment() {
           </div>
           <div className="flexbox">
             <div className="box">
-              <span style={{ color: "white" }}>card holder :</span>
+              <span style={{ color: "white"}} >card holder :</span>
               <div className="card-holder-name" style={{ color: "white" }}>
                 {cardHolder}
               </div>
