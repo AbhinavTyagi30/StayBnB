@@ -38,32 +38,15 @@ StayBnB
 │   ├── package-lock.json
 │   ├── package.json
 │   ├── public/
-│   │   ├── logo/
-│   │   │   ├── logo.png
-│   │   │   └── long-logo.png
+│   │   ├── logo/ 
 │   │   └── vite.svg
 │   ├── src/
 │   │   ├── App.tsx
 │   │   ├── assets/
 │   │   │   ├── chip.png
 │   │   │   ├── filter image/
-│   │   │   │   └── filterImage.ts
 │   │   │   ├── logo/
-│   │   │   │   ├── logo.png
-│   │   │   │   └── long-logo.png
 │   │   │   ├── screenshots/
-│   │   │   │   ├── image-1.png
-│   │   │   │   ├── image-10.png
-│   │   │   │   ├── image-11.png
-│   │   │   │   ├── image-2.png
-│   │   │   │   ├── image-3.png
-│   │   │   │   ├── image-4.png
-│   │   │   │   ├── image-5.png
-│   │   │   │   ├── image-6.png
-│   │   │   │   ├── image-7.png
-│   │   │   │   ├── image-8.png
-│   │   │   │   ├── image-9.png
-│   │   │   │   └── image.png
 │   │   │   ├── signin-image.jpg
 │   │   │   ├── signup-image.jpg
 │   │   │   └── visa.png
