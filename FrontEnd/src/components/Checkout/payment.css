@@ -91,7 +91,7 @@
 .container .card-container {
   margin-bottom: -150px;
   position: relative;
-  height: 250px;
+  height: 260px;
   width: 400px;
 }
 
@@ -219,3 +219,34 @@
   transition: transform 0.5s;
 }
 }
+
+
+#cardMainContainer{
+  display: flex;
+}
+
+
+/* Adjusted styles for mobile */
+@media screen and (max-width: 650px) {
+
+
+  #formContainer{
+    height: 570px;
+    width: 95%;
+   }
+  
+}
+
+@media screen and (max-width: 450px) {
+
+
+  #cardMainContainer{
+    width: 88%;
+    height: auto;
+    /* margin-bottom: 10px; */
+   }
+
+
+  
+}
+
