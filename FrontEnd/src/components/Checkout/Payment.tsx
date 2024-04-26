@@ -88,6 +88,7 @@ export function Payment() {
     //  payment method..
    <div className="payemnt-container">
     <div className="container">
+      <div id="cardMainContainer">
       <div className={`card-container ${isFlipped ? "flipped" : ""}`}>
         <div className="front">
           <div className="image">
@@ -124,8 +125,9 @@ export function Payment() {
           </div>
         </div>
       </div>
+      </div>
 
-      <form onSubmit={handleSubmit}>
+      <form id="formContainer" onSubmit={handleSubmit}>
         <div className="inputBox">
           <span>card number</span>
           <input
